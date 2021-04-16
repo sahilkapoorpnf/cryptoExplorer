@@ -1,0 +1,18 @@
+<?php return [
+  'admin_area' => 'Admin felület',
+  'address_page_cache_time' => 'Cím page cache idő',
+  'adsense_block_top' => 'Adsense felső blokk AZONOSÍTÓ',
+  'adsense_block_bottom' => 'Adsense alsó blokk AZONOSÍTÓ',
+  'adsense_client_id' => 'Adsense ügyfél-AZONOSÍTÓ',
+  'block_page_cache_time' => 'Blokk oldal cache idő',
+  'default_language' => 'Az alapértelmezett nyelv',
+  'color_scheme' => 'Színséma',
+  'in_minutes' => 'Perc',
+  'logo' => 'Logó',
+  'logo_removed' => 'Egyedi logó sikeresen eltávolította',
+  'save' => 'Mentés',
+  'settings' => 'Beállítások',
+  'settings_saved' => 'Beállítások sikeresen megmentette',
+  'transaction_page_cache_time' => 'A tranzakciós oldal cache idő',
+  'transactions_number' => 'A tranzakciók száma az első oldalon',
+];

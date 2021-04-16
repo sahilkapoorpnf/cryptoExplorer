@@ -1,0 +1,18 @@
+<?php return [
+  'admin_area' => 'Admin-gedeelte',
+  'address_page_cache_time' => 'Adres van de pagina cache-tijd',
+  'adsense_block_top' => 'Adsense-top blokkeren-ID',
+  'adsense_block_bottom' => 'Adsense onder blok ID',
+  'adsense_client_id' => 'Adsense cliënt-ID',
+  'block_page_cache_time' => 'Blokkeren pagina cache-tijd',
+  'default_language' => 'Standaard taal',
+  'color_scheme' => 'Kleurenschema',
+  'in_minutes' => 'In minuten',
+  'logo' => 'Logo',
+  'logo_removed' => 'Aangepast logo succesvol verwijderd',
+  'save' => 'Opslaan',
+  'settings' => 'Instellingen',
+  'settings_saved' => 'Instellingen opgeslagen',
+  'transaction_page_cache_time' => 'Transactie pagina cache-tijd',
+  'transactions_number' => 'Het aantal transacties op de voorpagina',
+];

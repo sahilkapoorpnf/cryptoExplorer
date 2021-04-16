@@ -1,0 +1,18 @@
+<?php return [
+  'admin_area' => 'Admin ala',
+  'address_page_cache_time' => 'Aadress lehekülje vahemälu aeg',
+  'adsense_block_top' => 'Adsense top plokk ID',
+  'adsense_block_bottom' => 'Adsense alumine plokk ID',
+  'adsense_client_id' => 'Adsense kliendi ID',
+  'block_page_cache_time' => 'Plokk lehekülje vahemälu aeg',
+  'default_language' => 'Vaikimisi keel',
+  'color_scheme' => 'Värviskeem',
+  'in_minutes' => 'Minutit',
+  'logo' => 'Logo',
+  'logo_removed' => 'Custom logo edukalt eemaldatud',
+  'save' => 'Salvesta',
+  'settings' => 'Seaded',
+  'settings_saved' => 'Seaded on edukalt salvestatud',
+  'transaction_page_cache_time' => 'Tehing lehekülje vahemälu aeg',
+  'transactions_number' => 'Tehingute arv avalehel',
+];

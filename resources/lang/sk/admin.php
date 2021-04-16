@@ -1,0 +1,18 @@
+<?php return [
+  'admin_area' => 'Admin oblasti',
+  'address_page_cache_time' => 'Adresu stránky prehliadača čas',
+  'adsense_block_top' => 'Adsense top blok ID',
+  'adsense_block_bottom' => 'Adsense spodný blok ID',
+  'adsense_client_id' => 'Adsense klient ID',
+  'block_page_cache_time' => 'Blok stránke cache čas',
+  'default_language' => 'Predvolený jazyk',
+  'color_scheme' => 'Farebná schéma',
+  'in_minutes' => 'V priebehu niekoľkých minút',
+  'logo' => 'Logo',
+  'logo_removed' => 'Vlastné logo úspešne odstránený',
+  'save' => 'Uložiť',
+  'settings' => 'Nastavenia',
+  'settings_saved' => 'Nastavenia úspešne uložené',
+  'transaction_page_cache_time' => 'Transakcie stránke cache čas',
+  'transactions_number' => 'Počet transakcií na prednej strane',
+];

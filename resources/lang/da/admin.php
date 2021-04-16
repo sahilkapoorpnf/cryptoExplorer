@@ -1,0 +1,18 @@
+<?php return [
+  'admin_area' => 'Admin område',
+  'address_page_cache_time' => 'Adresse side cache tid',
+  'adsense_block_top' => 'Adsense øverste blok-ID',
+  'adsense_block_bottom' => 'Adsense nederste blok-ID',
+  'adsense_client_id' => 'Adsense-klient ID',
+  'block_page_cache_time' => 'Blokering af side cache tid',
+  'default_language' => 'Standard sprog',
+  'color_scheme' => 'Farve ordning',
+  'in_minutes' => 'På få minutter',
+  'logo' => 'Logo',
+  'logo_removed' => 'Brugerdefineret logo fjernet',
+  'save' => 'Spar',
+  'settings' => 'Indstillinger',
+  'settings_saved' => 'Indstillinger gemt',
+  'transaction_page_cache_time' => 'Transaktionen side cache tid',
+  'transactions_number' => 'Antallet af transaktioner på forsiden',
+];

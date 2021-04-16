@@ -1,0 +1,18 @@
+<?php return [
+  'admin_area' => 'Admin srityje',
+  'address_page_cache_time' => 'Adresas puslapį, cache laikas',
+  'adsense_block_top' => '"Adsense" top blokuoti ID',
+  'adsense_block_bottom' => '"Adsense" apačios blokas ID',
+  'adsense_client_id' => '"Adsense" kliento ID',
+  'block_page_cache_time' => 'Blokuoti puslapį, cache laikas',
+  'default_language' => 'Numatytoji kalba',
+  'color_scheme' => 'Spalvų sistema',
+  'in_minutes' => 'Per kelias minutes',
+  'logo' => 'Logotipas',
+  'logo_removed' => 'Logotipą sėkmingai pašalintas',
+  'save' => 'Įrašyti',
+  'settings' => 'Parametrai',
+  'settings_saved' => 'Nustatymai sėkmingai išsaugoti',
+  'transaction_page_cache_time' => 'Sandoris puslapį, cache laikas',
+  'transactions_number' => 'Sandorių skaičius pirmame puslapyje',
+];

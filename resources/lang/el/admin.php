@@ -1,0 +1,18 @@
+<?php return [
+  'admin_area' => 'Το Admin περιοχή',
+  'address_page_cache_time' => 'Διεύθυνση σελίδα cache ώρα',
+  'adsense_block_top' => 'Adsense top block ID',
+  'adsense_block_bottom' => 'Adsense κάτω block ID',
+  'adsense_client_id' => 'Adsense ΑΝΑΓΝΩΡΙΣΤΙΚΌ πελάτη',
+  'block_page_cache_time' => 'Μπλοκ σελίδα cache ώρα',
+  'default_language' => 'Προεπιλεγμένη γλώσσα',
+  'color_scheme' => 'Χρώμα σχεδίου',
+  'in_minutes' => 'Μέσα σε λίγα λεπτά',
+  'logo' => 'Το λογότυπο',
+  'logo_removed' => 'Το λογότυπο συνήθειας αφαιρεθεί επιτυχώς',
+  'save' => 'Αποθήκευση',
+  'settings' => 'Ρυθμίσεις',
+  'settings_saved' => 'Ρυθμίσεις αποθηκευτεί με επιτυχία',
+  'transaction_page_cache_time' => 'Συναλλαγή σελίδα cache ώρα',
+  'transactions_number' => 'Αριθμός των συναλλαγών στην πρώτη σελίδα',
+];

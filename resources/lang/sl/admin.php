@@ -1,0 +1,18 @@
+<?php return [
+  'admin_area' => 'Admin območje',
+  'address_page_cache_time' => 'Naslov strani cache čas',
+  'adsense_block_top' => 'Adsense vrhu bloka ID',
+  'adsense_block_bottom' => 'Adsense spodnji blok ID',
+  'adsense_client_id' => 'Adsense odjemalca ID',
+  'block_page_cache_time' => 'Blok predpomnilnika strani čas',
+  'default_language' => 'Privzeti jezik',
+  'color_scheme' => 'Barvna shema',
+  'in_minutes' => 'V nekaj minutah',
+  'logo' => 'Logotip',
+  'logo_removed' => 'Po meri logo uspešno odstrani',
+  'save' => 'Shranjevanje',
+  'settings' => 'Nastavitve',
+  'settings_saved' => 'Uspešno shranili nastavitve',
+  'transaction_page_cache_time' => 'Transakcije predpomnilnika strani čas',
+  'transactions_number' => 'Število transakcij na sprednji strani',
+];

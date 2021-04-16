@@ -1,0 +1,18 @@
+<?php return [
+  'admin_area' => 'Админка',
+  'address_page_cache_time' => 'Время кэширования страницы адреса',
+  'adsense_block_top' => 'ID верхнего AdSense блока',
+  'adsense_block_bottom' => 'ID нижнего AdSense блока',
+  'adsense_client_id' => 'ID клиента AdSense',
+  'block_page_cache_time' => 'Время кэширования страницы блока',
+  'default_language' => 'Язык по умолчанию',
+  'color_scheme' => 'Цветовая схема',
+  'in_minutes' => 'в минутах',
+  'logo' => 'Логотип',
+  'logo_removed' => 'Логотип успешно удален',
+  'save' => 'Сохранить',
+  'settings' => 'Параметры',
+  'settings_saved' => 'Настройки успешно сохранены',
+  'transaction_page_cache_time' => 'Время кэширования страницы транзакции',
+  'transactions_number' => 'Количество транзакций на первой странице',
+];

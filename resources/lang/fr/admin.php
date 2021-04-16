@@ -1,0 +1,18 @@
+<?php return [
+  'admin_area' => 'Zone d\'administration',
+  'address_page_cache_time' => 'L\'adresse de la page en cache de temps',
+  'adsense_block_top' => 'Adsense top block ID',
+  'adsense_block_bottom' => 'Adsense bas bloc ID',
+  'adsense_client_id' => 'Adsense ID de client',
+  'block_page_cache_time' => 'Bloc de cache de la page du temps',
+  'default_language' => 'Langue par défaut',
+  'color_scheme' => 'Schéma de couleur',
+  'in_minutes' => 'En quelques minutes',
+  'logo' => 'Logo',
+  'logo_removed' => 'Logo personnalisé supprimé avec succès',
+  'save' => 'Enregistrer',
+  'settings' => 'Paramètres',
+  'settings_saved' => 'Paramètres enregistré avec succès',
+  'transaction_page_cache_time' => 'Transaction cache de la page du temps',
+  'transactions_number' => 'Nombre de transactions sur la première page',
+];

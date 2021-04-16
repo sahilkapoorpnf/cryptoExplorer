@@ -1,0 +1,18 @@
+<?php return [
+  'admin_area' => 'Admin jomā',
+  'address_page_cache_time' => 'Adrese lapas cache laiks',
+  'adsense_block_top' => 'Adsense top grupu ID',
+  'adsense_block_bottom' => 'Adsense apakšējā bloka ID',
+  'adsense_client_id' => 'Adsense klienta ID',
+  'block_page_cache_time' => 'Bloķēt lapas cache laiks',
+  'default_language' => 'Noklusējuma valoda',
+  'color_scheme' => 'Krāsu shēma',
+  'in_minutes' => 'Minūtes',
+  'logo' => 'Logo',
+  'logo_removed' => 'Pasūtījuma logo veiksmīgi izņemta',
+  'save' => 'Saglabāt',
+  'settings' => 'Uzstādījumi',
+  'settings_saved' => 'Iestatījumi veiksmīgi saglabāti',
+  'transaction_page_cache_time' => 'Darījumu lapas cache laiks',
+  'transactions_number' => 'Darījumu skaits uz priekšējā lapā',
+];
