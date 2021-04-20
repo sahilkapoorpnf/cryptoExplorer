@@ -25,5 +25,5 @@
 @endsection
 
 @push('js')
-    <script src="{{ asset('/public/js/home.js') }}"></script>
+    <script src="{{ asset('/js/home.js') }}"></script>
 @endpush

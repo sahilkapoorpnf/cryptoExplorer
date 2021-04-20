@@ -103,6 +103,8 @@
                 </div>
             @endif
 
+            <span class="base_url" data-attr="{{ asset('') }}"></span>
+
             @yield('content')
         </main>
 
