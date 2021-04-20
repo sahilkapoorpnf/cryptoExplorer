@@ -31,7 +31,7 @@
     <meta property="og:image" content="{{ asset('images/'.$network.'-og-image.jpg') }}" />
     <!--END Open Graph tags-->
     <!-- Styles -->
-    <link href="{{ asset('public/css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('/css/app.css') }}" rel="stylesheet">
     <script>
         window.show_transactions_on_main = 1 * '{{ config('settings.main.show_transactions', 10) }}';
         window.network = '{{ $network }}';
@@ -51,7 +51,7 @@
                     @if(config('settings.logo'))
                         <img src="{{ asset('storage/' . config('settings.logo')) }}" height="30" class="d-inline-block align-top" alt="">
                     @else
-                        <img src="{{ asset('public/images/' . $network . '.png') }}" height="30" class="d-inline-block align-top" alt="">
+                        <img src="{{ asset('/images/' . $network . '.png') }}" height="30" class="d-inline-block align-top" alt="">
                     @endif
                     {{ __('messages.block_explorer') }}
                 </a>
@@ -140,7 +140,7 @@
         </nav>
     </div>
 
-    <script src="{{ asset('public/js/app.js') }}"></script>
+    <script src="{{ asset('/js/app.js') }}"></script>
     @stack('js')
 </body>
 </html>
