@@ -6,6 +6,7 @@
     @else
         <title>{{ __('messages.app_name_full', ['network' => $network]) }} | @yield('title')</title>
     @endif
+
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -51,16 +52,36 @@
                     @if(config('settings.logo'))
                         <img src="{{ asset('storage/' . config('settings.logo')) }}" height="30" class="d-inline-block align-top" alt="">
                     @else
-                        <img src="{{ asset('/images/' . $network . '.png') }}" height="30" class="d-inline-block align-top" alt="">
+                        <?php if($network == "BTC") { ?>
+                            <img src="{{ asset('/images/' . $network . '.png') }}" height="30" class="d-inline-block align-top" alt="">
+                        <?php } ?>
+
+                        <?php if($network == "BCH") { ?>
+                            <img src="{{ asset('/images/' . $network . '.png') }}" height="30" class="d-inline-block align-top" alt="">
+                        <?php } ?>
+
+                        <?php if($network == "DOGE") { ?>
+                            <img src="{{ asset('/images/' . $network . '.png') }}" height="30" class="d-inline-block align-top" alt="">
+                        <?php } ?>
+
                     @endif
                     {{ __('messages.block_explorer') }}
                 </a>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <select class="form-control" name="crypto_currency" id="c_currency">
+                        <option value="BTC">Bitcoin BTC</option>
+                        <option value="BCH">Bitcoin Cash BCH</option>
+                        <option value="DOGE">Dogecoin DOGE</option>
+                    </select>
+                </div>    
+
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <form class="form-inline ml-auto" action="{{ LaravelLocalization::getLocalizedURL(LaravelLocalization::getCurrentLocale(), '/search') }}">
+                        <input type="hidden" name="currency" value="{{ $network }}">
                         <input class="form-control rounded-0" type="search" name="q" placeholder="{{ __('messages.search_placeholder') }}">
                         <button class="btn btn-light my-2 my-sm-0 rounded-0" type="submit"><i class="fas fa-search"></i></button>
                     </form>
@@ -143,6 +164,20 @@
     </div>
 
     <script src="{{ asset('/js/app.js') }}"></script>
+
+    <script type="text/javascript">
+        $(document).on('change', '#c_currency', function(){
+            var coinCurrency = $(this).val();
+            $.ajax({
+                url: "{{url('crypto-currency')}}/"+coinCurrency,
+                type: 'get',
+                success: function(){
+                    return true;
+                }
+            });
+        })
+    </script>
+
     @stack('js')
 </body>
 </html>

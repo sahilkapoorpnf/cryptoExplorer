@@ -6,7 +6,7 @@ use GuzzleHttp\Client;
 
 class AddressController extends Controller
 {
-    public function index($id){
+    public function index($currency, $id){
         $key = 'address-' . $id;
         if (\Cache::has($key)) {
             $from = 'cache';

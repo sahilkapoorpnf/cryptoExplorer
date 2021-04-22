@@ -14,7 +14,6 @@
                 </div>
             </div>
         </div>
-
         <div class="row mt-4">
             <div class="col-md-12">
                 <h2 class="text-center">{{ __('messages.latest_transactions') }}</h2>

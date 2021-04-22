@@ -41,7 +41,7 @@
                             @if(wrong_address($item->address))
                                 {{ __('messages.newly_generated_coins') }}
                             @else
-                                <a href="{{ LaravelLocalization::getLocalizedURL(LaravelLocalization::getCurrentLocale(), route('front.address', $item->address)) }}">
+                                <a href="{{ LaravelLocalization::getLocalizedURL(LaravelLocalization::getCurrentLocale(), asset($network. '/addresses/'. $item->address)) }}">
                                     {{ $item->address }}
                                 </a><br/>
                             @endif
@@ -59,7 +59,7 @@
                             @if(wrong_address($item->address))
                                 {{ __('messages.nonstandard') }}
                             @else
-                                <a href="{{ LaravelLocalization::getLocalizedURL(LaravelLocalization::getCurrentLocale(), route('front.address', $item->address)) }}">
+                                <a href="{{ LaravelLocalization::getLocalizedURL(LaravelLocalization::getCurrentLocale(), asset($network. '/addresses/'. $item->address)) }}">
                                     {{ $item->address }}
                                 </a><br/>
                             @endif
