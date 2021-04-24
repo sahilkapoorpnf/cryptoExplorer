@@ -29,7 +29,7 @@
     <meta property="og:type" content="article" />
     <meta property="og:title" content="{{ __('messages.app_name_full', ['network' => Helper::network()]) }}" />
     <meta property="og:description" content="{{ __('messages.meta_description') }}" />
-    <meta property="og:image" content="{{ asset('images/'.Helper::network().'-og-image.jpg') }}" />
+    <meta property="og:image" content="{{ asset('images/BTC-og-image.jpg') }}" />
     <!--END Open Graph tags-->
     <!-- Styles -->
     <link href="{{ asset('/css/app.css') }}" rel="stylesheet">
