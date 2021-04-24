@@ -11,7 +11,7 @@
                 <h1>{{ __('pages.about') }}</h1>
                 <div class="card">
                     <div class="card-body">
-                        <p>{{ __('pages.about_p', ['network' => config('settings.network')]) }}</p>
+                        <p>{{ __('pages.about_p', ['network' => Helper::network()]) }}</p>
                     </div>
                 </div>
             </div>

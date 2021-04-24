@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use GuzzleHttp\Client;
+use App\Helpers\Helper;
 
 class TransactionController extends Controller
 {
@@ -14,7 +15,8 @@ class TransactionController extends Controller
         } else {
             $from = 'api';
             $client = new Client();
-            $url = sprintf('https://chain.so/api/v2/tx/%s/%s', config('settings.network'), $id);
+            /*$url = sprintf('https://chain.so/api/v2/tx/%s/%s', config('settings.network'), $id);*/
+            $url = sprintf('https://chain.so/api/v2/tx/%s/%s', Helper::network(), $id);
             try {
                 $response = $client->request('GET', $url);
             } catch (\Exception $e) {

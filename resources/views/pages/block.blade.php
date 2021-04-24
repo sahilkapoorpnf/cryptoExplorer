@@ -33,13 +33,13 @@
                     <div class="card">
                         <div class="card-body">
                             <h4 class="card-title text-center text-uppercase">{{ __('messages.amount') }}</h4>
-                            <p class="card-text text-center">{{ $data->sent_value }} {{ $network }}</p>
+                            <p class="card-text text-center">{{ $data->sent_value }} {{ Helper::network() }}</p>
                         </div>
                     </div>
                     <div class="card">
                         <div class="card-body">
                             <h4 class="card-title text-center text-uppercase">{{ __('messages.fees') }}</h4>
-                            <p class="card-text text-center">{{ $data->fee }} {{ $network }}</p>
+                            <p class="card-text text-center">{{ $data->fee }} {{ Helper::network() }}</p>
                         </div>
                     </div>
                     <div class="card">

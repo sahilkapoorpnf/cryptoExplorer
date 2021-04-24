@@ -12,8 +12,7 @@ class HomeController extends Controller
     public function cryptoCurrency($currency){
     	Session::forget('cryptoCurrency');
     	Session::put('cryptoCurrency', $currency);
-    	// dd(Session::get('cryptoCurrency'));
-    	return view('pages.home');
+    	return true;
     }
 
 }

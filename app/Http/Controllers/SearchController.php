@@ -16,8 +16,8 @@ class SearchController extends Controller
             $url = \LaravelLocalization::getLocalizedURL(\LaravelLocalization::getCurrentLocale(), route('front.transaction', $query));
             return response()->redirectTo($url);
         } else if (strlen($query) >= 27 && strlen($query) <= 34) {
-            $url = \LaravelLocalization::getLocalizedURL(\LaravelLocalization::getCurrentLocale(), asset($request->input('currency'). '/addresses/'. $query));
-            return response()->redirectTo($url);
+                $url = \LaravelLocalization::getLocalizedURL(\LaravelLocalization::getCurrentLocale(), asset($request->input('currency'). '/addresses/'. $query));
+                return response()->redirectTo($url);
         } else if (filter_var($query, FILTER_VALIDATE_INT)) {
             $url = \LaravelLocalization::getLocalizedURL(\LaravelLocalization::getCurrentLocale(), route('front.block', $query));
             return response()->redirectTo($url);

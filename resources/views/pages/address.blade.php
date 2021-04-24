@@ -15,19 +15,19 @@
                     <div class="card">
                         <div class="card-body">
                             <h4 class="card-title text-center text-uppercase">{{ __('messages.received') }}</h4>
-                            <p class="card-text text-center">{{ $data->received_value }} {{ $network }}</p>
+                            <p class="card-text text-center">{{ $data->received_value }} {{ Helper::network() }}</p>
                         </div>
                     </div>
                     <div class="card">
                         <div class="card-body">
                             <h4 class="card-title text-center text-uppercase">{{ __('messages.pending') }}</h4>
-                            <p class="card-text text-center">{{ $data->pending_value }} {{ $network }}</p>
+                            <p class="card-text text-center">{{ $data->pending_value }} {{ Helper::network() }}</p>
                         </div>
                     </div>
                     <div class="card">
                         <div class="card-body">
                             <h4 class="card-title text-center text-uppercase">{{ __('messages.balance') }}</h4>
-                            <p class="card-text text-center">{{ $data->balance }} {{ $network }}</p>
+                            <p class="card-text text-center">{{ $data->balance }} {{ Helper::network() }}</p>
                         </div>
                     </div>
                 </div>
@@ -84,7 +84,7 @@
             spotRadius: 0,
             width: '100%',
             height: '400px',
-            tooltipPrefix: ' {{ $network }} ',
+            tooltipPrefix: ' {{ Helper::network() }} ',
             tooltipSuffix: ' @ ',
             tooltipFormat: '@{{prefix}}@{{y}}@{{suffix}}@{{x}}',
             numberFormatter: function (v) {

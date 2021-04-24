@@ -2,9 +2,9 @@
 <html lang="{{ app()->getLocale() }}">
 <head>
     @if(Route::currentRouteName()=='front.index')
-        <title>{{ __('messages.app_name_full', ['network' => $network]) }}</title>
+        <title>{{ __('messages.app_name_full', ['network' => Helper::network()]) }}</title>
     @else
-        <title>{{ __('messages.app_name_full', ['network' => $network]) }} | @yield('title')</title>
+        <title>{{ __('messages.app_name_full', ['network' => Helper::network()]) }} | @yield('title')</title>
     @endif
 
     <meta charset="utf-8" />
@@ -14,28 +14,28 @@
     <meta name="description" content="{{ __('messages.meta_description') }}" />
     <meta name="keywords" content="{{ __('messages.meta_keywords') }}" />
     <!-- Favicon -->
-    <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('images/favicon/' . $network . '/apple-touch-icon.png') }}">
-    <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('images/favicon/' . $network . '/favicon-32x32.png') }}">
-    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('images/favicon/' . $network . '/favicon-16x16.png') }}">
-    <link rel="manifest" href="{{ asset('images/favicon/' . $network . '/site.webmanifest') }}">
-    <link rel="mask-icon" href="{{ asset('images/favicon/' . $network . '/safari-pinned-tab.svg') }}" color="#5bbad5">
-    <link rel="shortcut icon" href="{{ asset('images/favicon/' . $network . '/favicon.ico') }}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('images/favicon/' . Helper::network() . '/apple-touch-icon.png') }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('images/favicon/' . Helper::network() . '/favicon-32x32.png') }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('images/favicon/' . Helper::network() . '/favicon-16x16.png') }}">
+    <link rel="manifest" href="{{ asset('images/favicon/' . Helper::network() . '/site.webmanifest') }}">
+    <link rel="mask-icon" href="{{ asset('images/favicon/' . Helper::network() . '/safari-pinned-tab.svg') }}" color="#5bbad5">
+    <link rel="shortcut icon" href="{{ asset('images/favicon/' . Helper::network() . '/favicon.ico') }}">
     <meta name="msapplication-TileColor" content="#da532c">
-    <meta name="msapplication-config" content="{{ asset('images/favicon/' . $network . '/browserconfig.xml') }}">
+    <meta name="msapplication-config" content="{{ asset('images/favicon/' . Helper::network() . '/browserconfig.xml') }}">
     <meta name="theme-color" content="#ffffff">
     <!-- END Favicon -->
     <!--Open Graph tags-->
     <meta property="og:url" content="{{ url()->full() }}" />
     <meta property="og:type" content="article" />
-    <meta property="og:title" content="{{ __('messages.app_name_full', ['network' => $network]) }}" />
+    <meta property="og:title" content="{{ __('messages.app_name_full', ['network' => Helper::network()]) }}" />
     <meta property="og:description" content="{{ __('messages.meta_description') }}" />
-    <meta property="og:image" content="{{ asset('images/'.$network.'-og-image.jpg') }}" />
+    <meta property="og:image" content="{{ asset('images/'.Helper::network().'-og-image.jpg') }}" />
     <!--END Open Graph tags-->
     <!-- Styles -->
     <link href="{{ asset('/css/app.css') }}" rel="stylesheet">
     <script>
         window.show_transactions_on_main = 1 * '{{ config('settings.main.show_transactions', 10) }}';
-        window.network = '{{ $network }}';
+        window.network = '{{ Helper::network() }}';
         window.locale_path = '{{ LaravelLocalization::getCurrentLocale() == config('settings.language') ? '/' : '/' . LaravelLocalization::getCurrentLocale() . '/' }}'
     </script>
     @adv
@@ -52,26 +52,28 @@
                     @if(config('settings.logo'))
                         <img src="{{ asset('storage/' . config('settings.logo')) }}" height="30" class="d-inline-block align-top" alt="">
                     @else
-                        <?php if($network == "BTC") { ?>
-                            <img src="{{ asset('/images/' . $network . '.png') }}" height="30" class="d-inline-block align-top" alt="">
-                        <?php } ?>
-
-                        <?php if($network == "BCH") { ?>
-                            <img src="{{ asset('/images/' . $network . '.png') }}" height="30" class="d-inline-block align-top" alt="">
-                        <?php } ?>
-
-                        <?php if($network == "DOGE") { ?>
-                            <img src="{{ asset('/images/' . $network . '.png') }}" height="30" class="d-inline-block align-top" alt="">
-                        <?php } ?>
+                        <img src="{{ asset('/images/' . Helper::network() . '.png') }}" height="30" class="d-inline-block align-top" alt="">
 
                     @endif
                     {{ __('messages.block_explorer') }}
                 </a>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <?php
+                    $BTCSelected = ''; 
+                    $BCHSelected = ''; 
+                    $DOGESelected = ''; 
+                    if(\Session::get('cryptoCurrency') === "BCH"){
+                        $BCHSelected = 'selected';
+                    } else if(\Session::get('cryptoCurrency') === "DOGE"){
+                        $DOGESelected = 'selected';
+                    } else{
+                        $BTCSelected = 'selected';
+                    }
+                    ?>
                     <select class="form-control" name="crypto_currency" id="c_currency">
-                        <option value="BTC">Bitcoin BTC</option>
-                        <option value="BCH">Bitcoin Cash BCH</option>
-                        <option value="DOGE">Dogecoin DOGE</option>
+                        <option value="BTC" <?php echo $BTCSelected; ?> >Bitcoin BTC</option>
+                        <option value="BCH" <?php echo $BCHSelected; ?> >Bitcoin Cash BCH</option>
+                        <option value="DOGE" <?php echo $DOGESelected; ?> >Dogecoin DOGE</option>
                     </select>
                 </div>    
 
@@ -81,7 +83,7 @@
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <form class="form-inline ml-auto" action="{{ LaravelLocalization::getLocalizedURL(LaravelLocalization::getCurrentLocale(), '/search') }}">
-                        <input type="hidden" name="currency" value="{{ $network }}">
+                        <input type="hidden" name="currency" value="{{ Helper::network() }}">
                         <input class="form-control rounded-0" type="search" name="q" placeholder="{{ __('messages.search_placeholder') }}">
                         <button class="btn btn-light my-2 my-sm-0 rounded-0" type="submit"><i class="fas fa-search"></i></button>
                     </form>
@@ -171,8 +173,10 @@
             $.ajax({
                 url: "{{url('crypto-currency')}}/"+coinCurrency,
                 type: 'get',
-                success: function(){
-                    return true;
+                success: function(response){
+                    if (response) {
+                        window.location = "{{url('/')}}";
+                    }
                 }
             });
         })

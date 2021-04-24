@@ -1,17 +1,7 @@
 <?php
 
-// use Session;
-
-// if(\Session::get('cryptoCurrency')){
-//     $cc = \Session::get('cryptoCurrency');
-// } else{
-//     $cc = 'BTC';
-// }
-
 return [
-    'network' => 'BTC',
-    // 'network' => 'BCH',
-    // 'network' => 'DOGE',
+    // 'network' => 'BTC',
     'main' => [
         'show_transactions' => 10,
     ],

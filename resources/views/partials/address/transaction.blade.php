@@ -25,7 +25,7 @@
     <div>
         <h5 class="text-center">
             <strong>
-                {{ $transaction->value }} {{ $network }}
+                {{ $transaction->value }} {{ Helper::network() }}
             </strong>
             <span class="badge badge-big badge-{{ $transaction->is_incoming ? 'success' : 'danger' }} text-uppercase">{{ $transaction->is_incoming ? __('messages.received') : __('messages.sent') }}</span>
         </h5>
@@ -37,11 +37,11 @@
                 @if($transaction->inputs)
                     @foreach($transaction->inputs as $item)
                         <p class="card-text text-left">
-                            <strong>{{ $transaction->value }} {{ $network }}</strong> <span class="text-uppercase">{{ __('messages.from') }}</span>
+                            <strong>{{ $transaction->value }} {{ Helper::network() }}</strong> <span class="text-uppercase">{{ __('messages.from') }}</span>
                             @if(wrong_address($item->address))
                                 {{ __('messages.newly_generated_coins') }}
                             @else
-                                <a href="{{ LaravelLocalization::getLocalizedURL(LaravelLocalization::getCurrentLocale(), asset($network. '/addresses/'. $item->address)) }}">
+                                <a href="{{ LaravelLocalization::getLocalizedURL(LaravelLocalization::getCurrentLocale(), asset(Helper::network(). '/addresses/'. $item->address)) }}">
                                     {{ $item->address }}
                                 </a><br/>
                             @endif
@@ -55,11 +55,11 @@
                 @if($transaction->outputs)
                     @foreach($transaction->outputs as $item)
                         <p class="card-text text-right">
-                            <strong>{!! $item->value !!} {{ $network }}</strong> <span class="text-uppercase">{{ __('messages.to') }}</span>
+                            <strong>{!! $item->value !!} {{ Helper::network() }}</strong> <span class="text-uppercase">{{ __('messages.to') }}</span>
                             @if(wrong_address($item->address))
                                 {{ __('messages.nonstandard') }}
                             @else
-                                <a href="{{ LaravelLocalization::getLocalizedURL(LaravelLocalization::getCurrentLocale(), asset($network. '/addresses/'. $item->address)) }}">
+                                <a href="{{ LaravelLocalization::getLocalizedURL(LaravelLocalization::getCurrentLocale(), asset(Helper::network(). '/addresses/'. $item->address)) }}">
                                     {{ $item->address }}
                                 </a><br/>
                             @endif

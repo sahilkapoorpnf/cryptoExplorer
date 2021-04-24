@@ -26,13 +26,13 @@
                     <div class="card">
                         <div class="card-body">
                             <h4 class="card-title text-center text-uppercase">{{ __('messages.amount') }}</h4>
-                            <p class="card-text text-center">{{ $data->sent_value }} {{ $network }}</p>
+                            <p class="card-text text-center">{{ $data->sent_value }} {{ Helper::network() }}</p>
                         </div>
                     </div>
                     <div class="card">
                         <div class="card-body">
                             <h4 class="card-title text-center text-uppercase">{{ __('messages.fees') }}</h4>
-                            <p class="card-text text-center">{{ $data->fee }} {{ $network }}</p>
+                            <p class="card-text text-center">{{ $data->fee }} {{ Helper::network() }}</p>
                         </div>
                     </div>
                     <div class="card">
@@ -71,11 +71,11 @@
                             <div class="card-body">
                                 @foreach($data->inputs as $item)
                                     <p class="card-text text-left">
-                                        <strong>{!! $item->value !!}</strong> {{ $network }} <span class="text-uppercase">{{ __('messages.from') }}</span>
+                                        <strong>{!! $item->value !!}</strong> {{ Helper::network() }} <span class="text-uppercase">{{ __('messages.from') }}</span>
                                         @if(empty($item->received_from))
                                             {{ __('messages.newly_generated_coins') }}
                                         @else
-                                            <a href="{{ LaravelLocalization::getLocalizedURL(LaravelLocalization::getCurrentLocale(), asset($network. '/addresses/'. $item->address)) }}">{{ $item->address }}</a>
+                                            <a href="{{ LaravelLocalization::getLocalizedURL(LaravelLocalization::getCurrentLocale(), asset(Helper::network(). '/addresses/'. $item->address)) }}">{{ $item->address }}</a>
                                         @endif
                                     </p>
                                 @endforeach
@@ -85,11 +85,11 @@
                             <div class="card-body">
                                 @foreach($data->outputs as $item)
                                     <p class="card-text text-right">
-                                        <strong>{!! $item->value !!} {{ $network }}</strong> <span class="text-uppercase">{{ __('messages.to') }}</span>
+                                        <strong>{!! $item->value !!} {{ Helper::network() }}</strong> <span class="text-uppercase">{{ __('messages.to') }}</span>
                                         @if(wrong_address($item->address))
                                             {{ __('messages.nonstandard') }}
                                         @else
-                                            <a href="{{ LaravelLocalization::getLocalizedURL(LaravelLocalization::getCurrentLocale(), asset($network. '/addresses/'. $item->address)) }}">{{ $item->address }}</a>
+                                            <a href="{{ LaravelLocalization::getLocalizedURL(LaravelLocalization::getCurrentLocale(), asset(Helper::network(). '/addresses/'. $item->address)) }}">{{ $item->address }}</a>
                                         @endif
                                     </p>
                                 @endforeach
