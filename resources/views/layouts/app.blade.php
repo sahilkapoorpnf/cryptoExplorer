@@ -19,7 +19,7 @@
     <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('images/favicon/' . Helper::network() . '/favicon-16x16.png') }}">
     <link rel="manifest" href="{{ asset('images/favicon/' . Helper::network() . '/site.webmanifest') }}">
     <link rel="mask-icon" href="{{ asset('images/favicon/' . Helper::network() . '/safari-pinned-tab.svg') }}" color="#5bbad5">
-    <link rel="shortcut icon" href="{{ asset('images/favicon/' . Helper::network() . '/favicon.ico') }}">
+    <link rel="shortcut icon" href="{{ asset('images/favicon/' . Helper::network() . '/'.Helper::network().'.png') }}">
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="msapplication-config" content="{{ asset('images/favicon/' . Helper::network() . '/browserconfig.xml') }}">
     <meta name="theme-color" content="#ffffff">
