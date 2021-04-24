@@ -1,6 +1,6 @@
 <div class="mt-4">
     <div><i class="fas fa-arrows-alt-h"></i>
-        <a class="transaction-link" href="{{ LaravelLocalization::getLocalizedURL(LaravelLocalization::getCurrentLocale(), route('front.transaction', $transaction->txid)) }}">{{ $transaction->txid }}</a>
+        <a class="transaction-link" href="{{ LaravelLocalization::getLocalizedURL(LaravelLocalization::getCurrentLocale(), asset(Helper::network(). '/transactions/'. $transaction->txid)) }}">{{ $transaction->txid }}</a> 
     </div>
     <div>
         <p class="float-left">

@@ -27,7 +27,7 @@ Route::prefix(LaravelLocalization::setLocale())->name('front.')->middleware('ins
     Route::get('search', 'SearchController@index')->name('search');
     Route::get('blocks/{id}', 'BlockController@index')->name('block');
     Route::get('{currency}/addresses/{id}', 'AddressController@index')->name('address');
-    Route::get('transactions/{id}', 'TransactionController@index')->name('transaction');
+    Route::get('{currency}/transactions/{id}', 'TransactionController@index')->name('transaction');
     Route::get('page/{slug}', 'PageController@display');
     Route::get('crypto-currency/{code}', 'HomeController@cryptoCurrency');
 });

@@ -7,7 +7,7 @@ use App\Helpers\Helper;
 
 class TransactionController extends Controller
 {
-    public function index($id){
+    public function index($currency, $id){
         $key = 'transaction-' . $id;
         if (\Cache::has($key)) {
             $from = 'cache';
