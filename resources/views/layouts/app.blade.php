@@ -60,10 +60,10 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <?php
                     $BTCSelected = ''; 
-                    $BCHSelected = ''; 
+                    $LTCSelected = ''; 
                     $DOGESelected = ''; 
-                    if(\Session::get('cryptoCurrency') === "BCH"){
-                        $BCHSelected = 'selected';
+                    if(\Session::get('cryptoCurrency') === "LTC"){
+                        $LTCSelected = 'selected';
                     } else if(\Session::get('cryptoCurrency') === "DOGE"){
                         $DOGESelected = 'selected';
                     } else{
@@ -72,7 +72,7 @@
                     ?>
                     <select class="form-control" name="crypto_currency" id="c_currency">
                         <option value="BTC" <?php echo $BTCSelected; ?> >Bitcoin BTC</option>
-                        <option value="BCH" <?php echo $BCHSelected; ?> >Bitcoin Cash BCH</option>
+                        <option value="LTC" <?php echo $LTCSelected; ?> >Litecoin LTC</option>
                         <option value="DOGE" <?php echo $DOGESelected; ?> >Dogecoin DOGE</option>
                     </select>
                 </div>    
