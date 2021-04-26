@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "921d2f9a5613f65e600a4ce02c32d6ff",
+    "content-hash": "ae4a17c88cdf09ee76bec65dd43842c3",
     "packages": [
         {
             "name": "arrilot/laravel-widgets",
@@ -1467,6 +1467,65 @@
                 }
             ],
             "time": "2021-01-18T20:58:21+00:00"
+        },
+        {
+            "name": "maslakoff/php-etherscan-api",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/maslakoff/php-etherscan-api.git",
+                "reference": "c18a43eec4a7b3f5971aacc0b9da5333a8589b35"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/maslakoff/php-etherscan-api/zipball/c18a43eec4a7b3f5971aacc0b9da5333a8589b35",
+                "reference": "c18a43eec4a7b3f5971aacc0b9da5333a8589b35",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^5.6 || ^7.0"
+            },
+            "require-dev": {
+                "guzzlehttp/guzzle": "~5.0",
+                "mockery/mockery": "~0.8",
+                "phpunit/phpunit": "^5.5 || ^6.0"
+            },
+            "default-branch": true,
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Etherscan\\": "lib/Etherscan/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "oraculus.io Team",
+                    "homepage": "https://oraculus.io"
+                },
+                {
+                    "name": "Maslakou Ihar",
+                    "email": "igormaslakoff@gmail.com",
+                    "homepage": "https://github.com/maslakoff"
+                }
+            ],
+            "description": "PHP client for the Etherscan API",
+            "homepage": "https://github.com/maslakoff/php-etherscan-api",
+            "keywords": [
+                "EtherScan.io",
+                "api",
+                "ethereum",
+                "etherscan"
+            ],
+            "support": {
+                "email": "igormaslakoff@gmail.com",
+                "issues": "https://github.com/maslakoff/php-etherscan-api/issues",
+                "source": "https://github.com/maslakoff/php-etherscan-api/tree/master"
+            },
+            "time": "2019-05-30T10:23:28+00:00"
         },
         {
             "name": "mcamara/laravel-localization",
@@ -7532,7 +7591,9 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": [],
+    "stability-flags": {
+        "maslakoff/php-etherscan-api": 20
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {

@@ -62,10 +62,13 @@
                     $BTCSelected = ''; 
                     $LTCSelected = ''; 
                     $DOGESelected = ''; 
+                    $ETHSelected = ''; 
                     if(\Session::get('cryptoCurrency') === "LTC"){
                         $LTCSelected = 'selected';
                     } else if(\Session::get('cryptoCurrency') === "DOGE"){
                         $DOGESelected = 'selected';
+                    } else if(\Session::get('cryptoCurrency') === "ETH"){
+                        $ETHSelected = 'selected';
                     } else{
                         $BTCSelected = 'selected';
                     }
@@ -74,6 +77,7 @@
                         <option value="BTC" <?php echo $BTCSelected; ?> >Bitcoin BTC</option>
                         <option value="LTC" <?php echo $LTCSelected; ?> >Litecoin LTC</option>
                         <option value="DOGE" <?php echo $DOGESelected; ?> >Dogecoin DOGE</option>
+                        <option value="ETH" <?php echo $ETHSelected; ?> >Ethereum ETH</option>
                     </select>
                 </div>    
 

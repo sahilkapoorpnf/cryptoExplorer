@@ -10,6 +10,8 @@ class Helper {
             $network = 'LTC';
         } else if(\Session::get('cryptoCurrency') === "DOGE"){
             $network = 'DOGE';
+        } else if(\Session::get('cryptoCurrency') === "ETH"){
+            $network = 'ETH';
         } else{
             $network = 'BTC';
         }
