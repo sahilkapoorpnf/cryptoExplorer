@@ -1,0 +1,1920 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800&display=swap');
+
+*,
+*:after,
+*:before {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+
+}
+
+:active,
+:hover,
+:focus {
+    outline: 0 !important;
+    outline-offset: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+    margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: #2c3145;
+}
+
+/* ======================= Variable Define ======================= */
+:root {
+    --primary-color: #1a9cfc;
+    --secondary-color: #273045;
+    --black-color: #000000;
+    --dark-black: #273045;
+    --dark-color: #8897b0;
+    --gray-color: #dce2eb;
+    --gray-bg: #fafafa;
+    --light-color: #f2f2f2;
+    --white-color: #ffffff;
+    --gradient-color: linear-gradient(#ff00ff, #854369);
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: 62.5%;
+}
+html, body {height: 100%;}
+
+
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: var(--gray-bg);
+}
+
+
+a,
+a:hover {
+    text-decoration: none;
+}
+
+ul,
+ol {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.btn {
+    background: var(--primary-color);
+    color: var(--white-color);
+    width: 100%;
+    font-size: 1.4rem;
+    padding: 1.2rem 2.5rem;
+    display: block;
+    border-radius: 100px;
+    text-transform: uppercase;
+}
+.btn:hover {
+    background: var(--secondary-color);
+    color: var(--white-color);
+}
+
+
+/*header css start*/
+header {
+    position: relative;
+}
+
+.topNav {
+    width: 100%;
+    padding: 1rem 0;
+    text-align: right;
+    position: absolute;
+    z-index: 99;
+}
+.topNav ul {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.topNav a {
+    color: var(--secondary-color);
+    font-size: 1.4rem;
+    font-weight: 400;
+    padding: 0 12px;
+}
+
+
+.heroBg {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+}
+
+.heroBg:after {
+    background-image: url(../images/mainBg.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center right;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    content: "";
+}
+
+.mainBox {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    height: 100vh;
+}
+.logo {
+    width: 180px;
+}
+.logo img {
+    width: 100%;
+}
+
+.mainBox h1 {
+    color: var(--secondary-color);
+    font-size: 3rem;
+    font-weight: 700;
+    line-height: 4rem;
+    margin: 4rem 0;
+    width: 350px;
+}
+.mainBox p {
+    color: var(--dark-color);
+    font-size: 2.2rem;
+    font-weight: 400;
+    line-height: 4.5rem;
+}
+.mainBox p span {
+    display: block;
+}
+.mainBox p span b {
+    color: var(--secondary-color);
+}
+
+/*header css exit*/
+
+
+/* ======================= dashboard CSS start ======================= */
+#wrapper {
+  padding-left: 0;
+  transition: all 0.5s ease;
+  position: relative;
+}
+
+#sidebar-wrapper {
+  z-index: 1000;
+  position: fixed;
+  left: 200px;
+  width: 0;
+  padding: 2rem;
+  height: 100%;
+  margin-left: -200px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  background: var(--light-color);
+  transition: all 0.5s ease;
+}
+
+#wrapper.toggled #sidebar-wrapper {
+  width: 200px;
+}
+
+.sidebar-brand {
+    position: absolute;
+    top: 0;
+    width: 200px;
+    text-align: center;
+    padding: .5rem 0rem;
+    transition: all 0.5s ease;
+}
+.sidebar-brand h2 {
+  margin: 0;
+  font-weight: 600;
+  font-size: 24px;
+  color: #333;
+}
+
+.toggleBar {
+    background: var(--light-color);
+    padding: 1rem 0rem;
+}
+.dashToggle{}
+.dashToggle a {
+    display: block;
+    font-size: 1.8rem;
+    color: var(--secondary-color);
+}
+.brandLog {
+    width: 16rem
+}
+.brandLog img {
+    width: 100%;
+}
+
+.logosml {
+    width: 2.5rem;
+    display: none;
+}
+.logosml img {
+  width: 100%
+}
+
+.brandsml {
+    width: 3rem;
+    display: none;
+}
+.brandsml img {
+    width: 100%;
+}
+
+
+.sidebar-nav {
+  position: absolute;
+  top: 60px;
+  width: 250px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.sidebar-nav > li {
+  text-indent: 10px;
+  line-height: 42px;
+}
+.sidebar-nav > li a {
+  display: block;
+  text-decoration: none;
+  color: #757575;
+  font-weight: 600;
+  font-size: 18px;
+}
+.sidebar-nav > li > a:hover,
+.sidebar-nav > li.active > a {
+  text-decoration: none;
+  color: #fff;
+  background: #F8BE12;
+}
+.sidebar-nav > li > a i.fa {
+  font-size: 24px;
+  width: 60px;
+}
+
+
+.dashboardMenu {
+    padding-top: 0rem;
+}
+.boardCategory {
+    margin-bottom: 3rem;
+    padding: 0rem;
+}
+
+.boardCategory p {
+    font-size: 1.2rem;
+    font-weight: 400;
+    margin-bottom: .3rem;
+    color: var(--secondary-color);
+    text-transform: uppercase;
+}
+
+.boardCategory a {
+    font-size: 1.6rem;
+    font-weight: 300;
+    line-height: 4rem;
+    color: var(--secondary-color);
+    display: block;
+    transition: all .3s ease;
+}
+.boardCategory a:hover{
+    color: var(--primary-color);
+}
+.boardCategory a i {
+    color: var(--dark-color);
+    margin-right: .85rem;
+    transition: all .3s ease;
+}
+.boardCategory a i:hover{
+    color: var(--secondary-color);
+}
+
+
+#wrapper.toggled .boardCategory {
+    margin-bottom: 0rem;
+}
+
+#wrapper.toggled .boardCategory a {
+    font-size: 2rem;
+    font-weight: 300;
+    line-height: 4rem;
+    color: var(--secondary-color);
+    display: block;
+    transition: all .3s ease;
+}
+
+#wrapper.toggled .boardCategory p, #wrapper.toggled .boardCategory a span {
+  display: none;
+}
+
+
+
+#navbar-wrapper {
+    width: 100%;
+    position: absolute;
+    z-index: 2;
+}
+#wrapper.toggled #navbar-wrapper {
+    position: absolute;
+    margin-right: -200px;
+}
+#navbar-wrapper .navbar {
+  border-width: 0 0 0 0;
+  background-color: #eee;
+  font-size: 24px;
+  margin-bottom: 0;
+  border-radius: 0;
+}
+#navbar-wrapper .navbar a {
+    color: #757575;
+    font-size: 2rem;
+}
+#navbar-wrapper .navbar a:hover {
+  color: #F8BE12;
+}
+
+#content-wrapper {
+  width: 100%;
+  position: absolute;
+  padding: 15px 30px;
+  top: 100px;
+  background: #fff;
+}
+#wrapper.toggled #content-wrapper {
+  position: absolute;
+  margin-right: -200px;
+}
+
+.boardRight {
+    width: 100%;
+    padding: 0;
+}
+
+.dashboardContent {
+    margin-bottom: 1rem;
+}
+
+.dashboardHead {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.welcome {
+}
+.welcome h2 {
+    color: var(--dark-color);
+    font-size: 2.4rem;
+}
+.welcome h2 span {
+    color: var(--secondary-color);
+}
+
+.notification {
+}
+.notification ul {
+    display: flex;
+    align-items: center;
+}
+.notification ul li {
+    display: inline-block;
+}
+
+.notification ul li a {
+    font-size: 2.5rem;
+    color: var(--secondary-color);
+    padding: 0 1rem;
+    line-height: 2.5rem;
+    position: relative;
+}
+.notification ul li a small {
+    position: absolute;
+    background: #e60524;
+    color: var(--white-color);
+    width: 18px;
+    height: 18px;
+    line-height: 18px;
+    border-radius: 50%;
+    font-size: 1rem;
+    text-align: center;
+    top: 4px;
+    right: 22px;
+}
+.notification ul li a .badge-dark {
+    width: 35px;
+    height: 35px;
+    line-height: 35px;
+    border-radius: 50%;
+    font-size: 1.4rem;
+    font-weight: 500;
+    padding: 0;
+    text-transform: uppercase;
+}
+
+.dashInn{
+    margin-top: 1.5rem;
+}
+
+.dashBox {
+    width: 100%;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0px 0px 8px 0px rgb(121 120 120 / 30%);
+}
+
+.boardSwitch {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+.boardSwitch h5 {
+    color: var(--dark-color);
+    font-size: 1.2rem;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+.boardSwitch .switch {
+    position: relative;
+    display: inline-block;
+    width: 85px;
+    height: 34px;
+}
+
+.boardSwitch .switch input { 
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.boardSwitch .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--light-color);
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+.boardSwitch .slider:before {
+    position: absolute;
+    content: "Buy";
+    height: 30px;
+    line-height: 30px;
+    width: 36px;
+    left: 2px;
+    bottom: 2px;
+    text-align: center;
+    font-size: 1.1rem;
+    font-weight: 600;
+    background-color: var(--white-color);
+    color: var(--secondary-color);
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+.boardSwitch input:checked + .slider {
+  background-color: #2196F3;
+}
+
+.boardSwitch input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+.boardSwitch input:checked + .slider:before {
+    -webkit-transform: translateX(45px);
+    -ms-transform: translateX(45px);
+    transform: translateX(45px);
+}
+
+/* Rounded sliders */
+.boardSwitch .slider.round {
+    border-radius: 34px;
+    text-align: right;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 12px;
+    font-size: 1.2rem;
+}
+.boardSwitch .slider.round:before {
+  border-radius: 50%;
+}
+
+.dashBox .form-group {
+    margin-bottom: 2.5rem;
+}
+
+.dashBox label {
+    font-size: 1.4rem;
+    margin-bottom: 0;
+    font-weight: 400;
+    color: var(--dark-color);
+}
+
+.dashBox .form-group select.form-control {
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: var(--secondary-color);
+    height: calc(2.3em + 1.15rem + 2px);
+    line-height: 1.2;
+    padding: 0;
+    border: none;
+    border-radius: 0px;
+    border-bottom: 1px solid var(--dark-color);
+    position: relative;
+}
+.dashBox .form-group select.form-control:after {
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 0;
+    width: 40px;
+    height: 20px;
+    background: #745;
+}
+
+.selecImg {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 99;
+}
+
+
+.dashBtn {
+    margin: 3.5rem 0rem 1.5rem;
+}
+
+
+.dashProgress {
+    width: 100%;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0px 0px 8px 0px rgb(121 120 120 / 30%);
+}
+.dashProgress p {
+    font-size: 1.4rem;
+    font-weight: 400;
+    color: var(--dark-color);
+    text-align: center;
+}
+.dashProgress .progress {
+    width: 130px;
+    height: 130px !important;
+    line-height: 130px;
+    background: none;
+    margin: 15px auto;
+    box-shadow: none;
+    position: relative;
+}
+
+.dashProgress .progress:after {
+    content: "";
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 12px solid var(--light-color);
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.dashProgress .progress>span {
+    width: 50%;
+    height: 100%;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    z-index: 1
+}
+
+.dashProgress .progress .progress-left {
+    left: 0
+}
+
+.dashProgress .progress .progress-bar {
+    width: 100%;
+    height: 100%;
+    background: none;
+    border-width: 12px;
+    border-style: solid;
+    position: absolute;
+    top: 0
+}
+
+.dashProgress .progress .progress-left .progress-bar {
+    left: 100%;
+    border-top-right-radius: 80px;
+    border-bottom-right-radius: 80px;
+    border-left: 0;
+    -webkit-transform-origin: center left;
+    transform-origin: center left
+}
+
+.dashProgress .progress .progress-right {
+    right: 0
+}
+
+.dashProgress .progress .progress-right .progress-bar {
+    left: -100%;
+    border-top-left-radius: 80px;
+    border-bottom-left-radius: 80px;
+    border-right: 0;
+    -webkit-transform-origin: center right;
+    transform-origin: center right;
+    animation: loading-1 1.8s linear forwards
+}
+
+.dashProgress .progress .progress-value {
+    width: 80%;
+    height: 80%;
+    border-radius: 50%;
+    background: var(--white-color);
+    font-size: 24px;
+    color: var(--secondary-color);
+    line-height: normal;
+    text-align: center;
+    position: absolute;
+    top: 10%;
+    left: 10%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.dashProgress .progress .progress-value span.barlevel {
+    font-size: 1.5rem;
+}
+
+.dashProgress .progress.blue .progress-bar {
+    border-color: #16DC8A;
+}
+
+
+.dashProgress .progress.blue .progress-left .progress-bar {
+    animation: loading-2 1.5s linear forwards 1.8s
+}
+
+
+@keyframes loading-1 {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg)
+    }
+
+    100% {
+        -webkit-transform: rotate(180deg);
+        transform: rotate(180deg)
+    }
+}
+
+@keyframes loading-2 {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg)
+    }
+
+    100% {
+        -webkit-transform: rotate(90deg);
+        transform: rotate(90deg)
+    }
+}
+
+@keyframes loading-3 {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg)
+    }
+
+    100% {
+        -webkit-transform: rotate(135deg);
+        transform: rotate(135deg)
+    }
+}
+
+
+.progTxt {
+    padding: 0 12px;
+    margin-bottom: 15px;
+    width: 100%;
+    display: inline-block;
+}
+.progTxt p {
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: var(--secondary-color);
+    text-align: center;
+}
+.progTxt p span {
+    color: var(--secondary-color);
+    font-weight: 600;
+}
+.barBtn {
+    margin: 0 0 0.8rem;
+}
+.barBtn .btn {
+    background-image: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0)), linear-gradient(
+170deg
+, #16DC8A, #15CAE7);
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #0eda4d;
+    padding: .8rem 2rem;
+    border: 2px solid transparent;
+    background-origin: border-box;
+    background-clip: content-box, border-box;
+    box-shadow: 2px 1000px 1px #fff inset;
+}
+
+.barBtn .btn:hover {
+    background-image: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0)), linear-gradient( 
+170deg
+ , #16DC8A, #15CAE7);
+    color: var(--white-color);
+    box-shadow: none;
+}
+
+
+.transBg {
+    width: 100%;
+    margin-top: 3rem;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0px 0px 8px 0px rgb(121 120 120 / 30%);
+    background: url(../images/signBg.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: top right;
+}
+
+.transaction {
+
+}
+.transaction p {
+    font-size: 1.4rem;
+    font-weight: 300;
+    margin: 1.4rem 0 2.88rem;
+}
+.transaction h4 {
+    color: var(--secondary-color);
+    font-size: 1.8rem;
+    font-weight: 500;
+    margin-bottom: 2.5rem;
+}
+
+
+.boardAccount {
+}
+.boardAccount h4 {
+    font-size: 1.4rem;
+    font-weight: 400;
+    color: var(--dark-color);
+    padding: 1.5rem 0;
+    text-transform: uppercase;
+}
+.accountSet {
+    display: flex;
+}
+
+.proPic {
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    border-radius: 50%;
+    background: #343a40;
+    color: var(--white-color);
+    text-align: center;
+    font-size: 1.6rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+.proText {
+    width: auto;
+    padding: 0 0 0 1.2rem;
+}
+.proText h3 {
+    color: var(--secondary-color);
+    font-size: 1.8rem;
+    font-weight: 500;
+    margin: 0rem 0 0.4rem;
+}
+.proText a {
+    font-size: 1.4rem;
+    font-weight: 400;
+    color: var(--dark-color);
+    text-align: center;
+}
+
+.boardform {
+    padding: 2px 0;
+    margin: 15px 0;
+}
+.boardform .input-group {
+    background: #854;
+    padding: 10px 15px;
+}
+.boardform .input-group .input-group-text {
+    background: transparent;
+    border: none;
+    font-size: 1.6rem;
+    padding-right: 0;
+    padding-left: 0;
+    margin-right: .3rem;
+}
+.boardform .input-group .input-group-text .fa-check-circle{
+    color: #0eda4d;
+}
+.boardform .input-group .input-group-text .fa-user {
+    color: var(--primary-color);
+}
+.boardform .input-group .input-group-text .fa-lock {
+    color: var(--primary-color);
+}
+
+
+.boardform .input-group {
+    background: #F6FCF7;
+    padding: .8rem 1.5rem;
+    line-height: 2.8rem;
+    margin-bottom: 1.5rem;
+    border-radius: 8px;
+}
+.boardform .input-group .form-control {
+    border: none;
+    background: transparent;
+    font-size: 1.4rem;
+    font-weight: 300;
+    text-align: left;
+}
+.boardform .input-group .form-control:focus {
+    outline: none;
+    box-shadow: none;
+}
+.boardform .input-group .btn:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+
+.boardform .btn {
+    background: transparent;
+    font-size: 1.4rem;
+    font-weight: 300;
+    padding: .375rem .75rem;
+    color: var(--secondary-color);
+}
+
+
+/* ======================= dashboard CSS exit ======================= */
+
+/* ======================= sell funnel CSS start ======================= */
+.sellFunelInn {
+    padding: 30px 70px 30px 30px;
+}
+.sellFunel {
+    display: flex;
+}
+
+.funnelStep {
+}
+.funnelStep span {
+    width: 45px;
+    height: 45px;
+    line-height: 45px;
+    border-radius: 50%;
+    background: var(--primary-color);
+    color: var(--white-color);
+    text-align: center;
+    font-size: 1.6rem;
+    display: block;
+}
+.funnelContent {
+    padding-left: 1.5rem;
+}
+
+.topStep span {
+    font-size: 1.4rem;
+    font-weight: 400;
+    color: var(--dark-color);
+    margin-bottom: .3rem;
+    text-transform: uppercase;
+    display: block;
+}
+.topStep h3 {
+    font-size: 2rem;
+    font-weight: 600;
+    line-height: 2.5rem;
+    margin-bottom: 1rem;
+}
+.topStep p {
+    font-size: 1.5rem;
+    font-weight: 400;
+    line-height: 2.4rem;
+    color: var(--dark-color);
+    margin-bottom: 2.5rem;
+    display: block;
+}
+.btcAmount {
+    display: flex;
+    justify-content: space-between;
+}
+
+.btcTxt {
+    width: 70%;
+}
+
+
+.btcTxt p {
+    font-size: 1.4rem;
+    font-weight: 300;
+    color: var(--secondary-color);
+    display: block;
+}
+.btcTxt h4 {
+    width: auto;
+    display: flex;
+    align-items: center;
+    margin-top: .5rem;
+    margin-bottom: 3rem;
+}
+
+.btcTxt h4 .btn {
+    padding: .4rem 1.2rem;
+    width: 60px;
+    font-size: 1.2rem;
+    font-weight: 500;
+    margin-left: 1rem;
+    background: transparent;
+    color: var(--primary-color);
+    border: 1px solid var(--dark-color);
+    border-radius: 5px;
+}
+.btchr {
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+    border: 0;
+    border-bottom: 1px solid var(--dark-color);
+}
+
+
+.btcBarcode {
+    width: 100px;
+}
+.btcBarcode img {
+    width: 100%;
+}
+
+.stepBtn .btn {
+    width: auto;
+    padding: 1rem 2.5rem;
+    font-weight: 500;
+}
+
+.stepCheck {
+    margin: 3.5rem 0 1.5rem;
+}
+.stepCheck .form-check-input {
+    position: absolute;
+    margin-top: .3rem;
+    margin-left: -1.25rem;
+    height: 1.88rem;
+    width: 1.8rem;
+}
+.stepCheck .form-check .form-check-label {
+    margin-left: 1.5rem;
+}
+
+.stepCheck label {
+    font-size: 1.4rem;
+    margin-bottom: 0;
+    font-weight: 400;
+    line-height: 2.5rem;
+    color: var(--secondary-color);
+}
+.stepCheck label a {
+    color: var(--primary-color);
+    text-decoration: underline;
+}
+
+/* ======================= sell funnel CSS exit ======================= */
+
+/* ======================= explore 1 CSS start ======================= */
+.blackBar {
+    width: 100%;
+    padding: .88rem 0;
+    background: var(--dark-black);
+}
+.blackInner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.blackLogo img {
+    max-width: 180px;
+}
+
+.blackNav {
+    display: flex;
+    align-items: center;
+}
+
+.blackSelect .form-group {
+    margin-bottom: 0;
+}
+.blackSelect .form-control {
+    background: transparent;
+    border: none;
+    color: var(--white-color);
+}
+.blackSelect .form-control:focus {
+    box-shadow: none;
+}
+.blackSelect .form-control option {
+    background: var(--white-color);
+    color: var(--secondary-color);
+}
+
+.blackNav .logBtn {
+    background: transparent;
+    color: var(--white-color);
+    border: 2px solid var(--white-color);
+    width: auto;
+    font-size: 1.4rem;
+    padding: .5rem 2.5rem;
+    margin: 0 1rem;
+    display: block;
+    border-radius: 100px;
+    text-transform: uppercase;
+    transition: all .3s ease;
+}
+.blackNav .logBtn:hover {
+    background: var(--white-color);
+    color: var(--secondary-color);
+}
+
+.blackNav .signBtn {
+    background: var(--white-color);
+    color: var(--secondary-color);
+    border: 2px solid var(--white-color);
+    width: auto;
+    font-size: 1.4rem;
+    padding: .5rem 2.5rem;
+    display: block;
+    border-radius: 100px;
+    text-transform: uppercase;
+    transition: all .3s ease;
+}
+
+.blackNav .signBtn:hover {
+    background: transparent;
+    color: var(--white-color);
+}
+
+.blackSelect {
+
+}
+
+
+.exploreBitCoin {
+    border-bottom: 1px solid #f2f2f2;
+}
+.exploreBitLeft {
+    padding: 4rem 0;
+}
+.bitCoin {
+    margin: 1.5rem 0 2rem;
+}
+.bitCoin p {
+    color: var(--dark-color);
+    font-size: 1.5rem;
+}
+
+.bitSelect {
+    display: flex;
+    align-items: center;
+}
+.bitSelect .form-group {
+    margin: 0;
+}
+
+.bitSelect span {
+    font-size: 3rem;
+    font-weight: 500;
+    color: var(--secondary-color);
+}
+.bitSelect .form-group .form-control {
+    background: transparent;
+    color: var(--primary-color);
+    font-size: 3rem;
+    font-weight: 500;
+    padding: 0rem .75rem;
+    height: 40px;
+    line-height: 40px;
+    border: none;
+}
+.bitSelect .form-group .form-control option {
+    font-size: 1.6rem;
+}
+
+.bitCoinSearch {
+    width: 100%;
+    background: var(--white-color);
+    border: 1px solid #e0e0e0;
+    padding: .8rem .95rem;
+    border-radius: 5px;
+}
+.bitCoinSearch form {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+.bitCoinSearch form .form-control {
+    font-size: 1.5em;
+    color: var(--secondary-color);
+    height: 30px;
+    line-height: 30px;
+    padding: 0rem;
+    background: transparent;
+    border: none;
+    outline: none;
+}
+.bitCoinSearch form .form-control:focus {
+    outline: none;
+    box-shadow: none;
+}
+.bitCoinSearch form .btn {
+    width: auto;
+    padding: 0.4rem 1rem;
+    border-radius: 4px;
+}
+
+
+.bitCoinPrice  {
+}
+.bitPriceTxt {
+    margin-top: 2.5rem;
+}
+.bitPriceTxt span {
+    font-size: 1.4rem;
+    font-weight: 500;
+    color: var(--dark-color);
+}
+.bitPriceTxt h3 {
+    font-size: 2rem;
+    font-weight: 500;
+    color: var(--secondary-color);
+}
+
+
+
+
+
+.exploreBitRight {
+    padding-bottom: 4rem;
+}
+.bitRightTop {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 4rem;
+}
+
+
+.bitRightTop h2 {
+    font-size: 3rem;
+    font-weight: 500;
+    color: var(--secondary-color);
+}
+
+.bitRightTop .btn {
+    width: auto;
+    background: transparent;
+    color: var(--primary-color);
+    border: 1px solid;
+    border-radius: 5px;
+    padding: .5rem .8rem;
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+.bitRightData {
+    margin-top: 3rem;
+}
+.bitRightData .table th, .table td {
+    border: 0px;
+    font-size: 1.2rem;
+}
+
+.bitRightData .table th {
+    color: var(--dark-color);
+}
+.bitRightData .table td {
+    color: var(--black-color);
+}
+.bitRightData .table td a {
+    color: var(--primary-color);
+}
+
+.bitdivider {
+    margin-top: 3.5rem;
+}
+.expBorderLeft{
+    border-left: 1px solid #f2f2f2;
+}
+
+
+
+/* ======================= explore 1 CSS exit ======================= */
+
+/* ======================= footer CSS start ======================= */
+footer {
+    width: 100%;
+    padding: 5rem 0 3rem;
+}
+.footLogo img {
+    max-width: 160px;
+}
+
+.footReview {
+    margin: 3rem 0;
+}
+
+.footReviewPara p {
+    font-size: 1.4rem;
+}
+
+
+.footCompany {
+}
+
+.footCompany h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+}
+.footCompany a {
+    font-size: 1.4rem;
+    font-weight: 400;
+    padding: 4px 0;
+    color: var(--dark-color);
+    display: inline-block;
+}
+
+
+.row.footMargn {
+    margin: 6rem 0 4rem;
+}
+
+
+
+.footlang {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+.footlang span {
+    font-size: 1.4rem;
+    margin-right: .7rem;
+}
+.footlang .form-group {
+    margin: 0;
+}
+.footlang .form-control {
+    font-size: 1.4rem;
+}
+
+
+
+.footerPara {
+
+}
+
+
+.footerPara p {
+    color: var(--secondary-color);
+    font-size: 1.4rem;
+    font-weight: 300;
+}
+.footerMenu {
+    display: inline-block;
+}
+.footerMenu li {
+    display: inline-block;
+}
+.footerMenu li a {
+    padding-right: 1.5rem;
+    font-size: 1.4rem;
+    font-weight: 400;
+    color: var(--secondary-color);
+}
+
+
+/* ======================= footer CSS exit ======================= */
+
+
+
+
+/*=== media query start ===*/
+
+
+@media (min-width: 992px) {
+  #wrapper {
+    padding-left: 200px;
+  }
+  
+  #wrapper.toggled {
+    padding-left: 60px;
+  }
+
+  #sidebar-wrapper {
+    width: 200px;
+  }
+  
+  #wrapper.toggled #sidebar-wrapper {
+    width: 66px;
+  }
+  
+  #wrapper.toggled .sidebar-brand{
+    width: 60px;
+    font-size: 18px;
+}
+
+  #wrapper.toggled #navbar-wrapper {
+    position: absolute;
+    margin-right: -190px;
+}
+  
+  #wrapper.toggled #content-wrapper {
+    position: absolute;
+    margin-right: -190px;
+  }
+
+  #navbar-wrapper {
+    position: relative;
+  }
+
+  #wrapper.toggled {
+    padding-left: 60px;
+  }
+
+  #content-wrapper {
+    position: relative;
+    top: 0;
+  }
+
+  #wrapper.toggled #navbar-wrapper,
+  #wrapper.toggled #content-wrapper {
+    position: relative;
+    margin-right: 60px;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 991px) {
+
+
+  #wrapper {
+    padding-left: 60px;
+  }
+
+  #sidebar-wrapper {
+    width: 60px;
+  }
+  
+#wrapper.toggled #navbar-wrapper {
+    position: absolute;
+    margin-right: -250px;
+}
+  
+  #wrapper.toggled #content-wrapper {
+    position: absolute;
+    margin-right: -250px;
+  }
+
+  #navbar-wrapper {
+    position: relative;
+  }
+
+  #wrapper.toggled {
+    padding-left: 200px;
+  }
+
+  #content-wrapper {
+    position: relative;
+    top: 0;
+  }
+
+  #wrapper.toggled #navbar-wrapper,
+  #wrapper.toggled #content-wrapper {
+    position: relative;
+    margin-right: 200px;
+  }
+
+.boardCategory a {
+    font-size: 2rem;
+}
+
+  .boardCategory a span {
+    display: none;
+  }
+  .boardCategory p {
+      display: none;
+  }
+
+  .boardCategory {
+      margin-bottom: 0;
+  }
+
+  #sidebar-wrapper {
+    width: 66px;
+}
+
+#wrapper.toggled .boardCategory p {
+    display: block;
+}
+#wrapper.toggled .boardCategory a {
+    font-size: 1.6rem;
+}
+#wrapper.toggled .boardCategory a span {
+    display: inline-block;
+}
+
+.boardRight {
+    width: 100%;
+    padding: 0 1.5rem;
+}
+
+.dashProgress .progress {
+    width: 120px;
+    height: 120px !important;
+    line-height: 120px;
+}
+.progTxt {
+    padding: 0;
+}
+
+.barBtn .btn {
+    font-size: 1.5rem;
+}
+.transaction h4 {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+.transBg {
+    margin-top: 2.5rem;
+}
+.transaction p {
+    margin: 1.4rem 0 1.88rem;
+}
+
+}
+
+
+@media screen and (max-width: 768px) {
+
+    .heroBg {
+        height: 60vh;
+    }   
+
+    768px)
+.heroBg:after {
+    width: 60%;
+    height: 100%;
+    top: 50%;
+}
+
+}
+
+
+@media screen and (max-width: 767px) {
+
+     /*main css start */
+
+    .heroBg {
+        height: 50vh;
+    }
+    .heroBg:after {
+        width: 60%;
+        height: 100%;
+        top: 50%;
+    }
+    /*main css exit */
+
+  #wrapper {
+    padding-left: 0;
+  }
+
+  #sidebar-wrapper {
+    width: 0;
+    padding: 0;
+  }
+
+#wrapper.toggled #sidebar-wrapper {
+    width: 250px;
+    padding: 0 2rem;
+  }
+
+  .sidebar-nav {
+    top: 45px;
+  }
+
+  .brandLog {
+    display: none
+}
+  .logosml {
+    display: block;
+    padding: 0.5rem 0;
+}
+
+
+  #wrapper.toggled #sidebar-wrapper {
+    width: 66px;
+  }
+  #wrapper.toggled #navbar-wrapper {
+    position: absolute;
+    margin-right: -250px;
+  }
+
+  #wrapper.toggled #content-wrapper {
+    position: absolute;
+    margin-right: -250px;
+  }
+
+  #navbar-wrapper {
+    position: relative;
+  }
+
+  #wrapper.toggled {
+    padding-left: 66px;
+  }
+
+  #content-wrapper {
+    position: relative;
+    top: 0;
+  }
+
+  #wrapper.toggled #navbar-wrapper,
+  #wrapper.toggled #content-wrapper {
+    position: relative;
+    margin-right: 250px;
+  }
+
+ .dashProgress {
+    margin-top: 3rem;
+}
+
+.transBg {
+    margin-top: 3rem;
+}
+
+.boardAccount {
+    margin-top: 1.5rem;
+}
+
+
+/* sell funnel css start */
+.funnelStep {
+    display: none;
+}
+.sellFunelInn {
+    padding: 15px;
+}
+.funnelContent {
+    padding-left: 0;
+}
+
+.btcTxt {
+    width: 75%;
+}
+.btcBarcode {
+    width: 80px;
+}
+
+
+/* sell funnel css exit */
+
+
+.footlang {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+}
+
+
+@media screen and (max-width: 575px) {
+    /*main css start */
+    .heroBg {
+        height: 50vh;
+    }
+    .heroBg:after {
+        width: 40%;
+        height: 55%;
+        top: 0;
+    }
+
+
+    /*main css exit */
+
+
+.welcome h2 {
+    font-size: 2rem;
+}
+.transaction h4 {
+    font-size: 1.5rem;
+}
+
+/* sell funnel css start */
+
+.topStep h3 {
+    font-weight: 400;
+}
+.btcAmount {
+    display: inherit;
+}
+
+.btcTxt {
+    width: 100%;
+}
+
+.btcBarcode {
+    width: 100px;
+}
+.btcTxt h4 {
+    width: 100%;
+    display: inherit;
+    margin-bottom: 2rem;
+    font-size: 1.3rem;
+}
+.btcTxt h4 .btn {
+    margin-left: 0;
+    margin-top: 1rem;
+}
+
+.topStep p {
+    font-size: 1.4rem;
+    font-weight: 300;
+    line-height: 2rem;
+}
+
+.notification ul li a small {
+    width: 16px;
+    height: 16px;
+    line-height: 16px;
+    top: 2px;
+    right: 15px;
+}
+
+
+/* sell funnel css exit */
+
+
+.blackLogo img {
+    max-width: 150px;
+}
+.blackNav .logBtn {
+    font-size: 1.2rem;
+    padding: .3rem 1.5rem;
+
+}
+.blackNav .signBtn {
+    font-size: 1.2rem;
+    padding: .3rem 1.5rem;
+}
+
+.bitSelect span {
+    font-size: 2.5rem;
+}
+
+.bitSelect .form-group .form-control {
+    font-size: 2.5rem;
+}
+
+.bitRightTop h2 {
+    font-size: 2.5rem;
+}
+
+
+}
+
+
+@media screen and (max-width: 480px) {
+
+/*main css start */
+
+    .mainBox h1 {
+        font-size: 2.5rem;
+        margin: 4rem 0;
+        width: 80%;
+    }
+
+    .mainBox p {
+        color: var(--dark-color);
+        font-size: 2.1rem;
+        font-weight: 400;
+        line-height: 3.5rem;
+        width: 80%;
+    }
+/*main css exit */
+
+
+.welcome h2 {
+    font-size: 1.8rem;
+}
+
+.notification ul li a {
+    font-size: 1.8rem;
+    padding: 0 .5rem;
+}
+.notification ul li a .badge-dark {
+    width: 25px;
+    height: 25px;
+    line-height: 25px;
+    font-size: 1.2rem;
+}
+.transBg {
+    background-size: contain;
+}
+
+
+/* sell funnel css start */
+
+.stepCheck .form-group {
+    margin-bottom: 1.5rem;
+}
+
+.btcBarcode {
+    width: 75px;
+}
+.topStep h3 {
+    font-size: 1.8rem;
+}
+.stepCheck label {
+    font-weight: 300;
+    line-height: 2.2rem;
+}
+
+.stepBtn .btn {
+    padding: .7rem 1.5rem;
+    font-weight: 500;
+    font-size: 1.2rem;
+}
+
+/* sell funnel css exit */
+
+
+.blackSelect {
+    display: none;
+}
+
+.blackLogo img {
+    max-width: 140px;
+}
+.blackNav .logBtn {
+    padding: .3rem 1rem;
+    border: 1px solid var(--white-color);
+}
+.blackNav .signBtn {
+    padding: .3rem 1rem;
+    border: 1px solid var(--white-color);
+}
+
+.bitSelect span {
+    font-size: 2rem;
+}
+.bitSelect .form-group .form-control {
+    font-size: 2rem;
+}
+.bitRightTop h2 {
+    font-size: 2rem;
+}
+
+.bitRightTop {
+    flex-direction: column;
+        margin-top: 3rem;
+}
+.bitPriceTxt {
+    text-align: center;
+}
+.exploreBitLeft {
+    padding: 4rem 0 0;
+}
+.exploreBitRight {
+    padding-bottom: 2rem;
+}
+.bitRightData {
+    margin-top: 2rem;
+}
+
+
+
+
+footer {
+    text-align: center;
+}
+
+
+
+}
+
+@media screen and (max-width: 360px) {
+
+    /*main css start */
+     .heroBg:after {
+        height: 45%;
+    }
+    .mainBox h1 {
+        font-size: 2.4rem;
+        margin: 3rem 0;
+        width: 80%;
+    }
+    .mainBox p {
+        color: var(--dark-color);
+        font-size: 1.8rem;
+        font-weight: 400;
+        line-height: 3.5rem;
+        width: 70%;
+    }
+    /*main css exit */
+
+
+.welcome h2 {
+    font-size: 1.6rem;
+}
+
+
+
+/* sell funnel css start */
+.sellFunel {
+    display: inherit;
+}
+.btcTxt h4 {
+    word-break: break-word;
+    line-height: 2rem;
+}
+.stepCheck .form-check-input {
+    margin-top: .4rem;
+    margin-left: -1.25rem;
+    height: 1.58rem;
+    width: 1.5rem;
+}
+
+
+/* sell funnel css exit */
+
+}
+
+@media screen and (max-width: 320px){
+    
+    .mainBox h1 {
+        font-size: 2.4rem;
+        margin: 3rem 0;
+        width: 80%;
+    }
+    .mainBox p {
+        color: var(--dark-color);
+        font-size: 1.8rem;
+        font-weight: 400;
+        line-height: 3.5rem;
+        width: 62%;
+    }
+
+}
+
+
+/*=== media query exit === */

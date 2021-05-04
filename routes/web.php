@@ -13,10 +13,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('under-maintenance', function () {
+    return view('maintenance');
+});
+
 // Route::get('/', function () {
 //     return view('welcome');
 // });
-
 
 Auth::routes();
 Route::get('logout', 'Auth\LoginController@logout')->middleware(['auth'])->name('logout');

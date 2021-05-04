@@ -1,26 +1,189 @@
-@extends('layouts.app')
+@extends('layouts.app1')
 
 @section('content')
+<div class="exploreBitCoin">
     <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-12 text-center">
-                <h2>{{ __('messages.blocks_mined') }}</h2>
-                <div class="block"></div>
-                <div class="mt-4">
-                    <a href="#" id="link-last-block" class="btn btn-outline-primary">
-                        <i class="fas fa-cube"></i>
-                        {{ __('messages.view_last_block') }}
-                    </a>
+        <div class="row">
+            <div class="col-lg-6 col-md-12">
+                <div class="exploreBitLeft">
+                    <div class="bitSelect">
+                        <span>Explore</span>
+                        <div class="form-group">
+                            <?php
+                            $BTCSelected = ''; 
+                            $LTCSelected = ''; 
+                            $DOGESelected = ''; 
+                            if(\Session::get('cryptoCurrency') === "LTC"){
+                                $LTCSelected = 'selected';
+                            } else if(\Session::get('cryptoCurrency') === "DOGE"){
+                                $DOGESelected = 'selected';
+                            } else{
+                                $BTCSelected = 'selected';
+                            }
+                            ?>
+                            <select class="form-control" name="crypto_currency" id="c_currency">
+                                <option value="BTC" <?php echo $BTCSelected; ?> >Bitcoin</option>
+                                <option value="LTC" <?php echo $LTCSelected; ?> >Litecoin</option>
+                                <option value="DOGE" <?php echo $DOGESelected; ?> >Dogecoin</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="bitCoin">
+                        <p>Blockchain information for Bitchoin (BTC) including historical prices, the most recently mined blociks, and data for the latest transactions.</p>
+                    </div>
+                    <div class="bitCoinSearch">
+                        <form action="{{ LaravelLocalization::getLocalizedURL(LaravelLocalization::getCurrentLocale(), '/search') }}">
+                            <input type="hidden" name="currency" value="{{ Helper::network() }}">
+                            <input class="form-control rounded-0" type="search" name="q" placeholder="{{ __('messages.search_placeholder') }}">
+                            <button class="btn btn-light my-2 my-sm-0 rounded-0" type="submit"><i class="fas fa-search"></i></button>
+                        </form>
+                    </div>
+                    <div class="bitCoinPrice">
+                        <div class="row no-gutters">
+                            <div class="col-lg-4 col-md-4 col-sm-12">
+                                <div class="bitPriceTxt">
+                                    <span>Price</span>
+                                    <h3>$50,865.64</h3>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-12">
+                                <div class="bitPriceTxt">
+                                    <span>Transaction value (est)</span>
+                                    <h3>$50,865.64</h3>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-12">
+                                <div class="bitPriceTxt">
+                                    <span>Transaction</span>
+                                    <h3>$50,865.64</h3>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-12">
+                                <div class="bitPriceTxt">
+                                    <span>Estimated hash rate</span>
+                                    <h3>$50,865.64</h3>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-12">
+                                <div class="bitPriceTxt">
+                                    <span>Transaction value</span>
+                                    <h3>$1238m BTC</h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-12 expBorderLeft">
+                <div class="exploreBitRight">
+                    <div class="bitRightTop">
+                        <h2>{{ __('messages.latest_transactions') }}</h2>
+                        <button class="btn">All transactions <i class="fas fa-arrow-right"></i></button>
+                    </div>
+                    <div class="bitRightData">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Hash</th>
+                                        <th scope="col">Time</th>
+                                        <th scope="col">Amount</th>
+                                        <!-- <th scope="col">Amount (USD)</th> -->
+                                    </tr>
+                                </thead>
+                                <tbody id="tbl-transactions">
+                                   <!--  <tr>
+                                        <td><a href="#">0xdsf554gertd5gdfg</a></td>
+                                        <td>22:13</td>
+                                        <td>0.00000000058</td>
+                                        <td>$0.02</td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="#">0xdsf554gertd5gdfg</a></td>
+                                        <td>22:12</td>
+                                        <td>0.00000000058</td>
+                                        <td>$0.02</td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="#">0xdsf554gertd5gdfg</a></td>
+                                        <td>22:15</td>
+                                        <td>0.00000000058</td>
+                                        <td>$0.02</td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="#">0xdsf554gertd5gdfg</a></td>
+                                        <td>22:15</td>
+                                        <td>0.00000000058</td>
+                                        <td>$0.02</td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="#">0xdsf554gertd5gdfg</a></td>
+                                        <td>22:15</td>
+                                        <td>0.00000000058</td>
+                                        <td>$0.02</td>
+                                    </tr> -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="bitdivider">
+                        <hr>
+                    </div>
+                    <div class="bitRightTop">
+                        <h2>Latest blocks</h2>
+                        <button class="btn">All transactions <i class="fas fa-arrow-right"></i></button>
+                    </div>
+                    <div class="bitRightData">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Hash</th>
+                                        <th scope="col">Time</th>
+                                        <th scope="col">Amount (BTC)</th>
+                                        <th scope="col">Amount (USD)</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><a href="#">0xdsf554gertd5gdfg</a></td>
+                                        <td>22:13</td>
+                                        <td>0.00000000058</td>
+                                        <td>$0.02</td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="#">0xdsf554gertd5gdfg</a></td>
+                                        <td>22:12</td>
+                                        <td>0.00000000058</td>
+                                        <td>$0.02</td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="#">0xdsf554gertd5gdfg</a></td>
+                                        <td>22:15</td>
+                                        <td>0.00000000058</td>
+                                        <td>$0.02</td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="#">0xdsf554gertd5gdfg</a></td>
+                                        <td>22:15</td>
+                                        <td>0.00000000058</td>
+                                        <td>$0.02</td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="#">0xdsf554gertd5gdfg</a></td>
+                                        <td>22:15</td>
+                                        <td>0.00000000058</td>
+                                        <td>$0.02</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="row mt-4">
-            <div class="col-md-12">
-                <h2 class="text-center">{{ __('messages.latest_transactions') }}</h2>
-                <table id="tbl-transactions" class="table table-bordere"></table>
-            </div>
-        </div>
     </div>
+</div>
 @endsection
 
 @push('js')
