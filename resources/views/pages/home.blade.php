@@ -88,40 +88,10 @@
                                         <th scope="col">Hash</th>
                                         <th scope="col">Time</th>
                                         <th scope="col">Amount</th>
-                                        <!-- <th scope="col">Amount (USD)</th> -->
                                     </tr>
                                 </thead>
                                 <tbody id="tbl-transactions">
-                                   <!--  <tr>
-                                        <td><a href="#">0xdsf554gertd5gdfg</a></td>
-                                        <td>22:13</td>
-                                        <td>0.00000000058</td>
-                                        <td>$0.02</td>
-                                    </tr>
-                                    <tr>
-                                        <td><a href="#">0xdsf554gertd5gdfg</a></td>
-                                        <td>22:12</td>
-                                        <td>0.00000000058</td>
-                                        <td>$0.02</td>
-                                    </tr>
-                                    <tr>
-                                        <td><a href="#">0xdsf554gertd5gdfg</a></td>
-                                        <td>22:15</td>
-                                        <td>0.00000000058</td>
-                                        <td>$0.02</td>
-                                    </tr>
-                                    <tr>
-                                        <td><a href="#">0xdsf554gertd5gdfg</a></td>
-                                        <td>22:15</td>
-                                        <td>0.00000000058</td>
-                                        <td>$0.02</td>
-                                    </tr>
-                                    <tr>
-                                        <td><a href="#">0xdsf554gertd5gdfg</a></td>
-                                        <td>22:15</td>
-                                        <td>0.00000000058</td>
-                                        <td>$0.02</td>
-                                    </tr> -->
+                                  
                                 </tbody>
                             </table>
                         </div>
@@ -140,41 +110,12 @@
                                     <tr>
                                         <th scope="col">Hash</th>
                                         <th scope="col">Time</th>
-                                        <th scope="col">Amount (BTC)</th>
-                                        <th scope="col">Amount (USD)</th>
+                                        <th scope="col">Transactions</th>
+                                        <th scope="col">Miner</th>
                                     </tr>
                                 </thead>
-                                <tbody>
-                                    <tr>
-                                        <td><a href="#">0xdsf554gertd5gdfg</a></td>
-                                        <td>22:13</td>
-                                        <td>0.00000000058</td>
-                                        <td>$0.02</td>
-                                    </tr>
-                                    <tr>
-                                        <td><a href="#">0xdsf554gertd5gdfg</a></td>
-                                        <td>22:12</td>
-                                        <td>0.00000000058</td>
-                                        <td>$0.02</td>
-                                    </tr>
-                                    <tr>
-                                        <td><a href="#">0xdsf554gertd5gdfg</a></td>
-                                        <td>22:15</td>
-                                        <td>0.00000000058</td>
-                                        <td>$0.02</td>
-                                    </tr>
-                                    <tr>
-                                        <td><a href="#">0xdsf554gertd5gdfg</a></td>
-                                        <td>22:15</td>
-                                        <td>0.00000000058</td>
-                                        <td>$0.02</td>
-                                    </tr>
-                                    <tr>
-                                        <td><a href="#">0xdsf554gertd5gdfg</a></td>
-                                        <td>22:15</td>
-                                        <td>0.00000000058</td>
-                                        <td>$0.02</td>
-                                    </tr>
+                                <tbody id="tb2-blocks">
+
                                 </tbody>
                             </table>
                         </div>

@@ -31,6 +31,8 @@
 
 		@include('layouts.header1')
 
+		<span class="base_url" data-attr="{{ asset('') }}"></span>
+
 		@yield('content')
 
 		<!-- footer section start -->
@@ -119,11 +121,11 @@
 			</div>
 		</footer>
 		<!-- footer section exit -->
-		<script src="{{ asset('/js/app.js') }}"></script>
 		<script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
 		<script src="{{ asset('js/popper.min.js') }}"></script>
-		<script src="{{ asset('js/bootstrap.min.js') }}"></script>
-
+		<!-- <script src="{{ asset('js/bootstrap.min.js') }}"></script> -->
+		
+		<script src="{{ asset('/js/app.js') }}"></script>
 		<script type="text/javascript">
 		    $(document).on('change', '#c_currency', function(){
 		        var coinCurrency = $(this).val();
