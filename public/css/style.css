@@ -1269,6 +1269,280 @@ header {
 
 /* ======================= explore 1 CSS exit ======================= */
 
+/* ======================= explore 2 CSS start ======================= */
+.exploreTwoStart {}
+
+.exploreTwoTop {
+    padding: 1.8rem 0;
+    border-bottom: 1px solid #f2f2f2;
+}
+
+.exploreTwoLeft{}
+
+
+.exploreTwoRight{}
+.exploreTwoSearch{
+    width: 100%;
+    background: var(--white-color);
+    border: 1px solid #e0e0e0;
+    padding: .5rem .95rem;
+    border-radius: 5px;
+}
+.exploreTwoSearch form {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+.exploreTwoSearch form .form-control {
+    font-size: 1.5em;
+    color: var(--secondary-color);
+    height: 30px;
+    line-height: 30px;
+    padding: 0rem;
+    background: transparent;
+    border: none;
+    outline: none;
+}
+.exploreTwoSearch form .btn {
+    width: auto;
+    padding: 0.4rem 1rem;
+    border-radius: 4px;
+}
+
+
+.exploreTwoLeft ul  {
+    margin: 0;
+    padding: 0;
+}
+.exploreTwoLeft li {
+    display: inline-block;
+}
+
+.exploreTwoLeft li a {
+    font-size: 2rem;
+    font-weight: 500;
+    color: var(--dark-color);
+    margin-right: .8rem;
+    display: block;
+    position: relative;
+}
+.exploreTwoLeft .nav-pills .nav-link.active, .exploreTwoLeft .nav-pills .show>.nav-link {
+    color: var(--primary-color);
+    background-color: transparent;
+}
+
+.exploreTwoLeft li:last-child a{
+    margin: 0;
+}
+.exploreTwoLeft .dropdown-toggle::before {
+    display: inline-block;
+    margin-right: 0.5em;
+    vertical-align: .255em;
+    content: "";
+    border-top: .3em solid;
+    border-right: .3em solid transparent;
+    border-bottom: 0;
+    border-left: .3em solid transparent;
+    transform: rotate(-90deg);
+    position: relative;
+    top: 0;
+    left: -2px;
+    transition: all .4s ease;
+}
+
+.exploreTwoLeft .dropdown-toggle:focus::before{
+    transform: rotate(0deg);
+}
+
+.exploreTwoLeft .dropdown-toggle::after {
+    display: none;
+}
+.exploreTwoLeft a.dropdown-item {
+    font-size: 1.6rem;
+    padding: .15rem 1.5rem;
+}
+
+.transAll {
+    text-align: center;
+    padding: 1rem 0;
+}
+
+.transAll a {
+    color: var(--primary-color);
+    font-size: 1.5rem;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+
+
+
+.exporeSumaary {
+    margin-top: 3rem;
+}
+.exporeSumaaryHead {}
+.exporeSumaaryHead h2 {
+    font-size: 2rem;
+    font-weight: 500;
+    margin-bottom: 1rem;
+}
+
+.exporeSumaaryHead p {
+    font-size: 1.4rem;
+    font-weight: 4500;
+}
+
+
+.sumaaryData {
+    margin-top: 3rem;
+}
+.exporeSumaaryData {
+}
+.exporeSumaaryData p {
+    text-align: right;
+}
+.exporeSumaaryData .table td {
+    font-size: 1.4rem;
+    padding: .75rem;
+    vertical-align: middle;
+    border-top: 0px solid #dee2e6;
+    color: var(--dark-color);
+}
+.transDate td {
+    font-size: 1.4rem;
+    font-weight: 400;
+    color: var(--dark-color);
+}
+.exporeSumaaryData p {
+    font-size: 1.4rem;
+    font-weight: 400;
+    color: var(--secondary-color);
+}
+
+.exporeSumaaryData span {
+    font-size: 1.4rem;
+    font-weight: 400;
+    color: var(--secondary-color);
+}
+.summryDiv {}
+.summryDiv a {
+    font-size: 1.4rem;
+    font-weight: 400;
+    color: var(--primary-color);
+}
+.summryDiv span {
+    font-size: 1.4rem;
+    padding: .5rem;
+    font-weight: 400;
+    color: var(--secondary-color);
+}
+
+
+.exporeSumaaryData .fa-caret-right {
+    font-size: 1.8rem;
+}
+.summrySuccess {
+    text-align: right;
+}
+.summrySuccess a {
+    background: #e9f5ee;
+    color: #219653;
+    font-size: 1.25rem;
+    font-weight: 500;
+    padding: .5rem 0.8rem;
+    width: auto;
+    border-radius: 6px;
+}
+.summrySuccess span {
+    display: block;
+    margin: .6rem 0 0;
+}
+
+
+
+.exporeDetail {
+    margin-top: 3rem;
+}
+.exporeDetailHead {}
+.exporeDetailHead h2 {
+    font-size: 2rem;
+    font-weight: 500;
+    margin-bottom: 1rem;
+}
+
+.detailData {
+    margin-top: 3rem;
+}
+.exporedetailData {
+}
+.exporedetailData .table th, .exporedetailData .table td {
+    color: var(--dark-color);
+    font-size: 1.4rem;
+    padding: .75rem;
+    vertical-align: middle;
+    border-top: 0px solid #dee2e6;
+}
+.exporedetailData .table th{
+    font-size: 1.2rem;
+    color: var(--secondary-color);
+}
+
+
+
+.exploreInputOuter {
+    margin-top: 3rem;
+}
+.exploreInputInn {
+    padding: 1.5rem 0rem;
+}
+.exploreInputData {}
+.pillExplore {
+    padding: 0 1.5rem 0rem;
+    border-bottom: 1px solid #f2f2f2;
+}
+
+.nav-pills.pillExplore .nav-link {
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: var(--dark-color);
+    display: block;
+    padding: 0rem 0rem 1.5rem;
+    margin-right: 2rem;
+    border-bottom: 2px solid transparent;
+}
+.nav-pills.pillExplore .nav-link.active, .nav-pills.pillExplore .show>.nav-link {
+    color: var(--secondary-color);
+    background-color: transparent;
+    border-bottom: 2px solid var(--primary-color);
+    border-radius: 0;
+}
+.exploreInputData .tab-content {
+    padding: 0 1.5rem;
+}
+.exploreInputData .table th, .exploreInputData .table td {
+    color: var(--dark-color);
+    font-size: 1.4rem;
+    padding: .75rem;
+    vertical-align: middle;
+    border-top: 0px solid #dee2e6;
+}
+.exploreInputData a {
+    color: var(--primary-color);
+    font-size: 1.4rem;
+}
+.exploreInputData span {
+    color: var(--secondary-color);
+    font-size: 1.4rem;
+}
+.exploreInputData span a {
+    color: var(--secondary-color);
+}
+
+
+
+/* ======================= explore 2 CSS exit ======================= */
+
 /* ======================= footer CSS start ======================= */
 footer {
     width: 100%;
@@ -1354,9 +1628,6 @@ footer {
 
 /* ======================= footer CSS exit ======================= */
 
-
-
-
 /*=== media query start ===*/
 
 
@@ -1410,6 +1681,25 @@ footer {
     position: relative;
     margin-right: 60px;
   }
+
+  .transRight h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+.transRight .success {
+   font-size: 1.4rem;
+    font-weight: 400;
+}
+.transRight .warning {
+   font-size: 1.4rem;
+    font-weight: 400;
+}
+.transLeft {
+    padding: 1rem;
+}
+
+
+
 }
 
 @media screen and (min-width: 768px) and (max-width: 991px) {
@@ -1508,6 +1798,30 @@ footer {
 .transaction p {
     margin: 1.4rem 0 1.88rem;
 }
+
+.transRight h3 {
+    font-size: 1.4rem;
+    font-weight: 600;
+}
+.transRight .success {
+   font-size: 1.4rem;
+    font-weight: 400;
+}
+.transRight .warning {
+   font-size: 1.4rem;
+    font-weight: 400;
+}
+.transLeft {
+    padding: 1rem;
+    margin-right: 1rem;
+}
+.transLeft .btn img {
+    max-width: 24px;
+}
+.transaction h4 {
+    font-size: 1.4rem;
+}
+
 
 }
 
@@ -1632,8 +1946,45 @@ footer {
     width: 80px;
 }
 
-
 /* sell funnel css exit */
+
+
+/* explore2 css start */
+.exporedetailData .table th, .exporedetailData .table td {
+    font-size: 1.2rem;
+}
+
+.exploreTwoLeft li a {
+    font-size: 1.8rem;
+}
+.exploreTwoSearch form .form-control {
+    font-size: 1.2em;
+}
+.exporeSumaaryData .table td {
+    font-size: 1.2rem;
+}
+.exporeSumaaryData span {
+    font-size: 1.2rem;
+}
+.summryDiv a {
+    font-size: 1.2rem;
+}
+
+.nav-pills.pillExplore .nav-link {
+    font-size: 1.5rem;
+}
+.exploreInputData .table th, .exploreInputData .table td {
+    font-size: 1.2rem;
+}
+.exploreInputData span {
+    font-size: 1.2rem;
+}
+.exploreInputData a {
+    font-size: 1.2rem;
+}
+
+
+/* explore2 css exit */
 
 
 .footlang {
@@ -1736,6 +2087,30 @@ footer {
 
 .bitRightTop h2 {
     font-size: 2.5rem;
+}
+
+
+.transRight h3 {
+    font-size: 1.4rem;
+    font-weight: 600;
+}
+.transRight .success {
+   font-size: 1.4rem;
+    font-weight: 400;
+}
+.transRight .warning {
+   font-size: 1.4rem;
+    font-weight: 400;
+}
+.transLeft {
+    padding: 1rem;
+    margin-right: 1rem;
+}
+.transLeft .btn img {
+    max-width: 24px;
+}
+.transaction h4 {
+    font-size: 1.4rem;
 }
 
 
@@ -1851,6 +2226,36 @@ footer {
 }
 
 
+.transBox {
+    display: flex;
+    flex-direction: column;
+}
+.transLeft {
+    padding: 1.2rem .5rem;
+    margin-right: 0rem;
+}
+.transaction h4 {
+    font-size: 1.2rem;
+}
+.transDate p {
+    font-size: 1.4rem;
+    font-weight: 300;
+    color: var(--dark-color);
+}
+.transRight h3 {
+    font-size: 1.4rem;
+    font-weight: 500;
+}
+
+.transLeft .btn img {
+    max-width: 20px;
+}
+
+.transRight .success {
+    font-size: 1.3rem;
+    font-weight: 400;
+    padding: .5rem .8rem;
+}
 
 
 footer {

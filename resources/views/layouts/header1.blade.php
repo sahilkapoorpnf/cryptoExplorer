@@ -3,7 +3,7 @@
 	<div class="container">
 		<div class="blackInner">
 			<div class="blackLogo">
-			<a href="#"><img src="{{ asset('images/xlogo.png') }}" align=""></a>
+			<a href="{{ asset('/') }}"><img src="{{ asset('images/xlogo.png') }}" align=""></a>
 			</div>
 			<div class="blackNav">
 				<div class="blackSelect">
