@@ -100,13 +100,9 @@
 						<div class="footlang">
 							<span>Language:</span>
 							<div class="form-group">
-							    <select class="form-control" id="exampleFormControlSelect1">
-							      <option selected>English</option>
-							      <option>English 1</option>
-							      <option>English 2</option>
-							      <option>English 3</option>
-							      <option>English 4</option>
-							    </select>
+
+							    {{ Widget::language() }}
+							    
 							</div>
 						</div>			
 					</div>
@@ -114,7 +110,7 @@
 				<div class="row">
 					<div class="col-md-12">
 						<div class="footerPara">
-							<p>Xcoins is property of CF Technologies Ltd - Company lorem ipsum  lorem ipsum  lorem ipsum  lorem ipsum lorem ipsum  lorem ipsum  lorem ipsum  lorem ipsum  lorem ipsum lorem ipsum  lorem ipsum  lorem ipsum  </p>
+							<p>Xcoins Explorer</p>
 						</div>
 					</div>
 				</div>
@@ -126,7 +122,7 @@
 		<!-- <script src="{{ asset('js/bootstrap.min.js') }}"></script> -->
 		
 		<script src="{{ asset('/js/app.js') }}"></script>
-		<script type="text/javascript">
+		<script>
 		    $(document).on('change', '#c_currency', function(){
 		        var coinCurrency = $(this).val();
 		        $.ajax({
@@ -139,6 +135,22 @@
 		            }
 		        });
 		    })
+		</script>
+		<script>
+		function copyToClipboard(element) {
+	    	var $temp = $("<input>");
+		  	$("body").append($temp);
+		  	$temp.val($(element).text()).select();
+		  	document.execCommand("copy");
+		  	$temp.remove();
+		  	var tooltip = document.getElementById("myTooltip");
+		  	tooltip.innerHTML = "Copied";
+		}
+
+		function outFunc() {
+		  	var tooltip = document.getElementById("myTooltip");
+		  	tooltip.innerHTML = "Copy Hash";
+		}
 		</script>
 
 		@stack('js')

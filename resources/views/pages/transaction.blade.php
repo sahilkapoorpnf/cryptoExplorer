@@ -13,16 +13,10 @@
                     <div class="exploreTwoLeft">
                         <ul class="nav nav-pills">
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Bitcoin explorer</a>
+                                <a class="nav-link" href="javascript:void(0);">Bitcoin explorer</a>
                             </li>
                             <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">{{ __('messages.transaction') }}</a>
-                                <div class="dropdown-menu">
-                                    <a class="dropdown-item" href="#">Transacton 1</a>
-                                    <a class="dropdown-item" href="#">Transacton 2</a>
-                                    <a class="dropdown-item" href="#">Transacton 3</a>
-                                    <a class="dropdown-item" href="#">Transacton 4</a>
-                                </div>
+                                <a class="nav-link dropdown-toggle" href="javascript:void(0);">{{ __('messages.transaction') }}</a>
                             </li>
                         </ul>
                     </div>
@@ -57,16 +51,20 @@
                         <div class="exporeSumaaryData">
                             <div class="table-responsive">
                                 <table class="table">
-                                    <?php
-                                    // dd($data);
-                                    ?>
                                     <tbody>
                                         <tr>
                                             <td>
                                                 Hash
                                             </td>
                                             <td>
-                                                <span>{{ $data->txid }} <a href="#"><i class="fas fa-folder"></i></a></span>
+                                                <span id="copy_tx">{{ $data->txid }}</span>
+                                                <!-- <a href="javascript:void(0);" data-placement="bottom" data-toggle="tooltip" id="copy-button" onclick="copyToClipboard('#copy_tx')" onmouseout="outFunc()" title="Copy Hash"><i class="far fa-copy"></i></a> -->
+                                                <div class="Tooltip">
+                                                    <a href="javascript:void(0);" onclick="copyToClipboard('#copy_tx')" onmouseout="outFunc()">
+                                                        <span class="tooltiptext" id="myTooltip">Copy Hash</span>
+                                                        <i class="far fa-copy"></i>
+                                                    </a>
+                                                </div>
                                             </td>
                                             <td colspan="2">
                                                 <p>{{ date('Y-m-d', $data->time) }} <span>{{ date('H:i', $data->time) }}</span></p>
@@ -86,7 +84,7 @@
                                                     @endif
 
                                                     <span>{!! $item->value !!} {{ Helper::network() }}</span>
-                                                    <a href="#"><i class="fas fa-globe"></i></a>
+                                                    <a href="javascript:void(0);"><i class="fas fa-globe"></i></a>
                                                 </div>
                                                 @endforeach
 
@@ -104,7 +102,7 @@
                                                     @endif
 
                                                     <span>{!! $item->value !!} {{ Helper::network() }}</span>
-                                                    <a href="#"><i class="fas fa-globe"></i></a>
+                                                    <a href="javascript:void(0);"><i class="fas fa-globe"></i></a>
                                                 </div>
                                                 @endforeach
                                                
@@ -120,7 +118,7 @@
                                             </td>
                                             <td>
                                                 <div class="summrySuccess">
-                                                    <a href="#">{{ $data->sent_value }} {{ Helper::network() }}</a>
+                                                    <a href="javascript:void(0);">{{ $data->sent_value }} {{ Helper::network() }}</a>
                                                     @if($data->confirmations > 0)
                                                     <span>Confirmed</span>
                                                     @else
@@ -157,7 +155,12 @@
                                     <tbody>
                                         <tr>
                                             <td> Status</td>
+                                            @if($data->confirmations > 0)
                                             <th scope="row">Confirmed</th>
+                                            @else
+                                            <th scope="row">Unconfirmed</th>
+                                            @endif
+
                                             <td> Confirmation</td>
                                             <th scope="row">{{ $data->confirmations }}</th>
                                             <td> Free per byte</td>
@@ -190,7 +193,7 @@
                                             <td> {{ __('messages.fees') }}</td>
                                             <th scope="row">{{ $data->fee }} {{ Helper::network() }}</th>
                                             <td> Included in Block</td>
-                                            <th scope="row"><a href="#">{{ isset($data->block_no) ? $data->block_no : 'Unassigned'}}</a></th>
+                                            <th scope="row"><a href="javascript:void(0);">{{ isset($data->block_no) ? $data->block_no : 'Unassigned'}}</a></th>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -224,16 +227,16 @@
                                                 <tr>
                                                     <td> Index</td>
                                                     <td> <span>{{ $item->input_no }}</span></td>
-                                                    <td> Details <a href="#">Output</a></td>
+                                                    <td> Details <a href="javascript:void(0);">Output</a></td>
                                                 </tr>
                                                 <tr>
                                                     <td> Address</td>
-                                                    <td> <a href="javascript:void(0);">{{ $item->address }} <i class="fas fa-folder"></i></a></td>
-                                                    <td> Value <a href="#">{!! $item->value !!} {{ Helper::network() }}</a></td>
+                                                    <td> <a href="javascript:void(0);">{{ $item->address }} <i class="far fa-copy"></i></a></td>
+                                                    <td> Value <a href="javascript:void(0);">{!! $item->value !!} {{ Helper::network() }}</a></td>
                                                 </tr>
                                                 <tr>
                                                     <td> Pkscript</td>
-                                                    <td> <span><a href="#">OP_DUP <br>
+                                                    <td class="witnesMore"> <span><a href="javascript:void(0);">OP_DUP <br>
                                                         OP_HASH160 <br>
                                                         0b8b904c7a25f462ce80b6a134c3df2ed239e151 <br>
                                                         OP_EQUALVERIFY <br>
@@ -243,7 +246,7 @@
                                                 </tr>
                                                 <tr>
                                                     <td> Sigscript</td>
-                                                    <td> <span><a href="#">3044022069ad23a3cdcfe1db58cefe40b93005d880927b4404bed4d53a14d25de03db6e80220 <br>
+                                                    <td class="witnesMore"> <span><a href="javascript:void(0);">3044022069ad23a3cdcfe1db58cefe40b93005d880927b4404bed4d53a14d25de03db6e80220 <br>
                                                         0f5c12efad830942df8334debca8f68d062eef6ef9d1e1567181494b99a9764d01 <br>
                                                         0f5c12efad830942df8334debca8f68d062eef6ef9d1e1567181494b99a9764d01
                                                     </a></span></td>
@@ -251,10 +254,10 @@
                                                 </tr>
                                                 <tr>
                                                     <td> Witness</td>
-                                                    <td> <span>
+                                                    <td class="witnesMore"> <span>
                                                         @if($item->witness)
                                                         @foreach($item->witness as $w)
-                                                            <a href="#">{{ $w }}</a></br>
+                                                            <a href="javascript:void(0);">{{ $w }}</a></br>
                                                         @endforeach
                                                         @else
                                                         <span>Null</span>
@@ -279,15 +282,15 @@
                                                 </tr>
                                                 <tr>
                                                     <td> Address</td>
-                                                    <td> <a href="#">{{ $item->address }} <i class="fas fa-folder"></i></a></td>
-                                                    <td> Value <a href="#">{!! $item->value !!} {{ Helper::network() }}</a></td>
+                                                    <td> <a href="javascript:void(0);">{{ $item->address }} <i class="far fa-copy"></i></a></td>
+                                                    <td> Value <a href="javascript:void(0);">{!! $item->value !!} {{ Helper::network() }}</a></td>
                                                 </tr>
                                                 <tr>
                                                     <td> Pkscript</td>
-                                                    <td> <span>
+                                                    <td class="witnesMore"> <span>
                                                         <?php  $res = explode(" ", $item->script_asm); ?>
                                                         @foreach($res as $r)
-                                                            <a href="#">{{ $r }}</a></br>
+                                                            <a href="javascript:void(0);">{{ $r }}</a></br>
                                                         @endforeach
 
                                                     </span></td>
@@ -295,7 +298,7 @@
                                                 </tr>
                                                 <tr>
                                                     <td> Sigscript</td>
-                                                    <td> <span><a href="#">3044022069ad23a3cdcfe1db58cefe40b93005d880927b4404bed4d53a14d25de03db6e80220 <br>
+                                                    <td class="witnesMore"> <span><a href="javascript:void(0);">3044022069ad23a3cdcfe1db58cefe40b93005d880927b4404bed4d53a14d25de03db6e80220 <br>
                                                         0f5c12efad830942df8334debca8f68d062eef6ef9d1e1567181494b99a9764d01 <br>
                                                         0f5c12efad830942df8334debca8f68d062eef6ef9d1e1567181494b99a9764d01
                                                     </a></span></td>
