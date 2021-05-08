@@ -4,6 +4,7 @@ return [
     // 'network' => 'BTC',
     'main' => [
         'show_transactions' => 10,
+        'show_blocks' => 10,
     ],
     'logo' => null,
     'language' => 'en',

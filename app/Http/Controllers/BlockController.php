@@ -15,7 +15,6 @@ class BlockController extends Controller
         } else {
             $from = 'api';
             $client = new Client();
-            /*$url = sprintf('https://chain.so/api/v2/block/%s/%s', config('settings.network'), $id);*/
             $url = sprintf('https://chain.so/api/v2/block/%s/%s', Helper::network(), $id);
             try {
                 $response = $client->request('GET', $url);

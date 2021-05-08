@@ -8,21 +8,14 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 		<meta name="description" content="{{ __('messages.meta_description') }}" />
 		<meta name="keywords" content="{{ __('messages.meta_keywords') }}" />
-		<link rel="shortcut icon" href="{{ asset('images/logoIcon.png') }}">
-
-		<!--Open Graph tags-->
-		<!-- <meta property="og:url" content="{{ url()->full() }}" /> -->
-		<!-- <meta property="og:type" content="article" /> -->
-		<!-- <meta property="og:title" content="{{ __('messages.app_name_full', ['network' => Helper::network()]) }}" /> -->
-		<!-- <meta property="og:description" content="{{ __('messages.meta_description') }}" /> -->
 		<meta property="og:image" content="{{ asset('images/BTC-og-image.jpg') }}" />
-		<!--END Open Graph tags-->
-
+		<link rel="shortcut icon" href="{{ asset('images/logoIcon.png') }}">
 		<link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
 		<link rel="stylesheet" href="{{ asset('css/style.css') }}">
 		<script>
 		    window.show_transactions_on_main = 1 * '{{ config('settings.main.show_transactions', 10) }}';
+		    window.show_blocks_on_main = 1 * '{{ config('settings.main.show_blocks', 10) }}';
 		    window.network = '{{ Helper::network() }}';
 		    window.locale_path = '{{ LaravelLocalization::getCurrentLocale() == config('settings.language') ? '/' : '/' . LaravelLocalization::getCurrentLocale() . '/' }}'
 		</script>
@@ -119,9 +112,11 @@
 		<!-- footer section exit -->
 		<script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
 		<script src="{{ asset('js/popper.min.js') }}"></script>
-		<!-- <script src="{{ asset('js/bootstrap.min.js') }}"></script> -->
+		<script src="{{ asset('js/bootstrap.min.js') }}"></script>
 		
-		<script src="{{ asset('/js/app.js') }}"></script>
+		<!-- <script src="{{ asset('/js/app.js') }}"></script> -->
+		<script src="{{ asset('/js/pusher.min.js') }}"></script>
+
 		<script>
 		    $(document).on('change', '#c_currency', function(){
 		        var coinCurrency = $(this).val();
@@ -136,6 +131,7 @@
 		        });
 		    })
 		</script>
+		<!-- Hash script start -->
 		<script>
 		function copyToClipboard(element) {
 	    	var $temp = $("<input>");
@@ -152,6 +148,45 @@
 		  	tooltip.innerHTML = "Copy Hash";
 		}
 		</script>
+		<!-- Hash script end -->
+
+		<!-- Input script start -->
+		<script>
+			function copyToClipboardAddress(element, id) {
+		    	var $temp = $("<input>");
+			  	$("body").append($temp);
+			  	$temp.val($(element).text()).select();
+			  	document.execCommand("copy");
+			  	$temp.remove();
+			  	var tooltip = document.getElementById("myTooltip_" + id);
+			  	tooltip.innerHTML = "Copied";
+			}
+
+			function outFunction(id) {
+			  	var tooltip = document.getElementById("myTooltip_" + id);
+			  	tooltip.innerHTML = "Copy Address";
+			}
+		</script>
+		<!-- Input script end -->
+
+		<!-- Output script start -->
+		<script>
+			function copyToClipboardAddressOutput(element, id) {
+		    	var $temp = $("<input>");
+			  	$("body").append($temp);
+			  	$temp.val($(element).text()).select();
+			  	document.execCommand("copy");
+			  	$temp.remove();
+			  	var tooltip = document.getElementById("myTooltips_" + id);
+			  	tooltip.innerHTML = "Copied";
+			}
+
+			function outFunctionOutput(id) {
+			  	var tooltip = document.getElementById("myTooltips_" + id);
+			  	tooltip.innerHTML = "Copy Address";
+			}
+		</script>
+		<!-- Output script end -->
 
 		@stack('js')
 		

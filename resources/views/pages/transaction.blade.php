@@ -1,9 +1,5 @@
 @extends('layouts.app1')
 
-@section('title')
-    {{ __('messages.transaction') }} {{ $data->txid }}
-@endsection
-
 @section('content')
 <div class="exploreTwoStart">
     <div class="exploreTwoTop">
@@ -231,7 +227,17 @@
                                                 </tr>
                                                 <tr>
                                                     <td> Address</td>
-                                                    <td> <a href="javascript:void(0);">{{ $item->address }} <i class="far fa-copy"></i></a></td>
+                                                    <td> 
+                                                        <span id="copy_address_{{ $item->input_no }}" class="textBlue">{{ $item->address }}</span>
+                                                        <!-- <a href="javascript:void(0);">{{ $item->address }} <i class="far fa-copy"></i></a> -->
+                                                        <div class="Tooltip">
+                                                            <a href="javascript:void(0);" onclick="copyToClipboardAddress('#copy_address_{{ $item->input_no }}', '{{ $item->input_no }}')" onmouseout="outFunction('{{ $item->input_no }}')">
+                                                                <span class="tooltiptext" id="myTooltip_{{ $item->input_no }}">Copy Address</span>
+                                                                <i class="far fa-copy"></i>
+                                                            </a>
+                                                        </div>
+
+                                                    </td>
                                                     <td> Value <a href="javascript:void(0);">{!! $item->value !!} {{ Helper::network() }}</a></td>
                                                 </tr>
                                                 <tr>
@@ -282,7 +288,16 @@
                                                 </tr>
                                                 <tr>
                                                     <td> Address</td>
-                                                    <td> <a href="javascript:void(0);">{{ $item->address }} <i class="far fa-copy"></i></a></td>
+                                                    <td> 
+                                                        <span id="copy_address_output_{{ $item->output_no }}" class="textBlue">{{ $item->address }}</span>
+                                                        <!-- <a href="javascript:void(0);">{{ $item->address }} <i class="far fa-copy"></i></a> -->
+                                                        <div class="Tooltip">
+                                                            <a href="javascript:void(0);" onclick="copyToClipboardAddressOutput('#copy_address_output_{{ $item->output_no }}', '{{ $item->output_no }}')" onmouseout="outFunctionOutput('{{ $item->output_no }}')">
+                                                                <span class="tooltiptext" id="myTooltips_{{ $item->output_no }}">Copy Address</span>
+                                                                <i class="far fa-copy"></i>
+                                                            </a>
+                                                        </div>
+                                                    </td>
                                                     <td> Value <a href="javascript:void(0);">{!! $item->value !!} {{ Helper::network() }}</a></td>
                                                 </tr>
                                                 <tr>

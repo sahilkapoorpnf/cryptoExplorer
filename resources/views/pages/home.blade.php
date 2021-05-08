@@ -101,7 +101,7 @@
                     </div>
                     <div class="bitRightTop">
                         <h2>Latest blocks</h2>
-                        <button class="btn">All transactions <i class="fas fa-arrow-right"></i></button>
+                        <button class="btn">All blocks <i class="fas fa-arrow-right"></i></button>
                     </div>
                     <div class="bitRightData">
                         <div class="table-responsive">
