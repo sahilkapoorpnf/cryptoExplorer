@@ -46,4 +46,8 @@ return [
   'transactions' => 'Transactions',
   'version' => 'Version',
   'view_last_block' => 'View last block',
+  'explorer' => 'Explorer',
+  'hash' => 'Hash',
+  'time' => 'Time',
+  'latest_block' => 'Latest blocks',
 ];

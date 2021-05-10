@@ -44,4 +44,8 @@
   'transactions' => 'Sandoriai',
   'version' => 'Versija',
   'view_last_block' => 'Peržiūrėti paskutinis blokas',
+  'explorer' => 'Tyrinėtojas',
+  'hash' => 'Maišos',
+  'time' => 'Laikas',
+  'latest_block' => 'Naujausi blokai',
 ];

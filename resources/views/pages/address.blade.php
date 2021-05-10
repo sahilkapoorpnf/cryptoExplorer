@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.app1')
 
 @section('title')
     {{ __('messages.address') }} {{ $data->address }}
@@ -10,7 +10,6 @@
             <div class="col-md-12">
                 <h1>{{ __('messages.address') }}</h1>
                 <h4 class="text-secondary">{{ $data->address }}</h4>
-
                 <div class="card-group mt-4">
                     <div class="card">
                         <div class="card-body">
@@ -29,13 +28,6 @@
                             <h4 class="card-title text-center text-uppercase">{{ __('messages.balance') }}</h4>
                             <p class="card-text text-center">{{ $data->balance }} {{ Helper::network() }}</p>
                         </div>
-                    </div>
-                </div>
-
-                <div class="row mt-4">
-                    <div class="col">
-                        <h2>{{ __('messages.balance_history') }}</h2>
-                        <div class="sparkline" values="@foreach($history as $item) {{ $item->time }}:{{ $item->value }}@if(!$loop->last),@endif @endforeach" style="width: 100%;height:400px;"></div>
                     </div>
                 </div>
 
@@ -72,33 +64,3 @@
     </div>
 @endsection
 
-@push('js')
-    <script type="text/javascript">
-        var color = $('#navbar-header').css('backgroundColor');
-        $('.sparkline').sparkline('html', {
-            type: 'line',
-            lineColor: color,
-            fillColor: shade(color, 40),
-            highlightLineColor: color,
-            lineWidth: 2,
-            spotRadius: 0,
-            width: '100%',
-            height: '400px',
-            tooltipPrefix: ' {{ Helper::network() }} ',
-            tooltipSuffix: ' @ ',
-            tooltipFormat: '@{{prefix}}@{{y}}@{{suffix}}@{{x}}',
-            numberFormatter: function (v) {
-                return v < 1000000000 ? v : moment.unix(v).format('ll');
-            }
-        });
-
-        function shade(color, amount) {
-            var regex = /rgb\((\d{1,3}), (\d{1,3}), (\d{1,3})\)/;
-            var matches = regex.exec(color);
-            var red = Math.min(255, parseInt(matches[1]*(1+amount/100)));
-            var green = Math.min(255, parseInt(matches[2]*(1+amount/100)));
-            var blue = Math.min(255, parseInt(matches[3]*(1+amount/100)));
-            return 'rgb('+red+','+green+','+blue+')';
-        }
-    </script>
-@endpush

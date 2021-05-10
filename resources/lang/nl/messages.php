@@ -44,4 +44,8 @@
   'transactions' => 'Transacties',
   'version' => 'Versie',
   'view_last_block' => 'Bekijk het laatste blok',
+  'explorer' => 'Ontdekkingsreiziger',
+  'hash' => 'Hash',
+  'time' => 'Tijd',
+  'latest_block' => 'Nieuwste blokken',
 ];

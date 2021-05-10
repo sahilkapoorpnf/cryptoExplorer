@@ -7,7 +7,7 @@
             <div class="col-lg-6 col-md-12">
                 <div class="exploreBitLeft">
                     <div class="bitSelect">
-                        <span>Explore</span>
+                        <span>{{ __('messages.explorer') }}</span>
                         <div class="form-group">
                             <?php
                             $BTCSelected = ''; 
@@ -21,7 +21,7 @@
                                 $BTCSelected = 'selected';
                             }
                             ?>
-                            <select class="form-control" name="crypto_currency" id="c_currency">
+                            <select class="form-control people" name="crypto_currency" id="c_currency">
                                 <option value="BTC" <?php echo $BTCSelected; ?> >Bitcoin</option>
                                 <option value="LTC" <?php echo $LTCSelected; ?> >Litecoin</option>
                                 <option value="DOGE" <?php echo $DOGESelected; ?> >Dogecoin</option>
@@ -29,7 +29,16 @@
                         </div>
                     </div>
                     <div class="bitCoin">
-                        <p>Blockchain information for Bitchoin (BTC) including historical prices, the most recently mined blociks, and data for the latest transactions.</p>
+                        <p>Blockchain information for 
+                        @if(Helper::network() == "LTC")
+                            Litecoin
+                        @elseif(Helper::network() == "DOGE")
+                            Dogecoin
+                        @else
+                            Bitcoin
+                        @endif 
+
+                        ({{ Helper::network() }}) including historical prices, the most recently mined blociks, and data for the latest transactions.</p>
                     </div>
                     <div class="bitCoinSearch">
                         <form action="{{ LaravelLocalization::getLocalizedURL(LaravelLocalization::getCurrentLocale(), '/search') }}">
@@ -54,7 +63,7 @@
                             </div>
                             <div class="col-lg-4 col-md-4 col-sm-12">
                                 <div class="bitPriceTxt">
-                                    <span>Transaction</span>
+                                    <span>{{ __('messages.transaction') }}</span>
                                     <h3>$50,865.64</h3>
                                 </div>
                             </div>
@@ -85,9 +94,9 @@
                             <table class="table">
                                 <thead>
                                     <tr>
-                                        <th scope="col">Hash</th>
-                                        <th scope="col">Time</th>
-                                        <th scope="col">Amount</th>
+                                        <th scope="col">{{ __('messages.hash') }}</th>
+                                        <th scope="col">{{ __('messages.time') }}</th>
+                                        <th scope="col">{{ __('messages.amount') }}</th>
                                     </tr>
                                 </thead>
                                 <tbody id="tbl-transactions">
@@ -100,7 +109,7 @@
                         <hr>
                     </div>
                     <div class="bitRightTop">
-                        <h2>Latest blocks</h2>
+                        <h2>{{ __('messages.latest_block') }}</h2>
                         <button class="btn">All blocks <i class="fas fa-arrow-right"></i></button>
                     </div>
                     <div class="bitRightData">
@@ -108,10 +117,10 @@
                             <table class="table">
                                 <thead>
                                     <tr>
-                                        <th scope="col">Hash</th>
-                                        <th scope="col">Time</th>
-                                        <th scope="col">Transactions</th>
-                                        <th scope="col">Miner</th>
+                                        <th scope="col">{{ __('messages.hash') }}</th>
+                                        <th scope="col">{{ __('messages.time') }}</th>
+                                        <th scope="col">{{ __('messages.transaction') }}</th>
+                                        <th scope="col">{{ __('messages.miner') }}</th>
                                     </tr>
                                 </thead>
                                 <tbody id="tb2-blocks">

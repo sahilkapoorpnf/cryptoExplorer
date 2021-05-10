@@ -33,6 +33,7 @@ Route::prefix(LaravelLocalization::setLocale())->name('front.')->middleware('ins
     Route::get('{currency}/transactions/{id}', 'TransactionController@index')->name('transaction');
     Route::get('page/{slug}', 'PageController@display');
     Route::get('crypto-currency/{code}', 'HomeController@cryptoCurrency');
+    Route::get('dashboard', 'DashboardController@index')->middleware(['auth'])->name('dashboard');
 });
 
 /* Backend */

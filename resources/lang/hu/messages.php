@@ -44,4 +44,8 @@
   'transactions' => 'Tranzakciók',
   'version' => 'Változat',
   'view_last_block' => 'Nézet utolsó blokk',
+  'explorer' => 'Felfedező',
+  'hash' => 'Hash',
+  'time' => 'Idő',
+  'latest_block' => 'Legújabb blokkok',
 ];

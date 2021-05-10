@@ -44,4 +44,8 @@
   'transactions' => 'Darījumi',
   'version' => 'Versija',
   'view_last_block' => 'Apskatīt pēdējā grupu',
+  'explorer' => 'Pētnieks',
+  'hash' => 'Hash',
+  'time' => 'Laiks',
+  'latest_block' => 'Jaunākie bloki',
 ];

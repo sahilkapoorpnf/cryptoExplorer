@@ -44,4 +44,8 @@
   'transactions' => 'Tehingud',
   'version' => 'Versioon',
   'view_last_block' => 'Vaata viimast plokk',
+  'explorer' => 'Maadeavastaja',
+  'hash' => 'Hash',
+  'time' => 'Aeg',
+  'latest_block' => 'Viimased plokid',
 ];

@@ -9,7 +9,17 @@
                     <div class="exploreTwoLeft">
                         <ul class="nav nav-pills">
                             <li class="nav-item">
-                                <a class="nav-link" href="javascript:void(0);">Bitcoin explorer</a>
+                                <a class="nav-link" href="javascript:void(0);">
+                                @if(Helper::network() == "LTC")
+                                    Litecoin
+                                @elseif(Helper::network() == "DOGE")
+                                    Dogecoin
+                                @else
+                                    Bitcoin
+                                @endif 
+                                
+                                explorer
+                            </a>
                             </li>
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="javascript:void(0);">{{ __('messages.transaction') }}</a>
@@ -50,11 +60,10 @@
                                     <tbody>
                                         <tr>
                                             <td>
-                                                Hash
+                                                {{ __('messages.hash') }}
                                             </td>
                                             <td>
                                                 <span id="copy_tx">{{ $data->txid }}</span>
-                                                <!-- <a href="javascript:void(0);" data-placement="bottom" data-toggle="tooltip" id="copy-button" onclick="copyToClipboard('#copy_tx')" onmouseout="outFunc()" title="Copy Hash"><i class="far fa-copy"></i></a> -->
                                                 <div class="Tooltip">
                                                     <a href="javascript:void(0);" onclick="copyToClipboard('#copy_tx')" onmouseout="outFunc()">
                                                         <span class="tooltiptext" id="myTooltip">Copy Hash</span>
@@ -106,7 +115,7 @@
                                         </tr>
                                         <tr>
                                             <td>
-                                                {{ __('messages.fees') }}
+                                                {{ __('messages.fee') }}
                                             </td>
                                             <td colspan="2">
                                                 <span>{{ $data->fee }} {{ Helper::network() }}</span> <br>
@@ -157,7 +166,7 @@
                                             <th scope="row">Unconfirmed</th>
                                             @endif
 
-                                            <td> Confirmation</td>
+                                            <td> {{ __('messages.confirmations') }}</td>
                                             <th scope="row">{{ $data->confirmations }}</th>
                                             <td> Free per byte</td>
                                             <th scope="row">19.442 sat/B</th>
@@ -186,7 +195,7 @@
                                         <tr>
                                             <td> Wight</td>
                                             <th scope="row">2,436...</th>
-                                            <td> {{ __('messages.fees') }}</td>
+                                            <td> {{ __('messages.fee') }}</td>
                                             <th scope="row">{{ $data->fee }} {{ Helper::network() }}</th>
                                             <td> Included in Block</td>
                                             <th scope="row"><a href="javascript:void(0);">{{ isset($data->block_no) ? $data->block_no : 'Unassigned'}}</a></th>
@@ -226,17 +235,15 @@
                                                     <td> Details <a href="javascript:void(0);">Output</a></td>
                                                 </tr>
                                                 <tr>
-                                                    <td> Address</td>
+                                                    <td> {{ __('messages.address') }}</td>
                                                     <td> 
                                                         <span id="copy_address_{{ $item->input_no }}" class="textBlue">{{ $item->address }}</span>
-                                                        <!-- <a href="javascript:void(0);">{{ $item->address }} <i class="far fa-copy"></i></a> -->
                                                         <div class="Tooltip">
                                                             <a href="javascript:void(0);" onclick="copyToClipboardAddress('#copy_address_{{ $item->input_no }}', '{{ $item->input_no }}')" onmouseout="outFunction('{{ $item->input_no }}')">
                                                                 <span class="tooltiptext" id="myTooltip_{{ $item->input_no }}">Copy Address</span>
                                                                 <i class="far fa-copy"></i>
                                                             </a>
                                                         </div>
-
                                                     </td>
                                                     <td> Value <a href="javascript:void(0);">{!! $item->value !!} {{ Helper::network() }}</a></td>
                                                 </tr>
@@ -287,10 +294,9 @@
                                                     <td> <span>{{ $item->output_no }}</span></td>
                                                 </tr>
                                                 <tr>
-                                                    <td> Address</td>
+                                                    <td> {{ __('messages.address') }}</td>
                                                     <td> 
                                                         <span id="copy_address_output_{{ $item->output_no }}" class="textBlue">{{ $item->address }}</span>
-                                                        <!-- <a href="javascript:void(0);">{{ $item->address }} <i class="far fa-copy"></i></a> -->
                                                         <div class="Tooltip">
                                                             <a href="javascript:void(0);" onclick="copyToClipboardAddressOutput('#copy_address_output_{{ $item->output_no }}', '{{ $item->output_no }}')" onmouseout="outFunctionOutput('{{ $item->output_no }}')">
                                                                 <span class="tooltiptext" id="myTooltips_{{ $item->output_no }}">Copy Address</span>

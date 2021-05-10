@@ -44,4 +44,8 @@
   'transactions' => 'Tapahtumat',
   'version' => 'Versio',
   'view_last_block' => 'Näytä viimeisin lohkon',
+  'explorer' => 'Tutkimusmatkailija',
+  'hash' => 'Hash',
+  'time' => 'Aika',
+  'latest_block' => 'Viimeisimmät lohkot',
 ];

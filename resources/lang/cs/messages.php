@@ -44,4 +44,8 @@
   'transactions' => 'Transakce',
   'version' => 'Verze',
   'view_last_block' => 'Zobrazit poslední blok',
+  'explorer' => 'Badacz',
+  'hash' => 'Hasz',
+  'time' => 'Godzina',
+  'latest_block' => 'Najnowsze bloki',
 ];

@@ -162,9 +162,13 @@
 			  	tooltip.innerHTML = "Copied";
 			}
 
-			function outFunction(id) {
+			function outFunction(id, block = null) {
 			  	var tooltip = document.getElementById("myTooltip_" + id);
-			  	tooltip.innerHTML = "Copy Address";
+			  	if(block === 'block'){
+			  		tooltip.innerHTML = "Copy Hash";
+			  	} else{
+			  		tooltip.innerHTML = "Copy Address";
+			  	}
 			}
 		</script>
 		<!-- Input script end -->

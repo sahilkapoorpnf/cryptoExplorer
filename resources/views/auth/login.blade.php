@@ -85,6 +85,9 @@
                                     <div class="mt-4 text-center">
                                         <a href="#"><i class="mdi mdi-lock mr-1"></i>Forgot your password?</a>
                                     </div>
+                                    <div class="mt-4 text-center">
+                                        <a href="{{ asset('/') }}"><i class="mdi mdi-lock mr-1"></i>Back!</a>
+                                    </div>
                                 </div>
                             </div>
                         </div>

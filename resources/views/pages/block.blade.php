@@ -9,7 +9,17 @@
                     <div class="exploreTwoLeft">
                         <ul class="nav nav-pills">
                             <li class="nav-item">
-                                <a class="nav-link" href="javascript:void(0);">Bitcoin explorer</a>
+                                <a class="nav-link" href="javascript:void(0);">
+                                @if(Helper::network() == "LTC")
+                                    Litecoin
+                                @elseif(Helper::network() == "DOGE")
+                                    Dogecoin
+                                @else
+                                    Bitcoin
+                                @endif
+                                 
+                                explorer
+                            </a>
                             </li>
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="javascript:void(0);">{{ __('messages.transaction') }}</a>
@@ -49,11 +59,19 @@
                                 <table class="table">
                                     <tbody>
                                         <tr>
-                                            <td> Hash</td>
-                                            <th class="witnesMore" scope="row"><span>{{ $data->blockhash }} <a href="javascript:void(0);"><i class="far fa-folder"></i></a></span></th>
+                                            <td> {{ __('messages.hash') }}</td>
+                                            <th class="witnesMore" scope="row">
+                                                <span id="copy_tx">{{ $data->blockhash }}</span>
+                                                <div class="Tooltip">
+                                                    <a href="javascript:void(0);" onclick="copyToClipboard('#copy_tx')" onmouseout="outFunc()">
+                                                        <span class="tooltiptext" id="myTooltip">Copy Hash</span>
+                                                        <i class="far fa-copy"></i>
+                                                    </a>
+                                                </div>
+                                            </th>
                                         </tr>
                                         <tr>
-                                            <td> Confirmation</td>
+                                            <td> {{ __('messages.confirmations') }}</td>
                                             <th scope="row">{{ $data->confirmations }}</th>
                                         </tr>
                                         <tr>
@@ -109,7 +127,7 @@
                                             <th scope="row">62.2500000 BTC s</th>
                                         </tr>
                                         <tr>
-                                            <td> {{ __('messages.fees') }}</td>
+                                            <td> {{ __('messages.fee') }}</td>
                                             <th scope="row">{{ $data->fee }} {{ Helper::network() }}</th>
                                         </tr>
                                     </tbody>
@@ -128,22 +146,6 @@
                     <div class="blockLeft">
                         <h2>Block Transactions</h2>
                     </div>
-                    <!-- <div class="blockRight d-none d-sm-block">
-                        <nav aria-label="...">
-                            <ul class="pagination pagination-lg">
-                                <li class="page-item active" aria-current="page">
-                                    <span class="page-link">1</span>
-                                </li>
-                                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                <li class="page-item"><a class="page-link" href="#">4</a></li>
-                                <li class="page-item"><a class="page-link" href="#">5</a></li>
-                                <li class="page-item"><a class="page-link" href="#">
-                                    <i class="fas fa-chevron-right"></i></a>
-                                </li>
-                            </ul>
-                        </nav>
-                    </div> -->
                 </div>
                 <div class="row">
                     <div class="col-md-12">
@@ -151,13 +153,20 @@
                             <div class="table-responsive">
                                 <table class="table">
                                     <tbody>
-                                        @foreach($data->txs as $transaction)
+                                        @foreach($data->txs as $k => $transaction)
                                             <tr>
                                                 <td>
-                                                    Hash
+                                                    {{ __('messages.hash') }}
                                                 </td>
                                                 <td>
-                                                    <span>{{ $transaction->txid }} <a href="javascript:void(0);"><i class="far fa-folder"></i></a></span>
+                                                    <span id="copy_address_{{ $k }}">{{ $transaction->txid }}</span>
+                                                    <div class="Tooltip">
+                                                        <a href="javascript:void(0);" onclick="copyToClipboardAddress('#copy_address_{{ $k }}', '{{ $k }}')" onmouseout="outFunction('{{ $k }}', 'block')">
+                                                            <span class="tooltiptext" id="myTooltip_{{ $k }}">Copy Hash</span>
+                                                            <i class="far fa-copy"></i>
+                                                        </a>
+                                                    </div>
+                                                    
                                                 </td>
                                                 <td colspan="2">
                                                     <p>2021-04-24 <span>22:35</span></p>
@@ -200,7 +209,7 @@
                                             </tr>
                                             <tr>
                                                 <td>
-                                                    Fee
+                                                    {{ __('messages.fee') }}
                                                 </td>
                                                 <td colspan="2">
                                                     <span>{{ $transaction->fee }} {{ Helper::network() }}</span> <br>

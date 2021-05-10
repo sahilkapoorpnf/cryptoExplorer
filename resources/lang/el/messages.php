@@ -44,4 +44,8 @@
   'transactions' => 'Συναλλαγές',
   'version' => 'Έκδοση',
   'view_last_block' => 'Δείτε τα τελευταία μπλοκ',
+  'explorer' => 'Explorer',
+  'hash' => 'Hierdie',
+  'time' => 'Tyd',
+  'latest_block' => 'Jongste blokke',
 ];

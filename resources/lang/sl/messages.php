@@ -44,4 +44,8 @@
   'transactions' => 'Transakcij',
   'version' => 'Različica',
   'view_last_block' => 'Prikaži zadnji blok',
+  'explorer' => 'Raziskovalec',
+  'hash' => 'Hash',
+  'time' => 'čas',
+  'latest_block' => 'Najnovejši bloki',
 ];

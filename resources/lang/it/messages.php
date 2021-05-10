@@ -44,4 +44,8 @@
   'transactions' => 'Transazioni',
   'version' => 'Versione',
   'view_last_block' => 'Vedi l\'ultimo blocco',
+  'explorer' => 'Esploratrice',
+  'hash' => 'Hash',
+  'time' => 'tempo',
+  'latest_block' => 'Ultimi blocchi',
 ];

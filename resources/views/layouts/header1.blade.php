@@ -15,7 +15,7 @@
 					@endif
 
 				</div>
-				<span class="logBtn"><a type="button">Login</a></span>
+				<span class="logBtn"><a href="{{ asset('login') }}" type="button">Login</a></span>
 				<span class="signBtn"><a type="button">Sign Up</a></span>
 			</div>
 		</div>
