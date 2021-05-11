@@ -87,7 +87,7 @@
                 <div class="exploreBitRight">
                     <div class="bitRightTop">
                         <h2>{{ __('messages.latest_transactions') }}</h2>
-                        <button class="btn">All transactions <i class="fas fa-arrow-right"></i></button>
+                        <a href="{{ asset(Helper::locale() . Helper::network().'/all-transactions') }}" class="btn">All transactions <i class="fas fa-arrow-right"></i></a>
                     </div>
                     <div class="bitRightData">
                         <div class="table-responsive">
@@ -96,7 +96,7 @@
                                     <tr>
                                         <th scope="col">{{ __('messages.hash') }}</th>
                                         <th scope="col">{{ __('messages.time') }}</th>
-                                        <th scope="col">{{ __('messages.amount') }}</th>
+                                        <th scope="col">{{ __('messages.amount') }} ({{ Helper::network() }})</th>
                                     </tr>
                                 </thead>
                                 <tbody id="tbl-transactions">
@@ -110,14 +110,14 @@
                     </div>
                     <div class="bitRightTop">
                         <h2>{{ __('messages.latest_block') }}</h2>
-                        <button class="btn">All blocks <i class="fas fa-arrow-right"></i></button>
+                        <a href="{{ asset(Helper::locale() . Helper::network().'/all-blocks') }}" class="btn">All blocks <i class="fas fa-arrow-right"></i></a>
                     </div>
                     <div class="bitRightData">
                         <div class="table-responsive">
                             <table class="table">
                                 <thead>
                                     <tr>
-                                        <th scope="col">{{ __('messages.hash') }}</th>
+                                        <th scope="col">Height</th>
                                         <th scope="col">{{ __('messages.time') }}</th>
                                         <th scope="col">{{ __('messages.transaction') }}</th>
                                         <th scope="col">{{ __('messages.miner') }}</th>

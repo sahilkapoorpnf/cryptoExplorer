@@ -15,19 +15,18 @@ class AddressController extends Controller
         } else {
             $from = 'api';
             $client = new Client();
-            /*$url = sprintf('https://chain.so/api/v2/address/%s/%s', config('settings.network'), $id);*/
             $url = sprintf('https://chain.so/api/v2/address/%s/%s', Helper::network(), $id);
             try {
                 $response = $client->request('GET', $url);
             } catch (\Exception $e) {
-                return view('pages.error');
+                return view('errors.404');
             }
             $data = $response->getBody()->getContents();
             \Cache::put($key, $data, config('settings.cache.address'));
         }
         $data = json_decode($data);
         if ($data->status === 'fail' or $data->code === 404) {
-            return view('pages.error');
+            return view('errors.404');
         }
         $transactions = [];
         foreach ($data->data->txs as $transaction) {

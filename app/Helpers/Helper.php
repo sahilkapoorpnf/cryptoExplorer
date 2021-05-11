@@ -18,6 +18,10 @@ class Helper {
         return $network;
     }
 
+    public static function locale(){
+        return \LaravelLocalization::getCurrentLocale() == config('settings.language') ? '/' : '/' . \LaravelLocalization::getCurrentLocale() . '/';
+    }
+
 }
 
 ?>

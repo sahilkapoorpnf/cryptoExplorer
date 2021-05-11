@@ -22,6 +22,6 @@ class SearchController extends Controller
             $url = \LaravelLocalization::getLocalizedURL(\LaravelLocalization::getCurrentLocale(), route('front.block', $query));
             return response()->redirectTo($url);
         }
-        abort(404);
+        return view('not_exists');
     }
 }

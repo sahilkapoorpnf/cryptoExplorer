@@ -1,8 +1,4 @@
-@extends('layouts.app')
-
-@section('title')
-    {{ __('messages.error') }}
-@endsection
+@extends('layouts.app1')
 
 @section('content')
     <div class="container">

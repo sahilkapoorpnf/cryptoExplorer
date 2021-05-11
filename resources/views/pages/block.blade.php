@@ -80,7 +80,7 @@
                                         </tr>
                                         <tr>
                                             <td> Height</td>
-                                            <th scope="row">627985 s</th>
+                                            <th scope="row">{{ $data->block_no }}</th>
                                         </tr>
                                         <tr>
                                             <td> Miner</td>

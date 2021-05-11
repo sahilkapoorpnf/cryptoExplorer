@@ -1567,6 +1567,14 @@ display: none;
     justify-content: space-between;
     align-items: center;
 }
+.blackInner input[type="checkbox"] {
+        display: none;
+    }
+.blackInner i {
+        display: none;
+        font-size: 1.8rem;
+        color: var(--secondary-color);
+    }
 
 .blackLogo img {
     max-width: 180px;
@@ -1576,7 +1584,10 @@ display: none;
     display: flex;
     align-items: center;
 }
-
+.blackNavInlin {
+    display: flex;
+    align-items: center;
+}
 .blackSelect .form-group {
     margin-bottom: 0;
 }
@@ -1606,8 +1617,12 @@ display: none;
     text-transform: uppercase;
     transition: all .3s ease;
 }
+.blackNav .logBtn a {color: var(--white-color);}
 .blackNav .logBtn:hover {
     background: var(--white-color);
+    color: var(--secondary-color);
+}
+.blackNav .logBtn:hover a {
     color: var(--secondary-color);
 }
 
@@ -1624,10 +1639,14 @@ display: none;
     transition: all .3s ease;
 }
 
-.blackNav .signBtn:hover {
+.blackNav .signBtn:hover{
     background: transparent;
     color: var(--white-color);
 }
+.blackNav .signBtn:hover a {
+    color: var(--white-color);
+}
+
 
 .blackSelect {}
 
@@ -2157,6 +2176,69 @@ display: none;
 
 /* ======================= block transition CSS exit ======================= */
 
+/* ======================= not exit page CSS start ======================= */
+.exitOuter {
+    width: 100%;
+}
+.exitBg {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+.exitBg:after {
+    background-image: url(../images/mainBg.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center right;
+    width: 80%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    content: "";
+    z-index: -1;
+}
+.exitBox {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    height: 500px;
+    position: relative;
+    z-index: 2;
+}
+.exitBox h1 {
+    color: var(--secondary-color);
+    font-size: 3rem;
+    font-weight: 700;
+    line-height: 4rem;
+    margin: 0rem 0 1rem;
+    width: 280px;
+}
+
+.exitBox h3 {
+    color: #273045;
+    font-size: 11rem;
+    font-weight: 700;
+    margin: 0rem 0 2rem;
+    line-height: 70px;
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: #929bb1;
+}
+
+.exitBox label {
+    font-size: 1.4rem;
+    color: var(--dark-color);
+    margin: 1rem 0 2rem;
+}
+
+.exitBox label a {
+    color: var(--primary-color);
+}
+
+/* ======================= not exit page CSS end ======================= */
+
 /* ======================= footer CSS start ======================= */
 footer {
     width: 100%;
@@ -2243,6 +2325,7 @@ footer {
 /* ======================= footer CSS exit ======================= */
 
 /*=== media query start ===*/
+
 
 
 @media (max-width: 1200px) {
@@ -2511,6 +2594,12 @@ footer {
     font-size: 1.2rem;
 }
 
+.exitBg:after {
+    width: 75%;
+    height: 75%;
+    top: 55px;
+}
+
 
 /*== footer css start ==*/
 .footReview {
@@ -2540,30 +2629,37 @@ footer {
 
 
 @media screen and (max-width: 767px) {
-    
+    .blackNavInlin {
+        flex-direction: column;
+        width: 100%;
+    }
     .blackInner i {
         display: block;
         font-size: 1.8rem;
         color: var(--white-color);
     }
 
+    .blackNav .logBtn {
+        margin: 1rem 0 1.5rem;
+    }
+
     .blackNav {
-      display: none;
       position: fixed;
       top: 42px;
       left: -100%;
       width: 100%;
       background: #273045;
       padding: 1.5rem;
+      transition:all 0.3s ease;
       z-index: 9;
   } 
-    .blackNav:Checked ~ .menu-btn i:before{
+    #navcheck:Checked ~ .menu-btn i:before{
       content:'\f00d';
     }
-    .blackNav:Checked ~ .blackNav {
+    #navcheck:Checked ~ .blackNav {
     left:0px;
   }  
-
+ 
 
 
     .toggleBar {
@@ -2872,10 +2968,10 @@ footer {
 }
 /* confirm but css exit */
 
-
-
-
-
+.exitBg:after {
+    width: 70%;
+    height: 50%;
+}
 
 
 .footlang {
@@ -2966,6 +3062,9 @@ footer {
     .bitSelect span {
         font-size: 2.5rem;
     }
+    .bitSelect h2 {
+      font-size: 2.5rem;
+  }
 
     .bitCoinWrap .select_ul {
         min-width: 230px;
@@ -3027,6 +3126,21 @@ footer {
         margin-bottom: 0;
     }
 
+
+    .exitBg:after {
+      display: none;
+    }
+    .exitBox {
+      text-align: center;
+      justify-content: inherit;
+      height: 100%;
+      padding: 4rem 0 2rem;
+  }
+    .exitBox h1 {
+      margin: 0rem auto 1rem;
+    }
+
+
     footer {
         padding: 2rem 0 3rem;
     }
@@ -3067,6 +3181,11 @@ footer {
 @media screen and (max-width: 480px) {
 
 /*main css start */
+
+   .heroBg:after {
+      width: 50%;
+      height: 75%;
+  }
 
     .mainBox h1 {
         font-size: 2.5rem;
@@ -3129,10 +3248,6 @@ footer {
 /* sell funnel css exit */
 
 
-.blackSelect {
-    display: none;
-}
-
 .blackLogo img {
     max-width: 140px;
 }
@@ -3145,7 +3260,9 @@ footer {
     border: 1px solid var(--white-color);
 }
 
-
+.bitSelect h2 {
+    font-size: 2rem;
+}
 .bitSelect span {
     font-size: 2rem;
 }
@@ -3247,6 +3364,11 @@ footer {
 
 /*== confirm buy css exit ==*/
 
+.exitBox label a {
+    color: var(--primary-color);
+    display: block;
+}
+
 
 footer {
     text-align: center;
@@ -3345,6 +3467,5 @@ footer {
     }
 
 }
-
 
 /*=== media query exit === */

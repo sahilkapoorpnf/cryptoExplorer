@@ -3,20 +3,26 @@
 	<div class="container">
 		<div class="blackInner">
 			<div class="blackLogo">
-			<a href="{{ asset('/') }}"><img src="{{ asset('images/xlogo.png') }}" align=""></a>
+				<a href="{{ asset(Helper::locale()) }}"><img src="{{ asset('images/xlogo.png') }}" align=""></a>
 			</div>
+			<input type="checkbox" id="navcheck">
+		    <label for="navcheck" class="menu-btn">
+		         <i class="fas fa-bars"></i>
+		    </label>
 			<div class="blackNav">
-				<div class="blackSelect">
+				<div class="blackNavInlin">
+					<div class="blackSelect">
 
-					{{ Widget::language() }}
+						{{ Widget::language() }}
 
-					@if (Auth::check())
-					    <a class="btn btn-primary" href="{{ LaravelLocalization::getLocalizedURL(LaravelLocalization::getCurrentLocale(), route('admin.index')) }}"><i class="fas fa-cog"></i> </a>
-					@endif
+						@if (Auth::check())
+						    <a class="btn btn-primary" href="{{ LaravelLocalization::getLocalizedURL(LaravelLocalization::getCurrentLocale(), route('admin.index')) }}"><i class="fas fa-cog"></i> </a>
+						@endif
 
+					</div>
+					<span class="logBtn"><a href="{{ asset('login') }}" type="button">Login</a></span>
+					<span class="signBtn"><a type="button">Sign Up</a></span>
 				</div>
-				<span class="logBtn"><a href="{{ asset('login') }}" type="button">Login</a></span>
-				<span class="signBtn"><a type="button">Sign Up</a></span>
 			</div>
 		</div>
 	</div>

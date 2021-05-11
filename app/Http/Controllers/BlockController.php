@@ -19,14 +19,14 @@ class BlockController extends Controller
             try {
                 $response = $client->request('GET', $url);
             } catch (\Exception $e) {
-                return view('pages.error');
+                return view('errors.404');
             }
             $data = $response->getBody()->getContents();
             \Cache::put($key, $data, config('settings.cache.block'));
         }
         $data = json_decode($data);
         if ($data->status === 'fail' or $data->code === 404) {
-            return view('pages.error');
+            return view('errors.404');
         }
         $data = [
             'data' => $data->data,
@@ -34,4 +34,9 @@ class BlockController extends Controller
         ];
         return view('pages.block', $data);
     }
+
+    public function allBlocks(){
+        return view('pages.all_blocks');
+    }
+
 }

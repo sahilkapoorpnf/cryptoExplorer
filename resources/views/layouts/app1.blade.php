@@ -28,7 +28,6 @@
 
 		@yield('content')
 
-		<!-- footer section start -->
 		<footer>
 			<div class="container">
 				<div class="row">
@@ -103,13 +102,12 @@
 				<div class="row">
 					<div class="col-md-12">
 						<div class="footerPara">
-							<p>Xcoins Explorer</p>
+							<p>Xcoins is property of CF Technologies Ltd - Company #204616970 4 East, Level 8, Sliema Road, GZR1639, Malta. All trademarks and copyrights belong to their respective owners. All rights reserved.</p>
 						</div>
 					</div>
 				</div>
 			</div>
 		</footer>
-		<!-- footer section exit -->
 		<script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
 		<script src="{{ asset('js/popper.min.js') }}"></script>
 		<script src="{{ asset('js/bootstrap.min.js') }}"></script>
