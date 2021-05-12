@@ -14,8 +14,8 @@
                                 </div>
                                 <div class="notification">
                                     <ul>
-                                        <li><a href="#"><small>02</small><i class="far fa-bell"></i></a></li>
-                                        <li><a href="#"><span class="badge badge-pill badge-dark">Dk</span></a></li>
+                                        <li><a href="javascript:void(0);"><small>02</small><i class="far fa-bell"></i></a></li>
+                                        <li><a href="javascript:void(0);"><span class="badge badge-pill badge-dark">Dk</span></a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -188,7 +188,7 @@
                                     </div>
                                     <div class="proText">
                                         <h3>James Carter</h3>
-                                        <a href="mailto:hello@ortimd.com">hello@ortimd.com</a>
+                                        <a href="javascript:void(0);">hello@ortimd.com</a>
                                     </div>
                                 </div>
                                 <div class="boardform">
@@ -371,7 +371,7 @@
                                         </div>
 
                                         <div class="transAll">
-                                            <a href="#">See all transactionss</a>
+                                            <a href="javascript:void(0);">See all transactionss</a>
                                         </div>  
                                     </div>
                                 </div>

@@ -12,6 +12,7 @@
 		<link rel="shortcut icon" href="{{ asset('images/logoIcon.png') }}">
 		<link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
+		<link rel="stylesheet" href="{{ asset('css/dd.css') }}">
 		<link rel="stylesheet" href="{{ asset('css/style.css') }}">
 		<script>
 		    window.show_transactions_on_main = 1 * '{{ config('settings.main.show_transactions', 10) }}';
@@ -116,7 +117,7 @@
 		<script src="{{ asset('/js/pusher.min.js') }}"></script>
 
 		<script>
-		    $(document).on('change', '#c_currency', function(){
+		    /*$(document).on('change', '#c_currency', function(){
 		        var coinCurrency = $(this).val();
 		        $.ajax({
 		            url: "{{url('crypto-currency')}}/"+coinCurrency,
@@ -127,7 +128,20 @@
 		                }
 		            }
 		        });
-		    })
+		    });*/
+
+		    $(document).on('click', '.enabled', function(){
+		        var coinCurrency = $(this).attr('value');
+		        $.ajax({
+		            url: "{{url('crypto-currency')}}/"+coinCurrency,
+		            type: 'get',
+		            success: function(response){
+		                if (response) {
+		                    window.location = "{{url('/')}}";
+		                }
+		            }
+		        });
+		    });
 		</script>
 		<!-- Hash script start -->
 		<script>

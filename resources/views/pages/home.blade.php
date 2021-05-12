@@ -21,11 +21,13 @@
                                 $BTCSelected = 'selected';
                             }
                             ?>
-                            <select class="form-control people" name="crypto_currency" id="c_currency">
-                                <option value="BTC" <?php echo $BTCSelected; ?> >Bitcoin</option>
-                                <option value="LTC" <?php echo $LTCSelected; ?> >Litecoin</option>
-                                <option value="DOGE" <?php echo $DOGESelected; ?> >Dogecoin</option>
-                            </select>
+
+                            <select name="crypto_currency" class="form-control websites2" id="c_currency">
+                                <option value="BTC" <?php echo $BTCSelected; ?> title="images/BTC.png">Bitcoin</option>
+                                <option value="LTC" <?php echo $LTCSelected; ?> title="images/LTC.png">Litecoin</option>
+                                <option value="DOGE" <?php echo $DOGESelected; ?> title="images/DOGE.png">Dogecoin</option>
+                            </select> 
+
                         </div>
                     </div>
                     <div class="bitCoin">
@@ -43,7 +45,7 @@
                     <div class="bitCoinSearch">
                         <form action="{{ LaravelLocalization::getLocalizedURL(LaravelLocalization::getCurrentLocale(), '/search') }}">
                             <input type="hidden" name="currency" value="{{ Helper::network() }}">
-                            <input class="form-control rounded-0" type="search" name="q" placeholder="{{ __('messages.search_placeholder') }}">
+                            <input class="form-control rounded-0" type="search" autocomplete="off" name="q" placeholder="{{ __('messages.search_placeholder') }}">
                             <button class="btn btn-light my-2 my-sm-0 rounded-0" type="submit"><i class="fas fa-search"></i></button>
                         </form>
                     </div>
@@ -138,4 +140,14 @@
 
 @push('js')
     <script src="{{ asset('/js/home.js') }}"></script>
+    <script src="{{ asset('/js/uncompressed.jquery.dd.js') }}"></script>
+    <script language="javascript" type="text/javascript">
+    $(document).ready(function() {
+        try {
+            $(".websites2").msDropDown({mainCSS:'dd2'});
+        } catch(e) {
+            alert("Error: "+e.message);
+        }
+    })
+    </script>
 @endpush
