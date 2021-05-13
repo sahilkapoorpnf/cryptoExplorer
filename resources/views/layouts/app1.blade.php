@@ -155,9 +155,13 @@
 		  	tooltip.innerHTML = "Copied";
 		}
 
-		function outFunc() {
+		function outFunc(address = null) {
 		  	var tooltip = document.getElementById("myTooltip");
-		  	tooltip.innerHTML = "Copy Hash";
+		  	if(address === 'address'){
+		  		tooltip.innerHTML = "Copy Address";
+		  	} else{
+		  		tooltip.innerHTML = "Copy Hash";
+		  	}
 		}
 		</script>
 		<!-- Hash script end -->
@@ -176,7 +180,7 @@
 
 			function outFunction(id, block = null) {
 			  	var tooltip = document.getElementById("myTooltip_" + id);
-			  	if(block === 'block'){
+			  	if(block === 'block' || block === 'address'){
 			  		tooltip.innerHTML = "Copy Hash";
 			  	} else{
 			  		tooltip.innerHTML = "Copy Address";

@@ -63,6 +63,10 @@ class AddressController extends Controller
             'output_counter' => $transactions->count() - $inputCounter,
             'history' => collect($balanceHistory)->reverse(),
         ];
+        /*$data = [
+            'data' => $data->data,
+            'from' => $from,
+        ];*/
         return view('pages.address', $data);
     }
 }

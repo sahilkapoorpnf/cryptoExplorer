@@ -21,13 +21,11 @@
                                 $BTCSelected = 'selected';
                             }
                             ?>
-
                             <select name="crypto_currency" class="form-control websites2" id="c_currency">
                                 <option value="BTC" <?php echo $BTCSelected; ?> title="images/BTC.png">Bitcoin</option>
                                 <option value="LTC" <?php echo $LTCSelected; ?> title="images/LTC.png">Litecoin</option>
                                 <option value="DOGE" <?php echo $DOGESelected; ?> title="images/DOGE.png">Dogecoin</option>
                             </select> 
-
                         </div>
                     </div>
                     <div class="bitCoin">

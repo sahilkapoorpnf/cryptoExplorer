@@ -5,60 +5,242 @@
 @endsection
 
 @section('content')
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-12">
-                <h1>{{ __('messages.address') }}</h1>
-                <h4 class="text-secondary">{{ $data->address }}</h4>
-                <div class="card-group mt-4">
-                    <div class="card">
-                        <div class="card-body">
-                            <h4 class="card-title text-center text-uppercase">{{ __('messages.received') }}</h4>
-                            <p class="card-text text-center">{{ $data->received_value }} {{ Helper::network() }}</p>
+
+    <div class="exploreTwoStart">
+        <div class="exploreTwoTop">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 col-md-12">
+                        <div class="exploreTwoLeft">
+                            <ul class="nav nav-pills">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="javascript:void(0);">
+                                    @if(Helper::network() == "LTC")
+                                    Litecoin
+                                    @elseif(Helper::network() == "DOGE")
+                                        Dogecoin
+                                    @else
+                                        Bitcoin
+                                    @endif
+
+                                    explorer
+                                    </a>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle">{{ __('messages.address') }}</a>
+                                </li>
+                            </ul>
                         </div>
                     </div>
-                    <div class="card">
-                        <div class="card-body">
-                            <h4 class="card-title text-center text-uppercase">{{ __('messages.pending') }}</h4>
-                            <p class="card-text text-center">{{ $data->pending_value }} {{ Helper::network() }}</p>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-body">
-                            <h4 class="card-title text-center text-uppercase">{{ __('messages.balance') }}</h4>
-                            <p class="card-text text-center">{{ $data->balance }} {{ Helper::network() }}</p>
+                    <div class="col-lg-6 col-md-12">
+                        <div class="exploreTwoRight">
+                            <div class="exploreTwoSearch">
+                                <form action="{{ LaravelLocalization::getLocalizedURL(LaravelLocalization::getCurrentLocale(), '/search') }}">
+                                    <input type="hidden" name="currency" value="{{ Helper::network() }}">
+                                    <input class="form-control rounded-0" type="search" autocomplete="off" name="q" placeholder="{{ __('messages.search_placeholder') }}">
+                                    <button class="btn btn-light my-2 my-sm-0 rounded-0" type="submit"><i class="fas fa-search"></i></button>
+                                </form>
+                            </div>
                         </div>
                     </div>
                 </div>
-
-                <h2 class="mt-5">
-                    {{ __('messages.transactions') }} ({{ count($transactions) < 50 || count($transactions) < $total_txs ? count($transactions) : $total_txs }})
-                </h2>
-
-                @foreach($transactions as $transaction)
-                    @if ($loop->iteration > 2)
-                        @break
-                    @endif
-                    @include('partials.address.transaction', ['transaction' => $transaction])
-                @endforeach
-
-                @if(count($transactions) > 2)
-                <div class="text-center mt-4">
-                    <button class="btn btn-outline-primary js-hide-container" type="button" data-toggle="collapse" data-target="#tblTransactions" aria-expanded="false" aria-controls="tblTransactions">
-                        <i class="fas fa-angle-down"></i> {{ __('messages.load_more_transactions') }}
-                    </button>
+            </div>
+        </div>
+        <div class="exporeSumaary">
+            <div class="container">
+                <div class="dashBox">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="exporeSumaaryHead">
+                                <h2>Address</h2>
+                                <p>This address has transacted 43,114 times on the Bitcoin blockchain. It has received a total of 64,381.40208209 BTC ($3,638,185,949.70) and has sent a total of 64,357.68418717 BTC ($3,636,845,654.07). The current value of this address is 23.71789492 BTC ($1,340,295.63).</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="addressUpper">
+                                <div class="addressBarcode">
+                                    <img src="{{ asset('images/addressBar.jpg') }}" alt="">
+                                </div>
+                                <div class="addressData">
+                                    <div class="dataAllTrans">
+                                        <div class="table-responsive">
+                                            <table class="table">
+                                                <tbody>
+                                                    <tr>
+                                                        <th scope="col">{{ __('messages.address') }}</th>
+                                                        <td class="addreMore">
+                                                            <span id="copy_tx">{{ $data->address }}</span>
+                                                            <div class="Tooltip">
+                                                                <a href="javascript:void(0);" onclick="copyToClipboard('#copy_tx')" onmouseout="outFunc('address')">
+                                                                    <span class="tooltiptext" id="myTooltip">Copy Address</span>
+                                                                    <i class="far fa-copy"></i>
+                                                                </a>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="col">Format</th>
+                                                        <td><span class="base5">BASE58 (P2SH) s</span></td> 
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="col">Transactions</th>
+                                                        <td>{{ $data->total_txs }}</td> 
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="col">Total Received</th>
+                                                        <td>{{ $data->received_value }} {{ Helper::network() }}</td> 
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="col">Total Sent</th>
+                                                        <td>0.062552 12 BTC s</td> 
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="col">Final Blance</th>
+                                                        <td>{{ $data->balance }} {{ Helper::network() }}</td> 
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                @endif
+            </div>
+        </div>
+        <div class="blockTransition">
+            <div class="container">
+                <div class="blockTransitionBox">
+                    <div class="blockTransheading">
+                        <div class="blockLeft">
+                            <h2>{{ __('messages.transactions') }}</h2>
+                        </div>
+                        <!-- <div class="blockRight d-none d-sm-block">
+                            <nav aria-label="...">
+                                <ul class="pagination pagination-lg">
+                                    <li class="page-item active" aria-current="page">
+                                        <span class="page-link">1</span>
+                                    </li>
+                                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">4</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">5</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">
+                                        <i class="fas fa-chevron-right"></i></a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div> -->
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="blockTransitionInn">
+                                <div class="table-responsive">
+                                    <table class="table">
+                                        <tbody>
+                                            @foreach($transactions as $k => $transaction)
+                                            <tr>
+                                                <td>
+                                                    Hash
+                                                </td>
+                                                <td>
+                                                    <span id="copy_hash_{{ $k }}">{{ $transaction->txid }}</span>
+                                                    <div class="Tooltip">
+                                                        <a href="javascript:void(0);" onclick="copyToClipboardAddress('#copy_hash_{{ $k }}', '{{ $k }}')" onmouseout="outFunction('{{ $k }}', 'address')">
+                                                            <span class="tooltiptext" id="myTooltip_{{ $k }}">Copy Hash</span>
+                                                            <i class="far fa-copy"></i>
+                                                        </a>
+                                                    </div>
+                                                </td>
+                                                <td colspan="2">
+                                                    <p>{{ date("Y-m-d", $transaction->unixtime) }} <span>{{ date("H:i", $transaction->unixtime) }}</span></p>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                </td>
+                                                <td>
+                                                    @if($transaction->inputs)
+                                                        @foreach($transaction->inputs as $item)
+                                                    <div class="summryDiv">
+                                                        @if(wrong_address($item->address))
+                                                            {{ __('messages.newly_generated_coins') }}
+                                                        @else
+                                                            <a href="{{ LaravelLocalization::getLocalizedURL(LaravelLocalization::getCurrentLocale(), asset(Helper::network(). '/addresses/'. $item->address)) }}">
+                                                                {{ $item->address }}
+                                                            </a>
+                                                        @endif
 
-                <div class="collapse mt-4" id="tblTransactions">
-                    @foreach($transactions as $transaction)
-                        @if ($loop->iteration <= 2)
-                            @continue
-                        @endif
-                        @include('partials.address.transaction', ['transaction' => $transaction])
-                    @endforeach
+                                                        <span>{{ $transaction->value }} {{ Helper::network() }}</span>
+                                                        <a href="javascript:void(0);"><i class="fas fa-globe"></i></a>
+                                                    </div>
+                                                        @endforeach
+                                                    @endif
+                                                </td>
+                                                <td>
+                                                    <i class="fas fa-caret-right"></i>
+                                                </td>
+                                                <td>
+                                                    @if($transaction->outputs)
+                                                        @foreach($transaction->outputs as $item)
+                                                            <div class="summryDiv text-right">
+                                                                @if(wrong_address($item->address))
+                                                                    {{ __('messages.nonstandard') }}
+                                                                @else
+                                                                    <a href="{{ LaravelLocalization::getLocalizedURL(LaravelLocalization::getCurrentLocale(), asset(Helper::network(). '/addresses/'. $item->address)) }}">
+                                                                        {{ $item->address }}
+                                                                    </a>
+                                                                @endif
+                                                                <span>{!! $item->value !!} {{ Helper::network() }}</span>
+                                                                <a href="javascript:void(0);"><i class="fas fa-globe"></i></a>
+                                                            </div>
+                                                        @endforeach
+                                                    @endif
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    Fee
+                                                </td>
+                                                <td colspan="2">
+                                                    <span>0.06255212 BTC s</span> <br>
+                                                    <span>(19.442 sat/B -5.531 sat/WU - 693 bytes) s</span>
+                                                </td>
+                                                <td>
+                                                    <div class="summrySuccess">
+                                                        <a href="javascript:void(0);">{{ $transaction->value }} {{ Helper::network() }}</a>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            @endforeach
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <!-- <div class="blockTransheading border-0 pt-0 pb-0">
+                                    <div class="blockRight pagiBottom">
+                                        <nav aria-label="...">
+                                            <ul class="pagination pagination-lg">
+                                                <li class="page-item active" aria-current="page">
+                                                    <span class="page-link">1</span>
+                                                </li>
+                                                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                                <li class="page-item"><a class="page-link" href="#">4</a></li>
+                                                <li class="page-item"><a class="page-link" href="#">5</a></li>
+                                                <li class="page-item"><a class="page-link" href="#">
+                                                    <i class="fas fa-chevron-right"></i></a>
+                                                </li>
+                                            </ul>
+                                        </nav>
+                                    </div>
+                                </div> -->
+                            </div>
+                        </div>
+                    </div>
                 </div>
-
             </div>
         </div>
     </div>

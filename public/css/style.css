@@ -2179,6 +2179,70 @@ display: none;
 
 /* ======================= block transition CSS exit ======================= */
 
+/* ======================= address CSS start ======================= */
+.addressUpper {
+    display: flex;
+    align-items: center;
+    margin-top: 1.5rem;
+    width: 100%;
+}
+
+.addressBarcode {
+    flex-basis: 25%;
+    min-width: 25%;
+    border: 2px solid #e5e9f0;
+    border-radius: 8px;
+    padding: 2rem;
+}
+.addressBarcode img {
+    width: 100%;
+}
+.addressData {
+    flex-basis: 75%;
+    min-width: 75%;
+    padding-left: 2rem;
+}
+.addressData .table td span.base5 {
+    background: #ecf4ff;
+    padding: .5rem 1rem;
+    font-weight: 500;
+    border-radius: 5px;
+}
+
+.addressData .table th {
+    font-size: 1.4rem;
+    font-weight: 500;
+    padding: 1.1rem .75rem;
+    vertical-align: middle;
+    border: 0px;
+    border-top: 1px solid #e8ebef;
+    color: var(--dark-color);
+}
+.addressData .table tr:first-child th {
+    border-top: 0px;
+}
+.addressData .table td {
+    font-size: 1.4rem;
+    padding: .75rem;
+    vertical-align: middle;
+    border-top: 1px solid #e8ebef;
+    color: var(--secondary-color);
+}
+.addressData .table td a {
+    color: var(--primary-color);
+}
+.addressData .table tr:first-child td {
+    border-top: 0px;
+}
+.addressData .table tr:last-of-type {
+    border-bottom: 1px solid #e8ebef;
+}
+
+.addreMore {
+}
+
+/* ======================= address CSS exit ======================= */
+
 /* ======================= not exit page CSS start ======================= */
 .exitOuter {
     width: 100%;
@@ -2655,6 +2719,24 @@ footer {
   }
   /* all transaction css exit */
 
+
+  /* address css start */
+  .addressBarcode {
+      flex-basis: 35%;
+      min-width: 35%;
+  }
+  .addressData {
+      flex-basis: 65%;
+      min-width: 65%;
+  }
+  .addreMore {
+      word-break: break-all;
+  }
+  /* address css exit */
+
+
+
+
 /*== footer css start ==*/
 .footReview {
     margin: 1rem 0;
@@ -3027,7 +3109,46 @@ footer {
     .speedInput {
         margin-bottom: 2.5rem;
     }
-    /* confirm but css exit */
+
+    /* address css exit */
+    .addressUpper {
+        display: inherit;
+    }
+     .addressUpper {
+        flex-direction: column;
+    }
+    .addressBarcode {
+      width: 100%;
+      height: 420px;
+      margin: auto;
+  }
+    .addressBarcode img {
+      width: 100%;
+      height: 100%;
+  }
+    .addressData {
+      width: 100%;
+      padding-left: 0;
+      margin-top: 15px;
+  }
+    .addressData .table tr {
+      display: flex;
+      flex-direction: column;
+  }
+    .addressData .table th {
+        width: 100%;
+    }
+    .addressData .table td {
+        width: 100%;
+    }
+
+    td.addreMore {
+      word-break: break-all;
+  }
+
+    /* address css exit */
+
+
 
     .exitBg:after {
         width: 70%;
@@ -3210,6 +3331,12 @@ footer {
       width: auto;
     }
     /* all transaction css exit */
+
+    /* address css start */
+    .addressBarcode {
+      height: auto;
+  }
+    /* address css exit */
 
 
     footer {
