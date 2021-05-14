@@ -20,6 +20,8 @@
 		    window.network = '{{ Helper::network() }}';
 		    window.locale_path = '{{ LaravelLocalization::getCurrentLocale() == config('settings.language') ? '/' : '/' . LaravelLocalization::getCurrentLocale() . '/' }}'
 		</script>
+
+		<link rel="stylesheet" href="{{ asset('css/pagination.css') }}">
 	</head>
 	<body>
 
@@ -143,6 +145,9 @@
 		        });
 		    });
 		</script>
+
+		@stack('js')
+
 		<!-- Hash script start -->
 		<script>
 		function copyToClipboard(element) {
@@ -207,8 +212,6 @@
 			}
 		</script>
 		<!-- Output script end -->
-
-		@stack('js')
 		
 	</body>
 </html>

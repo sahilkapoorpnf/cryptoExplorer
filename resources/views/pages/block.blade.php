@@ -146,104 +146,18 @@
                     <div class="blockLeft">
                         <h2>Block Transactions</h2>
                     </div>
+
+                    <div class="pagination-demo1"></div>
+                
                 </div>
                 <div class="row">
                     <div class="col-md-12">
                         <div class="blockTransitionInn">
                             <div class="table-responsive">
-                                <table class="table">
-                                    <tbody>
-                                        @foreach($data->txs as $k => $transaction)
-                                            <tr>
-                                                <td>
-                                                    {{ __('messages.hash') }}
-                                                </td>
-                                                <td>
-                                                    <span id="copy_address_{{ $k }}">{{ $transaction->txid }}</span>
-                                                    <div class="Tooltip">
-                                                        <a href="javascript:void(0);" onclick="copyToClipboardAddress('#copy_address_{{ $k }}', '{{ $k }}')" onmouseout="outFunction('{{ $k }}', 'block')">
-                                                            <span class="tooltiptext" id="myTooltip_{{ $k }}">Copy Hash</span>
-                                                            <i class="far fa-copy"></i>
-                                                        </a>
-                                                    </div>
-                                                    
-                                                </td>
-                                                <td colspan="2">
-                                                    <p>2021-04-24 <span>22:35</span></p>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td></td>
-                                                <td>
-                                                    @foreach($transaction->inputs as $item)
-                                                    <div class="summryDiv">
-                                                        @if(empty($item->received_from))
-                                                            {{ __('messages.newly_generated_coins') }}
-                                                        @else
-                                                            <a href="{{ LaravelLocalization::getLocalizedURL(LaravelLocalization::getCurrentLocale(), asset(Helper::network(). '/addresses/'. $item->address)) }}">{{ $item->address }}</a>
-                                                        @endif
+                                <table class="table" id="tableData">
 
-                                                        <span>{!! $item->value !!} {{ Helper::network() }}</span>
-                                                        <a href="javascript:void(0);"><i class="fas fa-globe"></i></a>
-                                                    </div>
-                                                    @endforeach
-
-                                                </td>
-                                                <td>
-                                                    <i class="fas fa-caret-right"></i>
-                                                </td>
-                                                <td>
-                                                    @foreach($transaction->outputs as $item)
-                                                    <div class="summryDiv text-right">
-                                                        @if(wrong_address($item->address))
-                                                            {{ __('messages.nonstandard') }}
-                                                        @else
-                                                            <a href="{{ LaravelLocalization::getLocalizedURL(LaravelLocalization::getCurrentLocale(), asset(Helper::network(). '/addresses/'. $item->address)) }}">{{ $item->address }}</a>
-                                                        @endif
-                                                        <span>{!! $item->value !!} {{ Helper::network() }}</span>
-                                                        <a href="javascript:void(0);"><i class="fas fa-globe"></i></a>
-                                                    </div>
-                                                    @endforeach
-
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    {{ __('messages.fee') }}
-                                                </td>
-                                                <td colspan="2">
-                                                    <span>{{ $transaction->fee }} {{ Helper::network() }}</span> <br>
-                                                    <span>(19.442 sat/B -5.531 sat/WU - 693 bytes)</span>
-                                                </td>
-                                                <td>
-                                                    <div class="summrySuccess">
-                                                        <a href="javascript:void(0);">{{ $transaction->fee }} {{ Helper::network() }}</a>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                        @endforeach
-
-                                    </tbody>
                                 </table>
                             </div>
-                            <!-- <div class="blockTransheading border-0 pt-0 pb-0">
-                                <div class="blockRight pagiBottom">
-                                    <nav aria-label="...">
-                                        <ul class="pagination pagination-lg">
-                                            <li class="page-item active" aria-current="page">
-                                                <span class="page-link">1</span>
-                                            </li>
-                                            <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                            <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                            <li class="page-item"><a class="page-link" href="#">4</a></li>
-                                            <li class="page-item"><a class="page-link" href="#">5</a></li>
-                                            <li class="page-item"><a class="page-link" href="#">
-                                                <i class="fas fa-chevron-right"></i></a>
-                                            </li>
-                                        </ul>
-                                    </nav>
-                                </div>
-                            </div> -->
                         </div>
                     </div>
                 </div>
@@ -252,4 +166,71 @@
     </div>
 </div>
 @endsection
+
+@push('js')
+    <script src="{{ asset('/js/pagination.js') }}"></script>
+
+    <script>
+        $('body').on('mouseout', '.clickmouse', function(){
+            var addressIndex = $(this).attr('address-index');
+            outFunction(addressIndex, 'block');
+        });
+        $('body').on('click', '.clickmouse', function(){
+            var addressId = $(this).attr('address-id');
+            var index = $(this).attr('index');
+            copyToClipboardAddress(addressId, index);
+        });
+
+        (function(name) {
+            var container = $('.pagination-' + name);
+            var transactions = {!! json_encode($data->txs) !!} ;
+            e = $(".base_url").attr("data-attr");
+            var sources = function () {
+                var result =  transactions ;
+                return result;
+            }();
+            var options = {
+                dataSource: sources,
+                callback: function (response, pagination) {
+                    var finalHtml = '<tbody>';
+                    $.each(response, function (index, item) {
+                        var id = '#copy_address_'+index;
+                        var dataHtml1 ='<tr><td>Hash</td><td><span id="copy_address_'+index+'">'+item.txid +' </span><div class="Tooltip"> <a href="javascript:void(0);" index="'+ index +'" address-id="#copy_address_'+index+'" address-index="'+index+'" class="clickmouse"> <span class="tooltiptext" id="myTooltip_'+index+'">Copy Hash</span> <i class="far fa-copy"></i> </a> </div> </td><td colspan="2"> <p>2021-04-24 <span>22:35</span></p></td></tr>';
+                        var dataHtml2 = '';
+                        var dataHtml3 = '';
+                        var mainHtml = '';
+                        $.each(item.inputs, function (k, v) {
+                            if(v.received_from == null){ 
+                                var data =  "{{ __('messages.newly_generated_coins') }}";
+                            } else{ 
+                                var data = '<a href="' + e + window.locale_path.substring(1, window.locale_path.length) + window.network + "/addresses/" + v.address + '">' + v.address + '</a> ';
+                            }
+                            dataHtml2 +='<div class="summryDiv">' + data + '<span>' + v.value + window.network + '</span><a href="javascript:void(0);"><i class="fas fa-globe"></i></a></div>';
+                        });
+
+                        $.each(item.outputs, function (k, v) {
+                            if(v.address == 'nulldata'){ 
+                                var data1 =  "{{ __('messages.nonstandard') }}";
+                            } else{ 
+                                var data1 = '<a href="' + e + window.locale_path.substring(1, window.locale_path.length) + window.network + "/addresses/" + v.address + '">' + v.address + '</a> ';
+                            }
+                            dataHtml3 +='<div class="summryDiv text-right">' + data1 + '<span>' + v.value + window.network + '</span><a href="javascript:void(0);"><i class="fas fa-globe"></i></a></div>';
+                        });
+
+                        mainHtml +='<tr><td></td><td>' + dataHtml2 + '<td><i class="fas fa-caret-right"></i></td><td>' + dataHtml3 + '</td</tr>'
+
+                        var dataHtml4 ='<tr><td> Fee </td> <td colspan="2"> <span>' + item.fee + window.network + '</span> <br> <span>(19.442 sat/B -5.531 sat/WU - 693 bytes)</span> </td> <td><div class="summrySuccess"><a href="javascript:void(0);">' + item.fee + window.network + '</a></td></tr>'; 
+
+                        finalHtml +=dataHtml1 + mainHtml + dataHtml4;
+                    });
+                    finalHtml += '</tbody>';
+                    $('#tableData').html(finalHtml);
+                }
+            };
+            container.pagination(options);
+        })('demo1');
+
+    </script>
+
+@endpush
 

@@ -1976,7 +1976,9 @@ display: none;
 .exporeSumaaryData .table td.copyflex span {
     margin-right: .5rem;
 }
-.summryDiv {}
+.summryDiv {
+    word-break: break-all;
+}
 .summryDiv a {
     font-size: 1.4rem;
     font-weight: 400;
