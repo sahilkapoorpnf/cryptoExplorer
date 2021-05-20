@@ -14,7 +14,7 @@
                         <div class="exploreTwoLeft">
                             <ul class="nav nav-pills">
                                 <li class="nav-item">
-                                    <a class="nav-link" href="javascript:void(0);">
+                                    <a class="nav-link" href="{{ asset(Helper::locale()) }}">
                                     @if(Helper::network() == "LTC")
                                     Litecoin
                                     @elseif(Helper::network() == "DOGE")
@@ -53,15 +53,44 @@
                         <div class="col-12">
                             <div class="exporeSumaaryHead">
                                 <h2>Address</h2>
-                                <p>This address has transacted 43,114 times on the Bitcoin blockchain. It has received a total of 64,381.40208209 BTC ($3,638,185,949.70) and has sent a total of 64,357.68418717 BTC ($3,636,845,654.07). The current value of this address is 23.71789492 BTC ($1,340,295.63).</p>
+                                @if(Helper::network() == "LTC")
+                                    @php $coin = 'Litecoin'; @endphp
+                                @elseif(Helper::network() == "DOGE")
+                                    @php $coin = 'Dogecoin'; @endphp
+                                @else
+                                    @php $coin = 'Bitcoin'; @endphp
+                                @endif
+
+                                <?php 
+                                $received = 0;
+                                $sent = 0;
+                                foreach($transactions as $k => $transaction){
+                                    if($transaction->is_incoming){
+                                        $received += $transaction->value;
+                                    } else{
+                                        $sent += $transaction->value;
+                                    }
+                                }
+                                ?>
+
+                                <p>This address has transacted {{ $data->total_txs }} times on the {{ $coin }} blockchain. It has received a total of {{ $received }} {{ Helper::network() }} and has sent a total of {{ $sent }} {{ Helper::network() }} . The current value of this address is {{ $data->balance }} {{ Helper::network() }} .</p>
                             </div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-12">
                             <div class="addressUpper">
+                                @if(Helper::network() == "LTC")
+                                    @php $cCurrency = 'litecoin'; @endphp
+                                @elseif(Helper::network() == "DOGE")
+                                    @php $cCurrency = 'dogecoin'; @endphp
+                                @else
+                                    @php $cCurrency = 'bitcoin'; @endphp
+                                @endif
+
                                 <div class="addressBarcode">
-                                    <img src="{{ asset('images/addressBar.jpg') }}" alt="">
+                                    <!-- <img src='https://www.bitcoinqrcodemaker.com/api/?style={{$cCurrency}}&address={{$data->address}}' alt=""> -->
+                                    <img src='https://chart.googleapis.com/chart?chs=300x300&cht=qr&chl={{$data->address}}' alt="">
                                 </div>
                                 <div class="addressData">
                                     <div class="dataAllTrans">
@@ -90,11 +119,11 @@
                                                     </tr>
                                                     <tr>
                                                         <th scope="col">Total Received</th>
-                                                        <td>{{ $data->received_value }} {{ Helper::network() }}</td> 
+                                                        <td>{{ $received }} {{ Helper::network() }}</td> 
                                                     </tr>
                                                     <tr>
                                                         <th scope="col">Total Sent</th>
-                                                        <td>0.062552 12 BTC s</td> 
+                                                        <td>{{ $sent }} {{ Helper::network() }}</td> 
                                                     </tr>
                                                     <tr>
                                                         <th scope="col">Final Blance</th>
@@ -219,24 +248,6 @@
                                         </tbody>
                                     </table>
                                 </div>
-                                <!-- <div class="blockTransheading border-0 pt-0 pb-0">
-                                    <div class="blockRight pagiBottom">
-                                        <nav aria-label="...">
-                                            <ul class="pagination pagination-lg">
-                                                <li class="page-item active" aria-current="page">
-                                                    <span class="page-link">1</span>
-                                                </li>
-                                                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                                <li class="page-item"><a class="page-link" href="#">4</a></li>
-                                                <li class="page-item"><a class="page-link" href="#">5</a></li>
-                                                <li class="page-item"><a class="page-link" href="#">
-                                                    <i class="fas fa-chevron-right"></i></a>
-                                                </li>
-                                            </ul>
-                                        </nav>
-                                    </div>
-                                </div> -->
                             </div>
                         </div>
                     </div>

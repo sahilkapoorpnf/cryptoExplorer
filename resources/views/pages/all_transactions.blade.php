@@ -9,7 +9,7 @@
                     <div class="exploreTwoLeft">
                         <ul class="nav nav-pills">
                             <li class="nav-item">
-                                <a class="nav-link" href="javascript:void(0);">
+                                <a class="nav-link" href="{{ asset(Helper::locale()) }}">
                                 @if(Helper::network() == "LTC")
                                     Litecoin
                                 @elseif(Helper::network() == "DOGE")

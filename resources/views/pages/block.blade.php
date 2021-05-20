@@ -9,7 +9,7 @@
                     <div class="exploreTwoLeft">
                         <ul class="nav nav-pills">
                             <li class="nav-item">
-                                <a class="nav-link" href="javascript:void(0);">
+                                <a class="nav-link" href="{{ asset(Helper::locale()) }}">
                                 @if(Helper::network() == "LTC")
                                     Litecoin
                                 @elseif(Helper::network() == "DOGE")
@@ -48,7 +48,15 @@
                     <div class="col-12">
                         <div class="exporeSumaaryHead">
                             <h2>{{ __('messages.block') }} {{ $data->block_no }}</h2>
-                            <p>This transaction was first broadcast to the Bitcoin network on April 24, 2021 at 10:54 GMT+2. The transaction is currently unconfirmed by the network.</p>
+                            <p>This transaction was first broadcast to the Bitcoin network on {{ gmdate('M d, Y', $data->time) }} at  {{ gmdate('H:i', $data->time) }} The transaction is currently
+                            <?php 
+                            if($data->confirmations > 0){
+                                $txConfirmation = 'confirmed';
+                            } else{
+                                $txConfirmation = 'unconfirmed';
+                            } 
+                            ?>  
+                            {{ $txConfirmation }} by the network.</p>
                         </div>
                     </div>
                 </div>

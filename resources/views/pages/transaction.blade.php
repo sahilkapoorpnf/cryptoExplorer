@@ -9,7 +9,7 @@
                     <div class="exploreTwoLeft">
                         <ul class="nav nav-pills">
                             <li class="nav-item">
-                                <a class="nav-link" href="javascript:void(0);">
+                                <a class="nav-link" href="{{ asset(Helper::locale()) }}">
                                 @if(Helper::network() == "LTC")
                                     Litecoin
                                 @elseif(Helper::network() == "DOGE")
@@ -46,9 +46,17 @@
             <div class="dashBox">
                 <div class="row">
                     <div class="col-12">
-                        <div class="exporeSumaaryHead">
+                        <div class="exporeSumaaryHead">  
+                            @if(Helper::network() == "LTC")
+                                @php $coin = 'Litecoin'; @endphp
+                            @elseif(Helper::network() == "DOGE")
+                                @php $coin = 'Dogecoin'; @endphp
+                            @else
+                                @php $coin = 'Bitcoin'; @endphp
+                            @endif
+
                             <h2>Summary</h2>
-                            <p>This transaction was first broadcast to the Bitcoin network on April 24, 2021 at 10:54 GMT+2. The transaction is currently unconfirmed by the network. At the time of this transaction</p>
+                            <p>This transaction was first broadcast to the {{ $coin }} network on {{ gmdate('M d, Y', $data->time) }} at  {{ gmdate('H:i', $data->time) }} The transaction is currently unconfirmed by the network. At the time of this transaction.</p>
                         </div>
                     </div>
                 </div>
@@ -119,7 +127,7 @@
                                             </td>
                                             <td colspan="2">
                                                 <span>{{ $data->fee }} {{ Helper::network() }}</span> <br>
-                                                <span>(19.442 sat/B -5.531 sat/WU - 693 bytes)</span>
+                                                <span>(19.442 sat/B -5.531 sat/WU - 693 bytes) s</span>
                                             </td>
                                             <td>
                                                 <div class="summrySuccess">
@@ -169,7 +177,7 @@
                                             <td> {{ __('messages.confirmations') }}</td>
                                             <th scope="row">{{ $data->confirmations }}</th>
                                             <td> Free per byte</td>
-                                            <th scope="row">19.442 sat/B</th>
+                                            <th scope="row">19.442 sat/B s</th>
                                         </tr>
                                         <tr>
                                             <td> Recieved Time</td>
@@ -177,7 +185,7 @@
                                             <td> Total Input</td>
                                             <th scope="row">{{ $data->sent_value }} {{ Helper::network() }}</th>
                                             <td> Free per weight unit</td>
-                                            <th scope="row">5.531 sat/WU</th>
+                                            <th scope="row">5.531 sat/WU s</th>
                                         </tr>
                                         <tr>
                                             <td> Size</td>
@@ -190,11 +198,11 @@
 
                                             <th scope="row">{{ $toc }} {{ Helper::network() }}</th>
                                             <td> Value when transacted</td>
-                                            <th scope="row">$266.95</th>
+                                            <th scope="row">$266.95 s</th>
                                         </tr>
                                         <tr>
                                             <td> Wight</td>
-                                            <th scope="row">2,436...</th>
+                                            <th scope="row">2,436 s</th>
                                             <td> {{ __('messages.fee') }}</td>
                                             <th scope="row">{{ $data->fee }} {{ Helper::network() }}</th>
                                             <td> Included in Block</td>
@@ -212,7 +220,7 @@
     <div class="exploreInputOuter">
         <div class="container">
             <div class="dashBox exploreInputInn">
-                <div class="row">
+                <div class="row"> 
                     <div class="col-md-12">
                         <div class="exploreInputData">
                             <ul class="nav nav-pills mb-3 pillExplore" id="pills-tab" role="tablist">
@@ -237,7 +245,7 @@
                                                 <tr>
                                                     <td> {{ __('messages.address') }}</td>
                                                     <td> 
-                                                        <span id="copy_address_{{ $item->input_no }}" class="textBlue">{{ $item->address }}</span>
+                                                        <span id="copy_address_{{ $item->input_no }}">{{ $item->address }}</span>
                                                         <div class="Tooltip">
                                                             <a href="javascript:void(0);" onclick="copyToClipboardAddress('#copy_address_{{ $item->input_no }}', '{{ $item->input_no }}')" onmouseout="outFunction('{{ $item->input_no }}')">
                                                                 <span class="tooltiptext" id="myTooltip_{{ $item->input_no }}">Copy Address</span>
@@ -245,7 +253,7 @@
                                                             </a>
                                                         </div>
                                                     </td>
-                                                    <td> Value <a href="javascript:void(0);">{!! $item->value !!} {{ Helper::network() }}</a></td>
+                                                    <td> Value <span>{!! $item->value !!} {{ Helper::network() }}</span></td>
                                                 </tr>
                                                 <tr>
                                                     <td> Pkscript</td>
@@ -259,9 +267,9 @@
                                                 </tr>
                                                 <tr>
                                                     <td> Sigscript</td>
-                                                    <td class="witnesMore"> <span><a href="javascript:void(0);">3044022069ad23a3cdcfe1db58cefe40b93005d880927b4404bed4d53a14d25de03db6e80220 <br>
-                                                        0f5c12efad830942df8334debca8f68d062eef6ef9d1e1567181494b99a9764d01 <br>
-                                                        0f5c12efad830942df8334debca8f68d062eef6ef9d1e1567181494b99a9764d01
+                                                    <td class="witnesMore"> <span><a href="javascript:void(0);">3044022069ad23a3cdcfe1db58cefe40b93005d880927b4404bed4d53a14d25de03db6e80220 s<br>
+                                                        0f5c12efad830942df8334debca8f68d062eef6ef9d1e1567181494b99a9764d01 s<br>
+                                                        0f5c12efad830942df8334debca8f68d062eef6ef9d1e1567181494b99a9764d01 s
                                                     </a></span></td>
                                                     <td></td>
                                                 </tr>
@@ -296,7 +304,7 @@
                                                 <tr>
                                                     <td> {{ __('messages.address') }}</td>
                                                     <td> 
-                                                        <span id="copy_address_output_{{ $item->output_no }}" class="textBlue">{{ $item->address }}</span>
+                                                        <span id="copy_address_output_{{ $item->output_no }}">{{ $item->address }}</span>
                                                         <div class="Tooltip">
                                                             <a href="javascript:void(0);" onclick="copyToClipboardAddressOutput('#copy_address_output_{{ $item->output_no }}', '{{ $item->output_no }}')" onmouseout="outFunctionOutput('{{ $item->output_no }}')">
                                                                 <span class="tooltiptext" id="myTooltips_{{ $item->output_no }}">Copy Address</span>
@@ -304,7 +312,7 @@
                                                             </a>
                                                         </div>
                                                     </td>
-                                                    <td> Value <a href="javascript:void(0);">{!! $item->value !!} {{ Helper::network() }}</a></td>
+                                                    <td> Value <span>{!! $item->value !!} {{ Helper::network() }}</span></td>
                                                 </tr>
                                                 <tr>
                                                     <td> Pkscript</td>
@@ -315,14 +323,6 @@
                                                         @endforeach
 
                                                     </span></td>
-                                                    <td></td>
-                                                </tr>
-                                                <tr>
-                                                    <td> Sigscript</td>
-                                                    <td class="witnesMore"> <span><a href="javascript:void(0);">3044022069ad23a3cdcfe1db58cefe40b93005d880927b4404bed4d53a14d25de03db6e80220 <br>
-                                                        0f5c12efad830942df8334debca8f68d062eef6ef9d1e1567181494b99a9764d01 <br>
-                                                        0f5c12efad830942df8334debca8f68d062eef6ef9d1e1567181494b99a9764d01
-                                                    </a></span></td>
                                                     <td></td>
                                                 </tr>
                                                 @endforeach

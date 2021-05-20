@@ -36,13 +36,28 @@
 				<div class="row">
 					<div class="col-lg-6 col-md-6 col-sm-12">
 						<div class="footLogo">
-							<a href="#"><img src="{{ asset('images/logo.png') }}"></a>
+							<a href=""><img src="{{ asset('images/logo.png') }}"></a>
 						</div>
 						<div class="footReview">
-							<a href="#"><img src="{{ asset('images/review.png') }}"></a>
+							<a href="https://www.reviews.io/company-reviews/store/xcoins-com1" target="_blank">
+							<div class="footReviewLeft">
+							<h3><span><i class="fas fa-star"></i></span> Reviews</h3>
+							<p>The Customers' Voice</p>
+							</div>
+							<div class="footReviewRight">
+								<p>Read our reviews</p>
+								<ul class="footStar">
+									<li><span><i class="fas fa-star"></i></li>
+									<li><span><i class="fas fa-star"></i></li>
+									<li><span><i class="fas fa-star"></i></li>
+									<li><span><i class="fas fa-star"></i></li>
+									<li><span><i class="fas fa-star-half-alt"></i></li>
+								</ul>
+							</div>
+							</a>
 						</div>
 						<div class="footReviewPara">
-							<p>14 East, Level 8 Slimea Road, GZR1639, Malta</p>
+							<p>14 East, Level 8 Sliema Road, GZR1639, Malta.</p>
 						</div>
 					</div>
 					<div class="col-lg-6 col-md-6 col-sm-12">
@@ -51,28 +66,29 @@
 								<div class="footCompany">
 									<h3>Company</h3>
 									<ul>
-										<li><a href="#">About Us</a></li>
-										<li><a href="#">Careers</a></li>
-										<li><a href="#">Press Kit</a></li>
+										<li><a href="https://xcoins.com/en/about-us" target="_blank">About Us</a></li>
+										<li><a href="#">Contact</a></li>
+										<li><a href="#">Help Center</a></li>
+										<li><a href="https://www.xcoins.com/en/support" target="_blank">Support</a></li>
 									</ul>
 								</div>
 							</div>
-							<div class="col-lg-4 col-md-4 col-sm-12">
+							<!-- <div class="col-lg-4 col-md-4 col-sm-12">
 								<div class="footCompany">
 									<h3>Support</h3>
 									<ul>
-										<li><a href="#">Help Center</a></li>
 										<li><a href="#">Contact</a></li>
+										<li><a href="#">Help Center</a></li>
 									</ul>
 								</div>
-							</div>
+							</div> -->
 							<div class="col-lg-4 col-md-4 col-sm-12">
 								<div class="footCompany">
 									<h3>Social</h3>
 									<ul>
-										<li><a href="#">Blog</a></li>
-										<li><a href="#">Twitter</a></li>
-										<li><a href="#">Facebook</a></li>
+										<li><a href="https://xcoins.com/en/blog" target="_blank"><span><i class="fas fa-clipboard-list"></i></span> Blog</a></li>
+										<li><a href="https://www.facebook.com/xcoinscom/" target="_blank"><span><i class="fab fa-facebook-f"></i></span> Facebook</a></li>
+										<li><a href="https://twitter.com/realxcoins" target="_blank"><span><i class="fab fa-twitter"></i></span> Twitter</a></li>
 									</ul>
 								</div>
 							</div>
@@ -83,10 +99,9 @@
 					<div class="col-lg-7 col-md-7 col-sm-12">
 						<div class="footerMenu">
 							<ul>
-								<li><a href="#">&copy Xcoins.com</a></li>
-								<li><a href="#">Terms of Service</a></li>
-								<li><a href="#">Privacy Policy</a></li>
-								<li><a href="#">Legal Notice</a></li>
+								<li><a href="https://xcoins.com/" target="_blank">&copy Xcoins.com</a></li>
+								<li><a href="https://xcoins.com/en/privacypolicy" target="_blank">Terms of Service</a></li>
+								<li><a href="https://xcoins.com/en/terms-of-service" target="_blank">Privacy Policy</a></li>
 								<li><a href="#">Sitemap</a></li>
 							</ul>
 						</div>
@@ -105,7 +120,7 @@
 				<div class="row">
 					<div class="col-md-12">
 						<div class="footerPara">
-							<p>Xcoins is property of CF Technologies Ltd - Company #204616970 4 East, Level 8, Sliema Road, GZR1639, Malta. All trademarks and copyrights belong to their respective owners. All rights reserved.</p>
+							<p>Xcoins Explorer is property of CF Technologies Ltd - Company #204616970 14 East, Level 8, Sliema Road, GZR1639, Malta. All trademarks and copyrights belong to their respective owners. All rights reserved.</p>
 						</div>
 					</div>
 				</div>

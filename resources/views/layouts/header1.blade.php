@@ -1,4 +1,3 @@
-<!-- header black section start -->
 <div class="blackBar">
 	<div class="container">
 		<div class="blackInner">
@@ -20,11 +19,9 @@
 						@endif
 
 					</div>
-					<span class="logBtn"><a href="{{ asset('login') }}" type="button">Login</a></span>
-					<span class="signBtn"><a type="button">Sign Up</a></span>
+					<span class="signBtn"><a href="https://www.xcoins.com/" type="button" target="_blank">Buy Crypto</a></span>
 				</div>
 			</div>
 		</div>
 	</div>
 </div>
-<!-- header black section exit -->

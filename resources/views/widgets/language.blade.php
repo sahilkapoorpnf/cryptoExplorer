@@ -9,6 +9,9 @@
         <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="languageDropdown" role="button" data-toggle="dropdown"
                aria-haspopup="true" aria-expanded="false">
+                <span>
+                    <img src="{{ asset('images/'.config('app.locale').'.jpg') }}">
+                </span>
                 {{ __('language.' . config('app.locale')) }}
             </a>
             <div id="language-selection" class="dropdown-menu" aria-labelledby="languageDropdown">
@@ -16,7 +19,12 @@
                     @if ($language === config('app.locale'))
                         @continue
                     @endif
-                    <a class="dropdown-item" href="{{ \LaravelLocalization::getLocalizedURL($language) }}">{{ __('language.' . $language) }}</a>
+                    <a class="dropdown-item" href="{{ \LaravelLocalization::getLocalizedURL($language) }}"> 
+                        <span>
+                            <img src="{{ asset('images/'.$language.'.jpg') }}">
+                        </span>
+                        {{ __('language.' . $language) }}
+                    </a>
                 @endforeach
             </div>
         </li>

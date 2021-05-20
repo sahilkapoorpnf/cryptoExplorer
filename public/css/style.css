@@ -56,11 +56,9 @@ html {
 }
 html, body {height: 100%;}
 
-
-
 body {
     font-family: 'Poppins', sans-serif;
-    background: var(--gray-bg);
+    background: var(--white-color);
 }
 
 
@@ -90,7 +88,6 @@ ol {
     background: var(--secondary-color);
     color: var(--white-color);
 }
-
 
 /*header css start*/
 header {
@@ -125,7 +122,7 @@ header {
 }
 
 .heroBg:after {
-    background-image: url(../images/mainBg.png);
+    background-image: url('../images/mainBg.png');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center right;
@@ -179,6 +176,9 @@ header {
 .Tooltip {
   position: relative;
   display: inline-block;
+}
+.Tooltip a:hover{
+  color:var(--secondary-color);
 }
 
 .Tooltip .tooltiptext {
@@ -1635,7 +1635,6 @@ display: none;
     padding: .5rem 2.5rem;
     display: block;
     border-radius: 100px;
-    text-transform: uppercase;
     transition: all .3s ease;
 }
 
@@ -1651,18 +1650,32 @@ display: none;
 .blackSelect {}
 
 .blackSelect .dropdown-menu {
-    margin: 1.85rem 0rem 0 0rem;
+    margin: 1.55rem 0rem 0 2rem;
 }
 .blackSelect .dropdown-item {
     padding: .25rem 1rem;
+    font-size: 1.2rem;
 }
 .blackSelect .navbar-nav .nav-link {
     padding-right: 2.5rem;
     padding-left: 2.5rem;
     color: var(--white-color);
+    font-size: 1.2rem;
 }
-
-
+.blackSelect .navbar-nav .nav-link span {
+  margin-right: .5rem;
+}
+.blackSelect .navbar-nav .nav-link span img {
+    max-width: 20px;
+    height: 16px;
+    margin-right: .3rem;
+}
+.blackSelect .dropdown-item span {
+  margin-right: .5rem;
+}
+.blackSelect .dropdown-item span img {
+    max-width: 20px;
+}
 .exploreBitCoin {
     border-bottom: 1px solid #f2f2f2;
 }
@@ -1781,11 +1794,18 @@ display: none;
     width: auto;
     background: transparent;
     color: var(--primary-color);
-    border: 1px solid;
+    border: 2px solid #dce2eb;
     border-radius: 5px;
-    padding: .5rem .8rem;
-    font-size: 1.2rem;
+    padding: .8rem 1.2rem;
+    font-size: 1.4rem;
     font-weight: 500;
+}
+.bitRightTop .btn:hover {
+    background: var(--secondary-color);
+    color: var(--white-color);
+}
+.bitRightTop .btn i {
+    margin-left: .4rem;
 }
 
 .bitRightData {
@@ -1952,7 +1972,7 @@ display: none;
 }
 .exporeSumaaryData .table td {
     font-size: 1.4rem;
-    padding: .75rem;
+    padding: .5rem;
     vertical-align: middle;
     border-top: 0px solid #dee2e6;
     color: var(--dark-color);
@@ -1972,12 +1992,14 @@ display: none;
     font-size: 1.4rem;
     font-weight: 400;
     color: var(--secondary-color);
+    word-break: break-all;
 }
 .exporeSumaaryData .table td.copyflex span {
     margin-right: .5rem;
 }
 .summryDiv {
     word-break: break-all;
+    width: auto;
 }
 .summryDiv a {
     font-size: 1.4rem;
@@ -2152,13 +2174,12 @@ display: none;
 }
 
 .blockTransitionInn .table tr:nth-child(3n) {
-    border-bottom: 1px solid #f2f2f2;
+    border-bottom: 1px solid #d0d1d2;
 }
-
 
 .blockTransitionInn .table td {
     font-size: 1.4rem;
-    padding: .75rem;
+    padding: .5rem;
     vertical-align: middle;
     border-top: 0px solid #dee2e6;
     color: var(--dark-color);
@@ -2190,11 +2211,11 @@ display: none;
 }
 
 .addressBarcode {
-    flex-basis: 25%;
-    min-width: 25%;
+    flex-basis: 20%;
+    min-width: 20%;
     border: 2px solid #e5e9f0;
     border-radius: 8px;
-    padding: 2rem;
+    padding: 0rem;
 }
 .addressBarcode img {
     width: 100%;
@@ -2233,6 +2254,9 @@ display: none;
 .addressData .table td a {
     color: var(--primary-color);
 }
+.addressData .table td a:hover {
+    color: var(--secondary-color);
+}
 .addressData .table tr:first-child td {
     border-top: 0px;
 }
@@ -2255,7 +2279,7 @@ display: none;
     position: relative;
 }
 .exitBg:after {
-    background-image: url(../images/mainBg.png);
+    background-image: url('../images/mainBg.png');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center right;
@@ -2304,6 +2328,10 @@ display: none;
 
 .exitBox label a {
     color: var(--primary-color);
+    transition: all .5s ease;
+}
+.exitBox label a:hover {
+    color: var(--secondary-color);
 }
 
 /* ======================= not exit page CSS end ======================= */
@@ -2353,13 +2381,113 @@ footer {
     width: 100%;
     padding: 5rem 0 3rem;
 }
+
 .footLogo img {
     max-width: 160px;
 }
 
 .footReview {
     margin: 3rem 0;
+    display: flex;
 }
+.footReview a {
+    display: flex;
+}
+
+.footReviewPara p {
+    font-size: 1.4rem;
+}
+
+.footReviewLeft {
+    padding-right: 1.5rem;
+}
+
+
+.footReviewLeft h3 {
+    font-size: 2rem;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+}
+.footReviewLeft h3 span {
+    background: #24cf70;
+    color: var(--white-color);
+    width: 20px;
+    height: 20px;
+    line-height: 15px;
+    border-radius: 50%;
+    display: inline-block;
+    text-align: center;
+    margin-right: 6px;
+}
+.footReviewLeft h3 span i {
+    font-size: 1.2rem;
+}
+.footReviewLeft p {
+    font-size: .8rem;
+    color: var(--white-color);
+    text-transform: uppercase;
+    background: #f09a71;
+    padding: 2px 10px;
+    position: relative;
+}
+.footReviewLeft p:after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 0;
+    border-left: 5px solid white;
+    border-top: 8px solid transparent;
+    border-bottom: 8px solid transparent;
+}
+.footReviewLeft p:before {
+    content: "";
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 0;
+    height: 0;
+    border-left: 5px solid white;
+    border-top: 8px solid transparent;
+    border-bottom: 8px solid transparent;
+}
+.footReviewLeft p:before {
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 0;
+    height: 0;
+    transform: rotate(
+180deg
+);
+    border-left: 7px solid #fafafa;
+    border-top: 8px solid transparent;
+    border-bottom: 8px solid transparent;
+}
+
+.footReviewRight {
+}
+.footReviewRight p {
+    color: var(--dark-color);
+    font-size: 1.1rem;
+}
+.footReviewRight p b {
+    color: var(--black-color);
+}
+
+.footStar {
+    display: flex;
+    justify-content: center;
+}
+.footStar li {
+    padding-right: 6px;
+    font-size: 1.8rem;
+    color: #f27e35;
+}
+
 
 .footReviewPara p {
     font-size: 1.4rem;
@@ -2381,23 +2509,50 @@ footer {
     color: var(--dark-color);
     display: inline-block;
 }
-
-
-.row.footMargn {
-    margin: 6rem 0 4rem;
+.footCompany a:hover {
+    color: var(--primary-color);
 }
 
+.footCompany a span {
+    width: 16px;
+    height: 16px;
+    line-height: 16px;
+    display: inline-block;
+}
+.footCompany a span i {
+    margin-right: .4rem;
+}
 
+.row.footMargn {
+    margin-top: 6rem;
+    margin-bottom:4rem;
+}
 
 .footlang {
     display: flex;
     justify-content: flex-end;
     align-items: center;
 }
+.footlang .nav-link {
+    display: block;
+    padding: .5rem 1rem;
+    font-size: 1.2rem;
+}
 .footlang span {
     font-size: 1.4rem;
-    margin-right: .7rem;
+    margin-right: .5rem;
 }
+.navbar-nav .nav-link span img {
+    max-width: 20px;
+    height: 16px;
+}
+.footlang a.dropdown-item span {
+   margin-right: .5rem;
+}
+.footlang a.dropdown-item span img {
+    max-width: 20px;
+}
+
 .footlang .form-group {
     margin: 0;
 }
@@ -2428,6 +2583,9 @@ footer {
     font-size: 1.4rem;
     font-weight: 400;
     color: var(--secondary-color);
+}
+.footerMenu li a:hover {
+    color: var(--primary-color);
 }
 
 
@@ -2461,6 +2619,19 @@ footer {
 
   /* all transaction css exit */
 
+}
+
+@media (max-width: 1199px) {
+    .summryDiv {
+        width: 360px;
+    }
+
+    .bitSelect h2 {
+        font-size: 2.5rem;
+    }   
+    .bitRightTop h2 {
+        font-size: 2.5rem;
+    } 
 }
 
 @media (max-width: 1080px) {
@@ -3348,7 +3519,8 @@ footer {
         max-width: 140px;
     }
     .footReview {
-        margin: 1rem 0;
+        margin: 2rem 0;
+        justify-content: center;
     }
     .footReviewPara {
         margin-bottom: 2rem;
