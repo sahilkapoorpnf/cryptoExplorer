@@ -32,7 +32,7 @@
 		@yield('content')
 
 		<footer>
-			<div class="container">
+			<div class="container-fluid">
 				<div class="row">
 					<div class="col-lg-6 col-md-6 col-sm-12">
 						<div class="footLogo">
@@ -62,7 +62,7 @@
 					</div>
 					<div class="col-lg-6 col-md-6 col-sm-12">
 						<div class="row">
-							<div class="col-lg-4 col-md-4 col-sm-12">
+							<div class="col-lg-4 col-md-6 col-sm-6">
 								<div class="footCompany">
 									<h3>Company</h3>
 									<ul>
@@ -73,16 +73,7 @@
 									</ul>
 								</div>
 							</div>
-							<!-- <div class="col-lg-4 col-md-4 col-sm-12">
-								<div class="footCompany">
-									<h3>Support</h3>
-									<ul>
-										<li><a href="#">Contact</a></li>
-										<li><a href="#">Help Center</a></li>
-									</ul>
-								</div>
-							</div> -->
-							<div class="col-lg-4 col-md-4 col-sm-12">
+							<div class="col-lg-4 col-md-6 col-sm-6">
 								<div class="footCompany">
 									<h3>Social</h3>
 									<ul>
@@ -96,7 +87,7 @@
 					</div>
 				</div>
 				<div class="row footMargn">
-					<div class="col-lg-7 col-md-7 col-sm-12">
+					<div class="col-lg-7 col-md-8 col-sm-12">
 						<div class="footerMenu">
 							<ul>
 								<li><a href="https://xcoins.com/" target="_blank">&copy Xcoins.com</a></li>
@@ -106,7 +97,7 @@
 							</ul>
 						</div>
 					</div>
-					<div class="col-lg-5 col-md-5 col-sm-12">
+					<div class="col-lg-5 col-md-4 col-sm-12">
 						<div class="footlang">
 							<span>Language:</span>
 							<div class="form-group">

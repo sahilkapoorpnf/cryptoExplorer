@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="exploreBitCoin">
-    <div class="container">
+    <div class="container-fluid">
         <div class="row">
             <div class="col-lg-6 col-md-12">
                 <div class="exploreBitLeft">
@@ -47,40 +47,43 @@
                             <button class="btn btn-light my-2 my-sm-0 rounded-0" type="submit"><i class="fas fa-search"></i></button>
                         </form>
                     </div>
+                    @if(Helper::network() == 'BTC')
                     <div class="bitCoinPrice">
                         <div class="row no-gutters">
                             <div class="col-lg-4 col-md-4 col-sm-12">
                                 <div class="bitPriceTxt">
                                     <span>Price</span>
-                                    <h3>$50,865.64</h3>
+                                    <h3>${{ $response['market_price_usd'] }}</h3>
                                 </div>
                             </div>
                             <div class="col-lg-4 col-md-4 col-sm-12">
                                 <div class="bitPriceTxt">
                                     <span>Transaction value (est)</span>
-                                    <h3>$50,865.64</h3>
+                                    <h3>{{ $response['estimated_btc_sent'] }} {{ Helper::network() }}</h3>
                                 </div>
                             </div>
                             <div class="col-lg-4 col-md-4 col-sm-12">
                                 <div class="bitPriceTxt">
                                     <span>{{ __('messages.transaction') }}</span>
-                                    <h3>$50,865.64</h3>
+                                    <h3>{{ $response['n_tx'] }}</h3>
                                 </div>
                             </div>
                             <div class="col-lg-4 col-md-4 col-sm-12">
                                 <div class="bitPriceTxt">
                                     <span>Estimated hash rate</span>
-                                    <h3>$50,865.64</h3>
+                                    <h3>{{ $response['hash_rate'] }} EH/s</h3>
                                 </div>
                             </div>
                             <div class="col-lg-4 col-md-4 col-sm-12">
                                 <div class="bitPriceTxt">
                                     <span>Transaction value</span>
-                                    <h3>$1238m BTC</h3>
+                                    <h3>{{ $response['total_btc_sent'] }} {{ Helper::network() }}</h3>
                                 </div>
                             </div>
                         </div>
                     </div>
+                    @endif
+
                 </div>
             </div>
             <div class="col-lg-6 col-md-12 expBorderLeft">
@@ -97,6 +100,7 @@
                                         <th scope="col">{{ __('messages.hash') }}</th>
                                         <th scope="col">{{ __('messages.time') }}</th>
                                         <th scope="col">{{ __('messages.amount') }} ({{ Helper::network() }})</th>
+                                        <th scope="col">{{ __('messages.amount') }} ($)</th>
                                     </tr>
                                 </thead>
                                 <tbody id="tbl-transactions">
@@ -120,11 +124,20 @@
                                         <th scope="col">Height</th>
                                         <th scope="col">{{ __('messages.time') }}</th>
                                         <th scope="col">{{ __('messages.transaction') }}</th>
-                                        <th scope="col">{{ __('messages.miner') }}</th>
+                                        <th scope="col">Size</th>
                                     </tr>
                                 </thead>
                                 <tbody id="tb2-blocks">
-
+                                    @if(!empty($blocks))
+                                        @foreach($blocks as $v)
+                                            <tr>
+                                                <td><a href="{{ asset(Helper::locale().'blocks/'.$v->block_no) }}">{{ $v->block_no }}</a></td>
+                                                <td>{{ date("H:i", $v->time) }}</td>
+                                                <td>{{ $v->total_txs }}</td>
+                                                <td>{{ $v->size }} kb</td>
+                                            </tr>
+                                        @endforeach
+                                    @endif
                                 </tbody>
                             </table>
                         </div>
@@ -137,7 +150,8 @@
 @endsection
 
 @push('js')
-    <script src="{{ asset('/js/home.js') }}"></script>
+    <script src="{{ asset('/js/home_transactions.js') }}"></script>
+    <!-- <script src="{{ asset('/js/home_blocks.js') }}"></script> -->
     <script src="{{ asset('/js/uncompressed.jquery.dd.js') }}"></script>
     <script language="javascript" type="text/javascript">
     $(document).ready(function() {

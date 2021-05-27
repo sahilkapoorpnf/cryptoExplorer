@@ -8,7 +8,7 @@
 
     <div class="exploreTwoStart">
         <div class="exploreTwoTop">
-            <div class="container">
+            <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-6 col-md-12">
                         <div class="exploreTwoLeft">
@@ -47,7 +47,7 @@
             </div>
         </div>
         <div class="exporeSumaary">
-            <div class="container">
+            <div class="container-fluid">
                 <div class="dashBox">
                     <div class="row">
                         <div class="col-12">
@@ -141,28 +141,12 @@
             </div>
         </div>
         <div class="blockTransition">
-            <div class="container">
+            <div class="container-fluid">
                 <div class="blockTransitionBox">
                     <div class="blockTransheading">
                         <div class="blockLeft">
                             <h2>{{ __('messages.transactions') }}</h2>
                         </div>
-                        <!-- <div class="blockRight d-none d-sm-block">
-                            <nav aria-label="...">
-                                <ul class="pagination pagination-lg">
-                                    <li class="page-item active" aria-current="page">
-                                        <span class="page-link">1</span>
-                                    </li>
-                                    <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">4</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">5</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">
-                                        <i class="fas fa-chevron-right"></i></a>
-                                    </li>
-                                </ul>
-                            </nav>
-                        </div> -->
                     </div>
                     <div class="row">
                         <div class="col-md-12">
@@ -176,12 +160,14 @@
                                                     Hash
                                                 </td>
                                                 <td>
+                                                    <div class="tbflex">
                                                     <span id="copy_hash_{{ $k }}">{{ $transaction->txid }}</span>
                                                     <div class="Tooltip">
                                                         <a href="javascript:void(0);" onclick="copyToClipboardAddress('#copy_hash_{{ $k }}', '{{ $k }}')" onmouseout="outFunction('{{ $k }}', 'address')">
                                                             <span class="tooltiptext" id="myTooltip_{{ $k }}">Copy Hash</span>
                                                             <i class="far fa-copy"></i>
                                                         </a>
+                                                    </div>
                                                     </div>
                                                 </td>
                                                 <td colspan="2">
@@ -203,8 +189,8 @@
                                                             </a>
                                                         @endif
 
-                                                        <span>{{ $transaction->value }} {{ Helper::network() }}</span>
-                                                        <a href="javascript:void(0);"><i class="fas fa-globe"></i></a>
+                                                        <span>{{ $transaction->value }} {{ Helper::network() }} <a href="javascript:void(0);"><i class="fas fa-globe"></i></a></span>
+                                                        
                                                     </div>
                                                         @endforeach
                                                     @endif
@@ -223,8 +209,8 @@
                                                                         {{ $item->address }}
                                                                     </a>
                                                                 @endif
-                                                                <span>{!! $item->value !!} {{ Helper::network() }}</span>
-                                                                <a href="javascript:void(0);"><i class="fas fa-globe"></i></a>
+                                                                <span>{!! $item->value !!} {{ Helper::network() }} <a href="javascript:void(0);"><i class="fas fa-globe"></i></a></span>
+                                                                
                                                             </div>
                                                         @endforeach
                                                     @endif
@@ -235,7 +221,7 @@
                                                     Fee
                                                 </td>
                                                 <td colspan="2">
-                                                    <span>0.06255212 BTC s</span> <br>
+                                                    <span>0.06255212 BTC s</span>
                                                     <span>(19.442 sat/B -5.531 sat/WU - 693 bytes) s</span>
                                                 </td>
                                                 <td>

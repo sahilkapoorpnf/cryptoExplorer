@@ -72,24 +72,6 @@
     width: 100% !important;
 }
 
-
-/*.dd2 .ddTitle {
-	background:transparent url(../images/msDropDown.gif) no-repeat;
-	padding:0 3px;
-	text-indent:0;
-	cursor:default;
-	overflow:hidden;
-	height:36px;
-}*/
-/*.dd2 .ddTitle {
-    background: #eff3fc;
-    padding: 0px 3px;
-    text-indent: 0;
-    cursor: default;
-    overflow: hidden;
-    height: 36px;
-}*/
-
 .dd2 .ddTitle {
     background: #eff3fc;
     padding: 5px 10px;
@@ -99,25 +81,6 @@
     border-radius: 5px;
     width: auto;
 }
-
-/*.dd2 .ddTitle span.arrow {
-	background:transparent url(../images/icon-arrow.gif) no-repeat 0 0; float:right; display:inline-block;width:27px; height:27px; cursor:pointer; top:5px; position:relative; right:2px;
-}*/
-
-
-/*.dd2 .ddTitle span.arrow {
-    background: transparent url(../images/arrowdown.png) no-repeat 0 0;
-    float: right;
-    background-size: contain;
-    display: inline-block;
-    width: 15px;
-    height: 15px;
-    margin-left: 10px;
-    cursor: pointer;
-    top: 13px;
-    position: relative;
-    right: 2px;
-}*/
 
 .dd2 .ddTitle span.arrow {
     float: right;
@@ -146,32 +109,20 @@
  );
 }
 
-
-
-/*.dd2 .ddTitle span.ddTitleText {text-indent:1px; overflow:hidden;
-line-height:33px; font-family:Georgia, "Times New Roman", Times, serif;
-font-size:16px; font-weight:bold; color:#fff;}*/
-
 .dd2 .ddTitle span.ddTitleText {
     text-indent: 1px;
     overflow: hidden;
     line-height: 33px;
-    font-size: 2.8rem;
+    font-size: 2.5rem;
     font-weight: 500;
     color: var(--primary-color);
 }
 
- /*.dd2 .ddTitle
-span.ddTitleText img{text-align:left; padding:0 2px 0 0;}*/ .dd2 .ddTitle
+.dd2 .ddTitle
 span.ddTitleText img { text-align: left; padding: 0 2px 0 0; max-width: 35px;
 } 
 
 .dd2 .ddTitle img.selected { padding:0 2px 0 0; vertical-align:top; } 
-
-/*.dd2
-.ddChild { position:absolute; border:1px solid #c3c3c3; border-top:none;
-display:none; margin:0; width:auto; overflow:auto; overflow-x:hidden
-!important; background-color:#ffffff; font-size:14px; } */
 
 .dd2 .ddChild {
     position: absolute;
@@ -191,22 +142,6 @@ display:none; margin:0; width:auto; overflow:auto; overflow-x:hidden
 .dd2 .ddChild .opta a,
 .dd2 .ddChild .opta a:visited {padding-left:10px} 
 
-
-/*.dd2 .ddChild a {
-display:block; padding:3px 0 3px 3px; text-decoration:none; color:#000;
-overflow:hidden; white-space:nowrap; cursor:pointer; } */
-
-/*.dd2 .ddChild a {
-    display: block;
-    padding: 3px 0 3px 3px;
-    text-decoration: none;
-    color: #b9c2d7;
-    font-size: 2.8rem;
-    overflow: hidden;
-    white-space: nowrap;
-    cursor: pointer;
-}*/
-
 .dd2 .ddChild a {
     display: block;
     padding: 3px 0 3px 3px;
@@ -214,30 +149,19 @@ overflow:hidden; white-space:nowrap; cursor:pointer; } */
     background: var(--secondary-color);
     border-bottom: 1px solid #53648a;
     color: #b9c2d7;
-    font-size: 2.8rem;
+    font-size: 2.5rem;
     overflow: hidden;
     white-space: nowrap;
     cursor: pointer;
 }
 
-/*.dd2 .ddChild a:hover {
-background-color:#66CCFF; 
-} */
-
 .dd2 .ddChild a:hover {
     background-color: #3d4965;
 }
 
-/*.dd2 .ddChild a img { border:0; padding:0 2px 0
-0; vertical-align:middle; }*/ 
-
 .dd2 .ddChild a img { border: 0; padding: 0 2px
 0 0; vertical-align: middle; max-width: 35px; 
 }
-
- /*.dd2 .ddChild a.selected {
-background-color:#66CCFF;	
-}*/
 
 .dd2 .ddChild a.selected {
     background-color: #3d4965;

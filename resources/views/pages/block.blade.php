@@ -3,7 +3,7 @@
 @section('content')
 <div class="exploreTwoStart">
     <div class="exploreTwoTop">
-        <div class="container">
+        <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-6 col-md-12">
                     <div class="exploreTwoLeft">
@@ -42,7 +42,7 @@
         </div>
     </div>
     <div class="exporeSumaary">
-        <div class="container">
+        <div class="container-fluid">
             <div class="dashBox">
                 <div class="row">
                     <div class="col-12">
@@ -115,10 +115,6 @@
                                             <th scope="row">{{ $data->bits }}</th>
                                         </tr>
                                         <tr>
-                                            <td> Wight</td>
-                                            <th scope="row">3993,083 WU s</th>
-                                        </tr>
-                                        <tr>
                                             <td> Size</td>
                                             <th scope="row">{{ $data->size }} bytes</th>
                                         </tr>
@@ -129,10 +125,6 @@
                                         <tr>
                                             <td> Transaction Value</td>
                                             <th scope="row">{{ $data->sent_value }} {{ Helper::network() }}</th>
-                                        </tr>
-                                        <tr>
-                                            <td> Block Reward</td>
-                                            <th scope="row">62.2500000 BTC s</th>
                                         </tr>
                                         <tr>
                                             <td> {{ __('messages.fee') }}</td>
@@ -148,7 +140,7 @@
         </div>
     </div>
     <div class="blockTransition">
-        <div class="container">
+        <div class="container-fluid">
             <div class="blockTransitionBox">
                 <div class="blockTransheading">
                     <div class="blockLeft">
@@ -203,7 +195,7 @@
                     var finalHtml = '<tbody>';
                     $.each(response, function (index, item) {
                         var id = '#copy_address_'+index;
-                        var dataHtml1 ='<tr><td>Hash</td><td><span id="copy_address_'+index+'">'+item.txid +' </span><div class="Tooltip"> <a href="javascript:void(0);" index="'+ index +'" address-id="#copy_address_'+index+'" address-index="'+index+'" class="clickmouse"> <span class="tooltiptext" id="myTooltip_'+index+'">Copy Hash</span> <i class="far fa-copy"></i> </a> </div> </td><td colspan="2"> <p>2021-04-24 <span>22:35</span></p></td></tr>';
+                        var dataHtml1 ='<tr><td>Hash</td><td><div class="tbflex"><span id="copy_address_'+index+'">'+item.txid + ' ' +' </span><div class="Tooltip"> <a href="javascript:void(0);" index="'+ index +'" address-id="#copy_address_'+index+'" address-index="'+index+'" class="clickmouse"> <span class="tooltiptext" id="myTooltip_'+index+'">Copy Hash</span> <i class="far fa-copy"></i> </a> </div></div> </td><td colspan="2"> <p>2021-04-24 <span>22:35</span></p></td></tr>';
                         var dataHtml2 = '';
                         var dataHtml3 = '';
                         var mainHtml = '';
@@ -213,7 +205,7 @@
                             } else{ 
                                 var data = '<a href="' + e + window.locale_path.substring(1, window.locale_path.length) + window.network + "/addresses/" + v.address + '">' + v.address + '</a> ';
                             }
-                            dataHtml2 +='<div class="summryDiv">' + data + '<span>' + v.value + window.network + '</span><a href="javascript:void(0);"><i class="fas fa-globe"></i></a></div>';
+                            dataHtml2 +='<div class="summryDiv">' + data + '<span>' + v.value + ' ' + window.network + ' ' +'<a href="javascript:void(0);"><i class="fas fa-globe"></i></a></span></div>';
                         });
 
                         $.each(item.outputs, function (k, v) {
@@ -222,12 +214,12 @@
                             } else{ 
                                 var data1 = '<a href="' + e + window.locale_path.substring(1, window.locale_path.length) + window.network + "/addresses/" + v.address + '">' + v.address + '</a> ';
                             }
-                            dataHtml3 +='<div class="summryDiv text-right">' + data1 + '<span>' + v.value + window.network + '</span><a href="javascript:void(0);"><i class="fas fa-globe"></i></a></div>';
+                            dataHtml3 +='<div class="summryDiv text-right">' + data1 + '<span>' + v.value + ' ' + window.network + ' ' + '<a href="javascript:void(0);"><i class="fas fa-globe"></i></a></span></div>';
                         });
 
                         mainHtml +='<tr><td></td><td>' + dataHtml2 + '<td><i class="fas fa-caret-right"></i></td><td>' + dataHtml3 + '</td</tr>'
 
-                        var dataHtml4 ='<tr><td> Fee </td> <td colspan="2"> <span>' + item.fee + window.network + '</span> <br> <span>(19.442 sat/B -5.531 sat/WU - 693 bytes)</span> </td> <td><div class="summrySuccess"><a href="javascript:void(0);">' + item.fee + window.network + '</a></td></tr>'; 
+                        var dataHtml4 ='<tr><td> Fee </td> <td colspan="2"> <span>' + item.fee + ' ' + window.network + '</span> <span>(19.442 sat/B -5.531 sat/WU - 693 bytes)</span> </td> <td><div class="summrySuccess"><a href="javascript:void(0);">' + item.fee + window.network + '</a></td></tr>'; 
 
                         finalHtml +=dataHtml1 + mainHtml + dataHtml4;
                     });

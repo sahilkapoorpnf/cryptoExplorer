@@ -1,5 +1,5 @@
 <div class="blackBar">
-	<div class="container">
+	<div class="container-fluid">
 		<div class="blackInner">
 			<div class="blackLogo">
 				<a href="{{ asset(Helper::locale()) }}"><img src="{{ asset('images/xlogo.png') }}" align=""></a>

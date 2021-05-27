@@ -174,8 +174,9 @@ header {
 /* start copy to clipboard tooltip */
 
 .Tooltip {
-  position: relative;
-  display: inline-block;
+    position: relative;
+    display: inline-block;
+    padding-left: .4rem;
 }
 .Tooltip a:hover{
   color:var(--secondary-color);
@@ -1559,7 +1560,7 @@ display: none;
 /* ======================= explore 1 CSS start ======================= */
 .blackBar {
     width: 100%;
-    padding: .88rem 0;
+    padding: .88rem 3.5rem;
     background: var(--dark-black);
 }
 .blackInner {
@@ -1677,6 +1678,7 @@ display: none;
     max-width: 20px;
 }
 .exploreBitCoin {
+    padding: 0 3.5rem;
     border-bottom: 1px solid #f2f2f2;
 }
 .exploreBitLeft {
@@ -1699,7 +1701,7 @@ display: none;
 }
 
 .bitSelect span {
-    font-size: 2.8rem;
+    font-size: 2.5rem;
     font-weight: 500;
     margin-right: 1.2rem;
     /*color: var(--secondary-color);*/
@@ -1769,11 +1771,10 @@ display: none;
     color: var(--dark-color);
 }
 .bitPriceTxt h3 {
-    font-size: 2rem;
+    font-size: 1.5rem;
     font-weight: 500;
     color: var(--secondary-color);
 }
-
 .exploreBitRight {
     padding-bottom: 4rem;
 }
@@ -1785,7 +1786,7 @@ display: none;
 }
 
 .bitRightTop h2 {
-    font-size: 2.8rem;
+    font-size: 2.5rem;
     font-weight: 500;
     color: var(--secondary-color);
 }
@@ -1840,11 +1841,12 @@ display: none;
 /* ======================= explore 1 CSS exit ======================= */
 
 /* ======================= explore 2 CSS start ======================= */
-.exploreTwoStart {}
+.exploreTwoStart {
+    padding: 0 3.5rem;
+}
 
 .exploreTwoTop {
-    padding: 1.8rem 0;
-    border-bottom: 1px solid #f2f2f2;
+    padding: 1.8rem 0 0;
 }
 
 .exploreTwoLeft{}
@@ -1896,7 +1898,8 @@ display: none;
     font-size: 2rem;
     font-weight: 500;
     color: var(--dark-color);
-    margin-right: .8rem;
+    padding: .5rem 0rem;
+    margin-right: 1.8rem;
     display: block;
     position: relative;
 }
@@ -1958,7 +1961,7 @@ display: none;
 
 .exporeSumaaryHead p {
     font-size: 1.4rem;
-    font-weight: 4500;
+    font-weight: 500;
 }
 
 
@@ -1992,7 +1995,6 @@ display: none;
     font-size: 1.4rem;
     font-weight: 400;
     color: var(--secondary-color);
-    word-break: break-all;
 }
 .exporeSumaaryData .table td.copyflex span {
     margin-right: .5rem;
@@ -2008,9 +2010,10 @@ display: none;
 }
 .summryDiv span {
     font-size: 1.4rem;
-    padding: .5rem;
+    padding-left: 0;
     font-weight: 400;
     color: var(--secondary-color);
+    display: block;
 }
 
 
@@ -2098,7 +2101,7 @@ display: none;
 .exploreInputData .table th, .exploreInputData .table td {
     color: var(--dark-color);
     font-size: 1.4rem;
-    padding: .75rem;
+    padding: .55rem;
     vertical-align: middle;
     border-top: 0px solid #dee2e6;
 }
@@ -2184,17 +2187,38 @@ display: none;
     border-top: 0px solid #dee2e6;
     color: var(--dark-color);
 }
+.tbflex {
+    display: flex;
+}
+.tbflexR {
+    display: flex;
+    min-width: 200px;
+}
+.tbflexR span {
+    margin-left: 0.5rem;
+}
+.tbout {
+    color: var(--primary-color) !important;
+}
+
 
 .blockTransitionInn span {
     font-size: 1.4rem;
     font-weight: 400;
     color: var(--secondary-color);
+    padding-left: 0;
+    padding-right: 0;
+    display: block;
 }
 .blockTransitionInn p {
     font-size: 1.4rem;
     font-weight: 400;
     color: var(--secondary-color);
     text-align: right;
+}
+.blockTransitionInn p span {
+    display: inline-block;
+    padding-left: .2rem;
 }
 .blockTransitionInn .fa-caret-right {
     font-size: 1.8rem;
@@ -2353,7 +2377,6 @@ display: none;
     padding: .75rem;
     vertical-align: middle;
     border: 0px;
-    border-top: 1px solid #e8ebef;
     color: var(--dark-color);
 }
 .transactionAll .table td {
@@ -2379,7 +2402,7 @@ display: none;
 /* ======================= footer CSS start ======================= */
 footer {
     width: 100%;
-    padding: 5rem 0 3rem;
+    padding: 5rem 3.5rem 3rem;
 }
 
 .footLogo img {
@@ -2622,9 +2645,9 @@ footer {
 }
 
 @media (max-width: 1199px) {
-    .summryDiv {
+    /*.summryDiv {
         width: 360px;
-    }
+    }*/
 
     .bitSelect h2 {
         font-size: 2.5rem;
@@ -2905,6 +2928,17 @@ footer {
   .addreMore {
       word-break: break-all;
   }
+
+  .summryDiv {
+    word-break: normal;
+    width: auto;
+}
+
+.addreMore {
+    word-break: inherit;
+    display: flex;
+}
+
   /* address css exit */
 
 
@@ -2953,7 +2987,7 @@ footer {
     }
 
     .blackNav {
-      position: fixed;
+      position: absolute;
       top: 42px;
       left: -100%;
       width: 100%;
@@ -2968,7 +3002,10 @@ footer {
     #navcheck:Checked ~ .blackNav {
     left:0px;
   }  
- 
+  
+    .blackNav .signBtn {
+        margin-top: .8rem;
+    }
 
 
     .toggleBar {
@@ -3322,6 +3359,9 @@ footer {
     /* address css exit */
 
 
+    .footCompany {
+        margin-top: 3rem;
+    }
 
     .exitBg:after {
         width: 70%;
@@ -3341,6 +3381,13 @@ footer {
 
 @media screen and (max-width: 575px) {
     /*main css start */
+    .blackBar {
+        padding: .88rem 0;
+    }
+    .exploreTwoStart {
+        padding: 0;
+    }
+
     .heroBg {
         height: 50vh;
     }
@@ -3350,7 +3397,7 @@ footer {
         top: 0;
     }
     /*main css exit */
-
+    
     .welcome h2 {
         font-size: 2rem;
     }
@@ -3514,6 +3561,7 @@ footer {
 
     footer {
         padding: 2rem 0 3rem;
+        text-align: center;
     }
     .footLogo img {
         max-width: 140px;
@@ -3526,8 +3574,8 @@ footer {
         margin-bottom: 2rem;
     }
 
-    
     .footCompany {
+        margin-top: 3rem;
         margin-bottom: 1.5rem;
     }
     .footCompany h3 {
@@ -3745,6 +3793,13 @@ footer {
     .allMore {
         width: auto;
         min-width: 150px;
+    }
+    .pagination-demo1 {
+        margin-top: .8rem;
+    }
+    .exploreTwoLeft .dropdown-toggle::before {
+        top: 2px;
+        left: 4px;
     }
     /* all transaction css exit */
 

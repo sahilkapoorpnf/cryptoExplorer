@@ -1,9 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
-
-use GuzzleHttp\Client;
+use Illuminate\Http\Request;
 use App\Helpers\Helper;
+use GuzzleHttp\Client;
 
 class TransactionController extends Controller
 {
@@ -35,7 +35,20 @@ class TransactionController extends Controller
         return view('pages.transaction', $data);
     }
 
-    public function allTransactions(){
+    public function allTransactions(Request $request){
+        /*if ($request->ajax()) {
+            $data = $_GET['data'];
+            try{
+            $client = new Client();
+            $response = $client->get('https://pro-api.coinmarketcap.com/v1/tools/price-conversion?amount=10&symbol=BTC', [
+                'headers' => [
+                    'X-CMC_PRO_API_KEY' => 'b04dcff4-e7e9-4214-a652-f560bbd96b6f',
+                ],
+            ]);
+            } catch (\Exception $e) {
+                return $e->getMessage();
+            }
+        }*/
         return view('pages.all_transactions');
     }
     

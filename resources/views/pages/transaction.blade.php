@@ -3,7 +3,7 @@
 @section('content')
 <div class="exploreTwoStart">
     <div class="exploreTwoTop">
-        <div class="container">
+        <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-6 col-md-12">
                     <div class="exploreTwoLeft">
@@ -42,7 +42,7 @@
         </div>
     </div>
     <div class="exporeSumaary">
-        <div class="container">
+        <div class="container-fluid">
             <div class="dashBox">
                 <div class="row">
                     <div class="col-12">
@@ -71,12 +71,14 @@
                                                 {{ __('messages.hash') }}
                                             </td>
                                             <td>
+                                                <div class="tbflex">
                                                 <span id="copy_tx">{{ $data->txid }}</span>
                                                 <div class="Tooltip">
                                                     <a href="javascript:void(0);" onclick="copyToClipboard('#copy_tx')" onmouseout="outFunc()">
                                                         <span class="tooltiptext" id="myTooltip">Copy Hash</span>
                                                         <i class="far fa-copy"></i>
                                                     </a>
+                                                </div>
                                                 </div>
                                             </td>
                                             <td colspan="2">
@@ -96,8 +98,7 @@
                                                     <a href="{{ LaravelLocalization::getLocalizedURL(LaravelLocalization::getCurrentLocale(), asset(Helper::network(). '/addresses/'. $item->address)) }}">{{ $item->address }}</a>
                                                     @endif
 
-                                                    <span>{!! $item->value !!} {{ Helper::network() }}</span>
-                                                    <a href="javascript:void(0);"><i class="fas fa-globe"></i></a>
+                                                    <span>{!! $item->value !!} {{ Helper::network() }} <a href="javascript:void(0);"><i class="fas fa-globe"></i></a></span>
                                                 </div>
                                                 @endforeach
 
@@ -114,8 +115,7 @@
                                                     <a href="{{ LaravelLocalization::getLocalizedURL(LaravelLocalization::getCurrentLocale(), asset(Helper::network(). '/addresses/'. $item->address)) }}">{{ $item->address }}</a>
                                                     @endif
 
-                                                    <span>{!! $item->value !!} {{ Helper::network() }}</span>
-                                                    <a href="javascript:void(0);"><i class="fas fa-globe"></i></a>
+                                                    <span>{!! $item->value !!} {{ Helper::network() }} <a href="javascript:void(0);"><i class="fas fa-globe"></i></a></span>
                                                 </div>
                                                 @endforeach
                                                
@@ -151,7 +151,7 @@
         </div>
     </div>
     <div class="exporeDetail">
-        <div class="container">
+        <div class="container-fluid">
             <div class="dashBox">
                 <div class="row">
                     <div class="col-12">
@@ -218,7 +218,7 @@
         </div>
     </div>
     <div class="exploreInputOuter">
-        <div class="container">
+        <div class="container-fluid">
             <div class="dashBox exploreInputInn">
                 <div class="row"> 
                     <div class="col-md-12">
@@ -240,11 +240,16 @@
                                                 <tr>
                                                     <td> Index</td>
                                                     <td> <span>{{ $item->input_no }}</span></td>
-                                                    <td> Details <a href="javascript:void(0);">Output</a></td>
+                                                    <td>
+                                                        <div class="tbflexR"> 
+                                                            Details <a href="javascript:void(0);"><span class="tbout">Output</span></a>
+                                                        </div>
+                                                    </td>
                                                 </tr>
                                                 <tr>
                                                     <td> {{ __('messages.address') }}</td>
                                                     <td> 
+                                                        <div class="tbflex">
                                                         <span id="copy_address_{{ $item->input_no }}">{{ $item->address }}</span>
                                                         <div class="Tooltip">
                                                             <a href="javascript:void(0);" onclick="copyToClipboardAddress('#copy_address_{{ $item->input_no }}', '{{ $item->input_no }}')" onmouseout="outFunction('{{ $item->input_no }}')">
@@ -252,8 +257,13 @@
                                                                 <i class="far fa-copy"></i>
                                                             </a>
                                                         </div>
+                                                        </div>
                                                     </td>
-                                                    <td> Value <span>{!! $item->value !!} {{ Helper::network() }}</span></td>
+                                                    <td> 
+                                                        <div class="tbflexR">  
+                                                        Value <span>{!! $item->value !!} {{ Helper::network() }}</span>
+                                                        </div>
+                                                    </td>
                                                 </tr>
                                                 <tr>
                                                     <td> Pkscript</td>
@@ -267,7 +277,7 @@
                                                 </tr>
                                                 <tr>
                                                     <td> Sigscript</td>
-                                                    <td class="witnesMore"> <span><a href="javascript:void(0);">3044022069ad23a3cdcfe1db58cefe40b93005d880927b4404bed4d53a14d25de03db6e80220 s<br>
+                                                    <td class="witnesMore"> <span><a href="javascript:void(0);">3044022069ad23a3cdcfe1db58cefe40b93005d880927b44bed4d53a14d25de03db6e80220 s<br>
                                                         0f5c12efad830942df8334debca8f68d062eef6ef9d1e1567181494b99a9764d01 s<br>
                                                         0f5c12efad830942df8334debca8f68d062eef6ef9d1e1567181494b99a9764d01 s
                                                     </a></span></td>
@@ -304,6 +314,7 @@
                                                 <tr>
                                                     <td> {{ __('messages.address') }}</td>
                                                     <td> 
+                                                        <div class="tbflex">
                                                         <span id="copy_address_output_{{ $item->output_no }}">{{ $item->address }}</span>
                                                         <div class="Tooltip">
                                                             <a href="javascript:void(0);" onclick="copyToClipboardAddressOutput('#copy_address_output_{{ $item->output_no }}', '{{ $item->output_no }}')" onmouseout="outFunctionOutput('{{ $item->output_no }}')">
@@ -311,8 +322,13 @@
                                                                 <i class="far fa-copy"></i>
                                                             </a>
                                                         </div>
+                                                        </div>
                                                     </td>
-                                                    <td> Value <span>{!! $item->value !!} {{ Helper::network() }}</span></td>
+                                                    <td> 
+                                                        <div class="tbflexR">
+                                                        Value <span>{!! $item->value !!} {{ Helper::network() }}</span>
+                                                        </div>
+                                                    </td>
                                                 </tr>
                                                 <tr>
                                                     <td> Pkscript</td>
